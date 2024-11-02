@@ -7,6 +7,5 @@ import scrapy
 
 
 class TransfermarktItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    league_name = scrapy.Field()
+    league_url = scrapy.Field()
