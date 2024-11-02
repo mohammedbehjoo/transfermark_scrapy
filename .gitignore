@@ -7,6 +7,4 @@
 # ignore csv files
 *.csv
 # ignore JSON files
-*.JSON
-# ignore .token
-.token
+*.json
