@@ -1,0 +1,10 @@
+# ignore config file
+*.cfg
+# ignore .token
+.token
+# ignore .env
+.env
+# ignore csv files
+*.csv
+# ignore JSON files
+*.JSON
