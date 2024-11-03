@@ -81,4 +81,7 @@ class TeamPipeline:
     def process_item(self, item, spider):
         if not spider.name=="teams_spider":
             return item
-    
+
+        # clean the team name
+        item["team_name"]=item["team_name"].strip()
+        return item

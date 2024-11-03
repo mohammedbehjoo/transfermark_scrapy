@@ -7,6 +7,8 @@ class TeamsSpiderSpider(scrapy.Spider):
     start_urls = ["https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1"]
 
     def parse(self, response):
+        # print the response status
+        print(f"Response status: {response.status}")
         TEAM_SELECTOR="#yw1 .items tbody tr"
         print("Total rows found:",len(response.css(TEAM_SELECTOR)))
         for team_row in response.css(TEAM_SELECTOR):
