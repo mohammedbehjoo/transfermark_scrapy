@@ -73,7 +73,8 @@ DOWNLOADER_MIDDLEWARES = {
 # }
 
 ITEM_PIPELINES = {
-    "transfermarkt.pipelines.TransfermarktPipeline": 300,
+    "transfermarkt.pipelines.LeaguePipeline": 300,
+    "transfermarkt.pipelines.TeamPipeline": 301,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

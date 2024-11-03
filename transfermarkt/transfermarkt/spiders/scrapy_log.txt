@@ -193,3 +193,5 @@
  'scheduler/enqueued/memory': 3,
  'start_time': datetime.datetime(2024, 11, 3, 15, 13, 22, 865272)}
 2024-11-03 18:43:36 [scrapy.core.engine] INFO: Spider closed (finished)
+2024-11-03 19:05:57 [scrapy.utils.log] INFO: Scrapy 2.8.0 started (bot: transfermarkt)
+2024-11-03 19:05:57 [scrapy.utils.log] INFO: Versions: lxml 4.9.3.0, libxml2 2.10.4, cssselect 1.1.0, parsel 1.6.0, w3lib 1.21.0, Twisted 22.10.0, Python 3.11.5 (main, Sep 11 2023, 13:54:46) [GCC 11.2.0], pyOpenSSL 23.2.0 (OpenSSL 3.0.10 1 Aug 2023), cryptography 41.0.3, Platform Linux-6.8.0-47-generic-x86_64-with-glibc2.39

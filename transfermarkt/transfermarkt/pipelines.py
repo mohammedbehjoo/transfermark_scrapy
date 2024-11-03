@@ -9,7 +9,7 @@ from scrapy.exceptions import DropItem
 import logging
 
 
-class TransfermarktPipeline:
+class LeaguePipeline:
     def __init__(self):
         self.logger = logging.getLogger(__name__)
         self.league_names = set()
@@ -25,6 +25,10 @@ class TransfermarktPipeline:
         ]
 
     def process_item(self, item, spider):
+        # only process items from the league spider
+        if not spider.name=="leagues_spider":
+            return item
+        
         self.logger.info(f"Processing item: {item}")
 
         # check if this a country item
@@ -68,3 +72,13 @@ class TransfermarktPipeline:
         else:
             self.logger.error("Item missing country_name or leagues")
             raise DropItem("Invalid item structure")
+        
+class TeamPipeline:
+    def __init__(self) :
+        self.logger=logging.getLogger(__name__)
+        self.team_names=set()
+        
+    def process_item(self, item, spider):
+        if not spider.name=="teams_spider":
+            return item
+    

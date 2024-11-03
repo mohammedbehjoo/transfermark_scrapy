@@ -6,9 +6,12 @@
 import scrapy
 
 
-class TransfermarktItem(scrapy.Item):
+class LeagueItem(scrapy.Item):
     league_name = scrapy.Field()
     league_url = scrapy.Field()
     club_num=scrapy.Field()
     player_num=scrapy.Field()
     total_value=scrapy.Field()
+    
+class TeamItem(scrapy.Item):
+    team_name=scrapy.Field()
