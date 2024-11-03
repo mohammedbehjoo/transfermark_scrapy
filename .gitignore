@@ -8,3 +8,7 @@
 *.csv
 # ignore JSON files
 *.json
+# ignore .log files
+*.log
+# ignore .cfg files
+*.cfg
