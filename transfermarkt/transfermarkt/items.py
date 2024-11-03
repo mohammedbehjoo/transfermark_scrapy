@@ -11,3 +11,4 @@ class TransfermarktItem(scrapy.Item):
     league_url = scrapy.Field()
     club_num=scrapy.Field()
     player_num=scrapy.Field()
+    total_value=scrapy.Field()

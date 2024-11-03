@@ -14,3 +14,4 @@
 *.cfg
 # ignore temp.py
 temp.py
+temp*.py
