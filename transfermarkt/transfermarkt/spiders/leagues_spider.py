@@ -24,5 +24,7 @@ class LeaguesSpiderSpider(scrapy.Spider):
             # Get league info
             item["league_name"] = league.css("td+ td a::text").get()
             item["league_url"] = "https://www.transfermarkt.com" + league.css("a::attr(href)").get()
+            #  xpath for the club numbers of each league
+            item["club_num"] = league.xpath('parent::td/following-sibling::td[@class="zentriert"]/text()').get()
             
             yield item
