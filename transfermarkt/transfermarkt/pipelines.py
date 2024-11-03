@@ -5,13 +5,13 @@
 
 
 # useful for handling different item types with a single interface
-from itemadapter import ItemAdapter
 from scrapy.exceptions import DropItem
 import logging
 
+
 class TransfermarktPipeline:
     def __init__(self):
-        self.logger=logging.getLogger(__name__)
+        self.logger = logging.getLogger(__name__)
         self.league_names = set()
         self.league_urls = set()
 
@@ -26,14 +26,13 @@ class TransfermarktPipeline:
 
     def process_item(self, item, spider):
         self.logger.info(f"Processing item: {item}")
-        
+
         # check if this a country item
         if "country_name" in item and "leagues" in item:
-            valid_leagues=[]
+            valid_leagues = []
             for league in item["leagues"]:
                 try:
-                    
-                # check if required fields are present
+                    # check if required fields are present
                     '''
                     what it does is that it looks for these required fields in each item.
                     Since each item in scrapy is like a dictionary, so we use the get()
@@ -45,11 +44,11 @@ class TransfermarktPipeline:
                         if field not in league or not league[field]:
                             raise DropItem(f"Missing {field} ")
 
-                    # clean league name
-                    league["league_name"]=league["league_name"].strip()
+                    # clean league_name
+                    league["league_name"] = league["league_name"].strip()
                     if not league["league_name"]:
                         raise DropItem(f"Missing {field}")
-                    
+
                     # check for duplicate league urls
                     if league["league_url"] in self.league_urls:
                         raise DropItem(f"Duplicate league url found: {item}")
@@ -62,11 +61,10 @@ class TransfermarktPipeline:
                 except DropItem as e:
                     self.logger.error(f"Dropped league: {str(e)}")
                     continue
+
             # update item with valid leagues
-            item["leagues"]=valid_leagues
+            item["leagues"] = valid_leagues
             return item
         else:
             self.logger.error("Item missing country_name or leagues")
             raise DropItem("Invalid item structure")
-
-        
