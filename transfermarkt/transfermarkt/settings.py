@@ -101,3 +101,21 @@ AUTOTHROTTLE_MAX_DELAY = 10
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+# Enable logging
+LOG_ENABLED = True
+
+# Set logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+LOG_LEVEL = 'DEBUG'
+
+# Set log file path
+LOG_FILE = 'scrapy_log.txt'
+
+# Optional: Set log file encoding
+LOG_ENCODING = 'utf-8'
+
+# Optional: Set log format
+LOG_FORMAT = '%(asctime)s [%(name)s] %(levelname)s: %(message)s'
+
+# Optional: Set log dateformat
+LOG_DATEFORMAT = '%Y-%m-%d %H:%M:%S'
