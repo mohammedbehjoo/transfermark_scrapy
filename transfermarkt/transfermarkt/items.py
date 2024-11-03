@@ -9,3 +9,4 @@ import scrapy
 class TransfermarktItem(scrapy.Item):
     league_name = scrapy.Field()
     league_url = scrapy.Field()
+    club_num=scrapy.Field()
