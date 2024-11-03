@@ -7,19 +7,27 @@
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 from scrapy.exceptions import DropItem
-import re
 
 
 class TransfermarktPipeline:
     def __init__(self):
         self.league_names = set()
+        self.league_urls = set()
 
     def process_item(self, item, spider):
-        # clean the league name by removing any whitespace
+        # check for duplicate league urls
+        if item["league_url"] in self.league_urls:
+            raise DropItem(f"Duplicate league url found: {item}")
+
+        # Check for newlines before cleaning in the league names
+        if "\n" in item["league_name"]:
+            raise DropItem(f"Item found with new line in league name: {item}")
+            
+        # If no newlines, clean and process the item
         item["league_name"] = item["league_name"].strip()
-        
-        if re.match(r"\n", item["league_name"]):
-            raise DropItem("Duplicate item found: %s" % item)
-        else:
-            self.league_names.add(item["league_name"])
+        if item["league_name"]:  # ensure it's not empty after stripping
+            self.league_names.add(item["league_name"]) # add name to the set
+            self.league_urls.add(item["league_url"]) # add url to the set
             return item
+        else:
+            raise DropItem(f"Empty league name after cleaning: {item}")

@@ -12,3 +12,5 @@
 *.log
 # ignore .cfg files
 *.cfg
+# ignore temp.py
+temp.py
