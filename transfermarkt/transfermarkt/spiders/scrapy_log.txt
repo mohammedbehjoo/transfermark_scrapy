@@ -1,6 +1,6 @@
-2024-11-03 18:43:21 [scrapy.utils.log] INFO: Scrapy 2.8.0 started (bot: transfermarkt)
-2024-11-03 18:43:21 [scrapy.utils.log] INFO: Versions: lxml 4.9.3.0, libxml2 2.10.4, cssselect 1.1.0, parsel 1.6.0, w3lib 1.21.0, Twisted 22.10.0, Python 3.11.5 (main, Sep 11 2023, 13:54:46) [GCC 11.2.0], pyOpenSSL 23.2.0 (OpenSSL 3.0.10 1 Aug 2023), cryptography 41.0.3, Platform Linux-6.8.0-47-generic-x86_64-with-glibc2.39
-2024-11-03 18:43:21 [scrapy.crawler] INFO: Overridden settings:
+2024-11-03 19:29:32 [scrapy.utils.log] INFO: Scrapy 2.8.0 started (bot: transfermarkt)
+2024-11-03 19:29:32 [scrapy.utils.log] INFO: Versions: lxml 4.9.3.0, libxml2 2.10.4, cssselect 1.1.0, parsel 1.6.0, w3lib 1.21.0, Twisted 22.10.0, Python 3.11.5 (main, Sep 11 2023, 13:54:46) [GCC 11.2.0], pyOpenSSL 23.2.0 (OpenSSL 3.0.10 1 Aug 2023), cryptography 41.0.3, Platform Linux-6.8.0-47-generic-x86_64-with-glibc2.39
+2024-11-03 19:29:32 [scrapy.crawler] INFO: Overridden settings:
 {'AUTOTHROTTLE_ENABLED': True,
  'AUTOTHROTTLE_MAX_DELAY': 10,
  'AUTOTHROTTLE_START_DELAY': 1,
@@ -13,63 +13,63 @@
  'ROBOTSTXT_OBEY': True,
  'SPIDER_MODULES': ['transfermarkt.spiders'],
  'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
-2024-11-03 18:43:21 [asyncio] DEBUG: Using selector: EpollSelector
-2024-11-03 18:43:21 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
-2024-11-03 18:43:21 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
-2024-11-03 18:43:21 [scrapy.extensions.telnet] INFO: Telnet Password: 89f9faf1cc3f55a5
-2024-11-03 18:43:21 [scrapy.middleware] INFO: Enabled extensions:
+2024-11-03 19:29:32 [asyncio] DEBUG: Using selector: EpollSelector
+2024-11-03 19:29:32 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2024-11-03 19:29:32 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
+2024-11-03 19:29:32 [scrapy.extensions.telnet] INFO: Telnet Password: c78bee9f9df08046
+2024-11-03 19:29:32 [scrapy.middleware] INFO: Enabled extensions:
 ['scrapy.extensions.corestats.CoreStats',
  'scrapy.extensions.telnet.TelnetConsole',
  'scrapy.extensions.memusage.MemoryUsage',
  'scrapy.extensions.feedexport.FeedExporter',
  'scrapy.extensions.logstats.LogStats',
  'scrapy.extensions.throttle.AutoThrottle']
-2024-11-03 18:43:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Android
-2024-11-03 18:43:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
-2024-11-03 18:43:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
-2024-11-03 18:43:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
-2024-11-03 18:43:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV13, Brand: Sony, Model: BDV13
-2024-11-03 18:43:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Nintendo DSi, Brand: Nintendo, Model: DSi
-2024-11-03 18:43:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
-2024-11-03 18:43:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
-2024-11-03 18:43:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF F90M, Brand: LYF, Model: F90M
-2024-11-03 18:43:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV14, Brand: Sony, Model: BDV14
-2024-11-03 18:43:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LG Web0S SmartTV, Brand: LG, Model: Web0S SmartTV
-2024-11-03 18:43:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
-2024-11-03 18:43:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
-2024-11-03 18:43:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
-2024-11-03 18:43:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
-2024-11-03 18:43:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
-2024-11-03 18:43:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV11, Brand: Sony, Model: BDV11
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Nintendo DSi, Brand: Nintendo, Model: DSi
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF LF-2403N, Brand: LYF, Model: LF-2403N
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF F90M, Brand: LYF, Model: F90M
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Applebot
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Applebot
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: SMTBot
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: WebKit Nightly
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Robot
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
-2024-11-03 18:43:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Zune
-2024-11-03 18:43:22 [scrapy.middleware] INFO: Enabled downloader middlewares:
+2024-11-03 19:29:32 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Android
+2024-11-03 19:29:32 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:29:32 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:29:32 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:29:32 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV13, Brand: Sony, Model: BDV13
+2024-11-03 19:29:32 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Nintendo DSi, Brand: Nintendo, Model: DSi
+2024-11-03 19:29:32 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:29:32 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:29:32 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF F90M, Brand: LYF, Model: F90M
+2024-11-03 19:29:32 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV14, Brand: Sony, Model: BDV14
+2024-11-03 19:29:32 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LG Web0S SmartTV, Brand: LG, Model: Web0S SmartTV
+2024-11-03 19:29:32 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV11, Brand: Sony, Model: BDV11
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Nintendo DSi, Brand: Nintendo, Model: DSi
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF LF-2403N, Brand: LYF, Model: LF-2403N
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF F90M, Brand: LYF, Model: F90M
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Applebot
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Applebot
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: SMTBot
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: WebKit Nightly
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Robot
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:29:33 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Zune
+2024-11-03 19:29:34 [scrapy.middleware] INFO: Enabled downloader middlewares:
 ['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
  'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
  'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
@@ -82,116 +82,1262 @@
  'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
  'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
  'scrapy.downloadermiddlewares.stats.DownloaderStats']
-2024-11-03 18:43:22 [scrapy.middleware] INFO: Enabled spider middlewares:
+2024-11-03 19:29:34 [scrapy.middleware] INFO: Enabled spider middlewares:
 ['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
  'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
  'scrapy.spidermiddlewares.referer.RefererMiddleware',
  'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
  'scrapy.spidermiddlewares.depth.DepthMiddleware']
-2024-11-03 18:43:22 [scrapy.middleware] INFO: Enabled item pipelines:
-['transfermarkt.pipelines.TransfermarktPipeline']
-2024-11-03 18:43:22 [scrapy.core.engine] INFO: Spider opened
-2024-11-03 18:43:22 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
-2024-11-03 18:43:22 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
-2024-11-03 18:43:22 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36
-2024-11-03 18:43:23 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.transfermarkt.com/robots.txt> (referer: None)
-2024-11-03 18:43:23 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36
-2024-11-03 18:43:23 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.63 Safari/537.36
-2024-11-03 18:43:23 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36
-2024-11-03 18:43:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.transfermarkt.com/wettbewerbe/national/wettbewerbe/127> (referer: None)
-2024-11-03 18:43:28 [transfermarkt.pipelines] INFO: Processing item: {'country_name': 'Austria', 'leagues': [{'league_name': 'Bundesliga', 'league_url': 'https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1', 'club_num': '12', 'player_num': '344', 'total_value': '€445.83m'}, {'league_name': '2. Liga', 'league_url': 'https://www.transfermarkt.com/2-liga/startseite/wettbewerb/A2', 'club_num': '16', 'player_num': '458', 'total_value': '€89.39m'}, {'league_name': 'Regional League Central', 'league_url': 'https://www.transfermarkt.com/regional-league-central/startseite/wettbewerb/ATRM', 'club_num': '16', 'player_num': '388', 'total_value': '€1.69m'}, {'league_name': 'Regional League East', 'league_url': 'https://www.transfermarkt.com/regional-league-east/startseite/wettbewerb/ATRO', 'club_num': '16', 'player_num': '387', 'total_value': '€600k'}, {'league_name': 'Regionalliga West', 'league_url': 'https://www.transfermarkt.com/regionalliga-west/startseite/wettbewerb/ATRW', 'club_num': '16', 'player_num': '377', 'total_value': '€350k'}, {'league_name': 'LL Steiermark', 'league_url': 'https://www.transfermarkt.com/landesliga-steiermark/startseite/wettbewerb/A4ST', 'club_num': '16', 'player_num': '383', 'total_value': '€760k'}, {'league_name': 'LL Niederösterreich', 'league_url': 'https://www.transfermarkt.com/1-landesliga-niederosterreich/startseite/wettbewerb/A4N', 'club_num': '16', 'player_num': '372', 'total_value': '€600k'}, {'league_name': 'Wiener Stadtliga', 'league_url': 'https://www.transfermarkt.com/wiener-stadtliga/startseite/wettbewerb/A4W', 'club_num': '16', 'player_num': '364', 'total_value': '€500k'}, {'league_name': 'Kärntner Liga', 'league_url': 'https://www.transfermarkt.com/karntner-liga/startseite/wettbewerb/A4K', 'club_num': '15', 'player_num': '369', 'total_value': '€125k'}, {'league_name': 'Regionalliga Tirol', 'league_url': 'https://www.transfermarkt.com/regionalliga-tirol/startseite/wettbewerb/A4T', 'club_num': '14', 'player_num': '352', 'total_value': '€75k'}, {'league_name': 'Burgenlandliga', 'league_url': 'https://www.transfermarkt.com/burgenlandliga/startseite/wettbewerb/A4B', 'club_num': '16', 'player_num': '337', 'total_value': '-'}, {'league_name': 'OÖ Liga', 'league_url': 'https://www.transfermarkt.com/oberosterreich-liga/startseite/wettbewerb/A4O', 'club_num': '16', 'player_num': '338', 'total_value': '-'}, {'league_name': 'Salzburger Liga', 'league_url': 'https://www.transfermarkt.com/salzburger-liga/startseite/wettbewerb/A4S', 'club_num': '16', 'player_num': '380', 'total_value': '-'}, {'league_name': 'Eliteliga Vorarlberg', 'league_url': 'https://www.transfermarkt.com/eliteliga-vorarlberg/startseite/wettbewerb/A4V', 'club_num': '14', 'player_num': '339', 'total_value': '-'}, {'league_name': 'ÖFB Jugendliga U18', 'league_url': 'https://www.transfermarkt.com/ofb-jugendliga-u18/startseite/wettbewerb/JGD2', 'club_num': '12', 'player_num': '386', 'total_value': '€1.78m'}, {'league_name': 'ÖFB Jugendliga U16', 'league_url': 'https://www.transfermarkt.com/ofb-jugendliga-u16/startseite/wettbewerb/JGD3', 'club_num': '12', 'player_num': '336', 'total_value': '-'}, {'league_name': 'ÖFB-Cup', 'league_url': 'https://www.transfermarkt.com/ofb-cup/startseite/wettbewerb/ofb', 'club_num': '64', 'player_num': '1.614', 'total_value': '€503.04m'}, {'league_name': 'Eliteliga Vorarlberg (- 2023)', 'league_url': 'https://www.transfermarkt.com/eliteliga-vorarlberg-2023-/startseite/wettbewerb/ELVA', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Eliteliga Vorarlberg Abstiegsrunde (- 2023)', 'league_url': 'https://www.transfermarkt.com/eliteliga-vorarlberg-abstiegsrunde-2023-/startseite/wettbewerb/EVAA', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Regionalliga Salzburg (- 2023)', 'league_url': 'https://www.transfermarkt.com/regionalliga-salzburg-2023-/startseite/wettbewerb/ELSA', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Regionalliga Salzburg Abstiegsrunde (- 2023)', 'league_url': 'https://www.transfermarkt.com/regionalliga-salzburg-abstiegsrunde-2023-/startseite/wettbewerb/RLSA', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Regionalliga Tirol (- 2023)', 'league_url': 'https://www.transfermarkt.com/regionalliga-tirol-2023-/startseite/wettbewerb/ELTI', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Regionalliga Tirol Abstiegsrunde (- 2023)', 'league_url': 'https://www.transfermarkt.com/regionalliga-tirol-abstiegsrunde-2023-/startseite/wettbewerb/ELTA', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'ÖFB Jugendliga U17 (- 2010)', 'league_url': 'https://www.transfermarkt.com/ofb-jugendliga-u17-2010-/startseite/wettbewerb/AJ17', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'ÖFB Jugendliga U19 (- 2010)', 'league_url': 'https://www.transfermarkt.com/ofb-jugendliga-u19-2010-/startseite/wettbewerb/JGD', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Austrian Amateur State Championship (- 1937)', 'league_url': 'https://www.transfermarkt.com/austrian-amateur-state-championship-1937-/startseite/wettbewerb/ATAC', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'ÖFB-Supercup (- 2005)', 'league_url': 'https://www.transfermarkt.com/ofb-supercup-2005-/startseite/wettbewerb/OFBS', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Bundesliga Europacup-Play-off', 'league_url': 'https://www.transfermarkt.com/bundesliga-europacup-play-off/startseite/wettbewerb/A1EL', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Meister-Playoff LL Niederösterreich (- 1946)', 'league_url': 'https://www.transfermarkt.com/meister-playoff-ll-niederosterreich-1946-/startseite/wettbewerb/LN%C3%96P', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Mittleres Playoff (- 1993)', 'league_url': 'https://www.transfermarkt.com/mittleres-playoff-1993-/startseite/wettbewerb/ATMP', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Relegation Bundesliga (- 2021)', 'league_url': 'https://www.transfermarkt.com/relegation-bundesliga-2021-/startseite/wettbewerb/A1R', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Relegation Erste Liga (- 2015)', 'league_url': 'https://www.transfermarkt.com/relegation-erste-liga-2015-/startseite/wettbewerb/A2RE', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Relegation Kärntner Liga (- 2017)', 'league_url': 'https://www.transfermarkt.com/relegation-karntner-liga-2017-/startseite/wettbewerb/A4KR', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Relegation Landesliga Steiermark', 'league_url': 'https://www.transfermarkt.com/relegation-landesliga-steiermark/startseite/wettbewerb/RLS1', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Relegation Oberösterreich Liga', 'league_url': 'https://www.transfermarkt.com/relegation-oberosterreich-liga/startseite/wettbewerb/A4OR', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Relegation Regionalliga Ost (- 2022)', 'league_url': 'https://www.transfermarkt.com/relegation-regionalliga-ost-2022-/startseite/wettbewerb/RRLO', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Relegation Regionalliga Tirol', 'league_url': 'https://www.transfermarkt.com/relegation-regionalliga-tirol/startseite/wettbewerb/RRLT', 'club_num': None, 'player_num': None, 'total_value': None}]}
-2024-11-03 18:43:28 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:28 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:28 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:28 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:28 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:28 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:28 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:28 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:28 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:28 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:28 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:28 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:28 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:28 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:28 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:28 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:28 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:28 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:28 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:28 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:28 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/wettbewerbe/national/wettbewerbe/127>
-{'country_name': 'Austria', 'leagues': [{'league_name': 'Bundesliga', 'league_url': 'https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1', 'club_num': '12', 'player_num': '344', 'total_value': '€445.83m'}, {'league_name': '2. Liga', 'league_url': 'https://www.transfermarkt.com/2-liga/startseite/wettbewerb/A2', 'club_num': '16', 'player_num': '458', 'total_value': '€89.39m'}, {'league_name': 'Regional League Central', 'league_url': 'https://www.transfermarkt.com/regional-league-central/startseite/wettbewerb/ATRM', 'club_num': '16', 'player_num': '388', 'total_value': '€1.69m'}, {'league_name': 'Regional League East', 'league_url': 'https://www.transfermarkt.com/regional-league-east/startseite/wettbewerb/ATRO', 'club_num': '16', 'player_num': '387', 'total_value': '€600k'}, {'league_name': 'Regionalliga West', 'league_url': 'https://www.transfermarkt.com/regionalliga-west/startseite/wettbewerb/ATRW', 'club_num': '16', 'player_num': '377', 'total_value': '€350k'}, {'league_name': 'LL Steiermark', 'league_url': 'https://www.transfermarkt.com/landesliga-steiermark/startseite/wettbewerb/A4ST', 'club_num': '16', 'player_num': '383', 'total_value': '€760k'}, {'league_name': 'LL Niederösterreich', 'league_url': 'https://www.transfermarkt.com/1-landesliga-niederosterreich/startseite/wettbewerb/A4N', 'club_num': '16', 'player_num': '372', 'total_value': '€600k'}, {'league_name': 'Wiener Stadtliga', 'league_url': 'https://www.transfermarkt.com/wiener-stadtliga/startseite/wettbewerb/A4W', 'club_num': '16', 'player_num': '364', 'total_value': '€500k'}, {'league_name': 'Kärntner Liga', 'league_url': 'https://www.transfermarkt.com/karntner-liga/startseite/wettbewerb/A4K', 'club_num': '15', 'player_num': '369', 'total_value': '€125k'}, {'league_name': 'Regionalliga Tirol', 'league_url': 'https://www.transfermarkt.com/regionalliga-tirol/startseite/wettbewerb/A4T', 'club_num': '14', 'player_num': '352', 'total_value': '€75k'}, {'league_name': 'Burgenlandliga', 'league_url': 'https://www.transfermarkt.com/burgenlandliga/startseite/wettbewerb/A4B', 'club_num': '16', 'player_num': '337', 'total_value': '-'}, {'league_name': 'OÖ Liga', 'league_url': 'https://www.transfermarkt.com/oberosterreich-liga/startseite/wettbewerb/A4O', 'club_num': '16', 'player_num': '338', 'total_value': '-'}, {'league_name': 'Salzburger Liga', 'league_url': 'https://www.transfermarkt.com/salzburger-liga/startseite/wettbewerb/A4S', 'club_num': '16', 'player_num': '380', 'total_value': '-'}, {'league_name': 'Eliteliga Vorarlberg', 'league_url': 'https://www.transfermarkt.com/eliteliga-vorarlberg/startseite/wettbewerb/A4V', 'club_num': '14', 'player_num': '339', 'total_value': '-'}, {'league_name': 'ÖFB Jugendliga U18', 'league_url': 'https://www.transfermarkt.com/ofb-jugendliga-u18/startseite/wettbewerb/JGD2', 'club_num': '12', 'player_num': '386', 'total_value': '€1.78m'}, {'league_name': 'ÖFB Jugendliga U16', 'league_url': 'https://www.transfermarkt.com/ofb-jugendliga-u16/startseite/wettbewerb/JGD3', 'club_num': '12', 'player_num': '336', 'total_value': '-'}, {'league_name': 'ÖFB-Cup', 'league_url': 'https://www.transfermarkt.com/ofb-cup/startseite/wettbewerb/ofb', 'club_num': '64', 'player_num': '1.614', 'total_value': '€503.04m'}]}
-2024-11-03 18:43:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.transfermarkt.com/wettbewerbe/national/wettbewerbe/19> (referer: None)
-2024-11-03 18:43:32 [transfermarkt.pipelines] INFO: Processing item: {'country_name': 'Belgium', 'leagues': [{'league_name': 'Jupiler Pro League', 'league_url': 'https://www.transfermarkt.com/jupiler-pro-league/startseite/wettbewerb/BE1', 'club_num': '16', 'player_num': '434', 'total_value': '€920.88m'}, {'league_name': 'Challenger Pro League', 'league_url': 'https://www.transfermarkt.com/challenger-pro-league/startseite/wettbewerb/BE2', 'club_num': '16', 'player_num': '423', 'total_value': '€118.50m'}, {'league_name': '1ste Nationale VV', 'league_url': 'https://www.transfermarkt.com/1ste-nationale-vv/startseite/wettbewerb/BE3V', 'club_num': '16', 'player_num': '390', 'total_value': '€3.98m'}, {'league_name': '1ste Nationale ACFF', 'league_url': 'https://www.transfermarkt.com/1ste-nationale-acff/startseite/wettbewerb/BE3A', 'club_num': '12', 'player_num': '287', 'total_value': '€3.73m'}, {'league_name': '2de Nationale VV B', 'league_url': 'https://www.transfermarkt.com/2de-nationale-vv-b/startseite/wettbewerb/VFVB', 'club_num': '16', 'player_num': '365', 'total_value': '€1.05m'}, {'league_name': '2de Nationale ACFF', 'league_url': 'https://www.transfermarkt.com/2de-nationale-acff/startseite/wettbewerb/ACFF', 'club_num': '18', 'player_num': '405', 'total_value': '€750k'}, {'league_name': '2de Nationale VV A', 'league_url': 'https://www.transfermarkt.com/2de-nationale-vv-a/startseite/wettbewerb/VFVA', 'club_num': '16', 'player_num': '369', 'total_value': '€425k'}, {'league_name': '3de Nationale VV B', 'league_url': 'https://www.transfermarkt.com/3de-nationale-vv-b/startseite/wettbewerb/BE5B', 'club_num': '16', 'player_num': '332', 'total_value': '€200k'}, {'league_name': '3de Nationale VV A', 'league_url': 'https://www.transfermarkt.com/3de-nationale-vv-a/startseite/wettbewerb/BE5A', 'club_num': '16', 'player_num': '353', 'total_value': '€150k'}, {'league_name': 'U18 Elite 1', 'league_url': 'https://www.transfermarkt.com/u18-elite-1-belgium/startseite/wettbewerb/BEY1', 'club_num': '10', 'player_num': '250', 'total_value': '€800k'}, {'league_name': 'Croky Cup', 'league_url': 'https://www.transfermarkt.com/croky-cup/startseite/wettbewerb/CCB', 'club_num': '105', 'player_num': '2.341', 'total_value': '€1.02bn'}, {'league_name': 'Pro League Supercup', 'league_url': 'https://www.transfermarkt.com/pro-league-supercup/startseite/wettbewerb/BESC', 'club_num': '2', 'player_num': '56', 'total_value': '€231.60m'}, {'league_name': '1ste Nationale', 'league_url': 'https://www.transfermarkt.com/1ste-nationale/startseite/wettbewerb/BEL3', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'U18 Elite 2 - Belgium', 'league_url': 'https://www.transfermarkt.com/u18-elite-2-belgium/startseite/wettbewerb/BEY2', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': '2de Nationale Play-Offs Degradatie', 'league_url': 'https://www.transfermarkt.com/2de-nationale-play-offs-degradatie/startseite/wettbewerb/2NP2', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': '2de Nationale Play-Offs Promotie', 'league_url': 'https://www.transfermarkt.com/2de-nationale-play-offs-promotie/startseite/wettbewerb/2NPP', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': '2de Nationale Titel van Kampioen', 'league_url': 'https://www.transfermarkt.com/2de-nationale-titel-van-kampioen/startseite/wettbewerb/BE4P', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Aufstiegsrunde Eerste Klasse Amateurs ', 'league_url': 'https://www.transfermarkt.com/aufstiegsrunde-eerste-klasse-amateurs/startseite/wettbewerb/B3AU', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Challenger Pro League Promotion-Playoffs', 'league_url': 'https://www.transfermarkt.com/challenger-pro-league-promotion-playoffs/startseite/wettbewerb/BE2E', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Challenger Pro League Relegation-Playoffs', 'league_url': 'https://www.transfermarkt.com/challenger-pro-league-relegation-playoffs/startseite/wettbewerb/BE2A', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Endrunde 2.Division', 'league_url': 'https://www.transfermarkt.com/endrunde-2-division/startseite/wettbewerb/POB2', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Endrunde Jupiler Pro League', 'league_url': 'https://www.transfermarkt.com/endrunde-jupiler-pro-league/startseite/wettbewerb/EBEL', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Jupiler Pro League Abstiegs-Playoffs', 'league_url': 'https://www.transfermarkt.com/jupiler-pro-league-abstiegs-playoffs/startseite/wettbewerb/EJPD', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': "Jupiler Pro League Champions' Play-Offs", 'league_url': 'https://www.transfermarkt.com/jupiler-pro-league-champions-play-offs/startseite/wettbewerb/EJPL', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Jupiler Pro League Europe Play-Offs', 'league_url': 'https://www.transfermarkt.com/jupiler-pro-league-europe-play-offs/startseite/wettbewerb/POBE', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Jupiler Pro League Relegation Play-offs', 'league_url': 'https://www.transfermarkt.com/jupiler-pro-league-relegation-play-offs/startseite/wettbewerb/BPO4', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Jupiler Pro League playoff Europa League', 'league_url': 'https://www.transfermarkt.com/jupiler-pro-league-playoff-europa-league/startseite/wettbewerb/ESJP', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Promotie Play-Offs 1ste Nationale', 'league_url': 'https://www.transfermarkt.com/promotie-play-offs-1ste-nationale/startseite/wettbewerb/B3AB', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Ligabeker', 'league_url': 'https://www.transfermarkt.com/ligabeker/startseite/wettbewerb/BLP1', 'club_num': None, 'player_num': None, 'total_value': None}]}
-2024-11-03 18:43:32 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:32 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:32 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:32 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:32 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:32 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:32 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:32 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:32 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:32 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:32 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:32 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:32 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:32 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:32 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:32 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:32 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:32 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/wettbewerbe/national/wettbewerbe/19>
-{'country_name': 'Belgium', 'leagues': [{'league_name': 'Jupiler Pro League', 'league_url': 'https://www.transfermarkt.com/jupiler-pro-league/startseite/wettbewerb/BE1', 'club_num': '16', 'player_num': '434', 'total_value': '€920.88m'}, {'league_name': 'Challenger Pro League', 'league_url': 'https://www.transfermarkt.com/challenger-pro-league/startseite/wettbewerb/BE2', 'club_num': '16', 'player_num': '423', 'total_value': '€118.50m'}, {'league_name': '1ste Nationale VV', 'league_url': 'https://www.transfermarkt.com/1ste-nationale-vv/startseite/wettbewerb/BE3V', 'club_num': '16', 'player_num': '390', 'total_value': '€3.98m'}, {'league_name': '1ste Nationale ACFF', 'league_url': 'https://www.transfermarkt.com/1ste-nationale-acff/startseite/wettbewerb/BE3A', 'club_num': '12', 'player_num': '287', 'total_value': '€3.73m'}, {'league_name': '2de Nationale VV B', 'league_url': 'https://www.transfermarkt.com/2de-nationale-vv-b/startseite/wettbewerb/VFVB', 'club_num': '16', 'player_num': '365', 'total_value': '€1.05m'}, {'league_name': '2de Nationale ACFF', 'league_url': 'https://www.transfermarkt.com/2de-nationale-acff/startseite/wettbewerb/ACFF', 'club_num': '18', 'player_num': '405', 'total_value': '€750k'}, {'league_name': '2de Nationale VV A', 'league_url': 'https://www.transfermarkt.com/2de-nationale-vv-a/startseite/wettbewerb/VFVA', 'club_num': '16', 'player_num': '369', 'total_value': '€425k'}, {'league_name': '3de Nationale VV B', 'league_url': 'https://www.transfermarkt.com/3de-nationale-vv-b/startseite/wettbewerb/BE5B', 'club_num': '16', 'player_num': '332', 'total_value': '€200k'}, {'league_name': '3de Nationale VV A', 'league_url': 'https://www.transfermarkt.com/3de-nationale-vv-a/startseite/wettbewerb/BE5A', 'club_num': '16', 'player_num': '353', 'total_value': '€150k'}, {'league_name': 'U18 Elite 1', 'league_url': 'https://www.transfermarkt.com/u18-elite-1-belgium/startseite/wettbewerb/BEY1', 'club_num': '10', 'player_num': '250', 'total_value': '€800k'}, {'league_name': 'Croky Cup', 'league_url': 'https://www.transfermarkt.com/croky-cup/startseite/wettbewerb/CCB', 'club_num': '105', 'player_num': '2.341', 'total_value': '€1.02bn'}, {'league_name': 'Pro League Supercup', 'league_url': 'https://www.transfermarkt.com/pro-league-supercup/startseite/wettbewerb/BESC', 'club_num': '2', 'player_num': '56', 'total_value': '€231.60m'}]}
-2024-11-03 18:43:35 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.transfermarkt.com/wettbewerbe/national/wettbewerbe/26> (referer: None)
-2024-11-03 18:43:36 [transfermarkt.pipelines] INFO: Processing item: {'country_name': 'Brazil', 'leagues': [{'league_name': 'Série A', 'league_url': 'https://www.transfermarkt.com/campeonato-brasileiro-serie-a/startseite/wettbewerb/BRA1', 'club_num': '20', 'player_num': '643', 'total_value': '€1.65bn'}, {'league_name': 'Série B', 'league_url': 'https://www.transfermarkt.com/campeonato-brasileiro-serie-b/startseite/wettbewerb/BRA2', 'club_num': '20', 'player_num': '692', 'total_value': '€241.99m'}, {'league_name': 'Série C', 'league_url': 'https://www.transfermarkt.com/campeonato-brasileiro-serie-c/startseite/wettbewerb/BRA3', 'club_num': '20', 'player_num': '573', 'total_value': '€15.93m'}, {'league_name': 'Série D', 'league_url': 'https://www.transfermarkt.com/campeonato-brasileiro-serie-d/startseite/wettbewerb/BRA4', 'club_num': '64', 'player_num': '1.650', 'total_value': '€2.90m'}, {'league_name': 'CBF Brasileiro U20', 'league_url': 'https://www.transfermarkt.com/cbf-brasileiro-u20/startseite/wettbewerb/CB20', 'club_num': '20', 'player_num': '821', 'total_value': '€38.25m'}, {'league_name': 'Copa do Brasil', 'league_url': 'https://www.transfermarkt.com/copa-do-brasil/startseite/wettbewerb/BRC', 'club_num': '92', 'player_num': '2.551', 'total_value': '€1.81bn'}, {'league_name': 'Copa do Nordeste - Fase Preliminar', 'league_url': 'https://www.transfermarkt.com/copa-do-nordeste-fase-preliminar/startseite/wettbewerb/BRNP', 'club_num': '16', 'player_num': '422', 'total_value': '€3.25m'}, {'league_name': 'Supercopa Rei', 'league_url': 'https://www.transfermarkt.com/supercopa-rei/startseite/wettbewerb/SCBR', 'club_num': '2', 'player_num': '68', 'total_value': '€315.40m'}, {'league_name': 'Brasileiro U20 - Finals', 'league_url': 'https://www.transfermarkt.com/cbf-brasileiro-u20-finals/startseite/wettbewerb/C20P', 'club_num': '8', 'player_num': '324', 'total_value': '€24.95m'}, {'league_name': 'Camp. Mineiro - Rel.', 'league_url': 'https://www.transfermarkt.com/campeonato-mineiro-relegation/startseite/wettbewerb/CMR2', 'club_num': '3', 'player_num': '65', 'total_value': '-'}, {'league_name': 'Copinha', 'league_url': 'https://www.transfermarkt.com/copa-sao-paulo-de-futebol-junior/startseite/wettbewerb/SPjr', 'club_num': '128', 'player_num': '3.459', 'total_value': '€42.20m'}, {'league_name': 'Copa do Nordeste - Fase de Grupos', 'league_url': 'https://www.transfermarkt.com/copa-do-nordeste-fase-de-grupos/startseite/wettbewerb/BRNE', 'club_num': '16', 'player_num': '466', 'total_value': '€195.28m'}, {'league_name': 'Copa do Nordeste - Fase Final', 'league_url': 'https://www.transfermarkt.com/copa-do-nordeste-fase-final/startseite/wettbewerb/BRNF', 'club_num': '8', 'player_num': '247', 'total_value': '€170.00m'}, {'league_name': 'Copa Verde', 'league_url': 'https://www.transfermarkt.com/copa-verde/startseite/wettbewerb/BRVE', 'club_num': '24', 'player_num': '719', 'total_value': '€66.06m'}, {'league_name': 'Paulistão A1 - Primeira Fase', 'league_url': 'https://www.transfermarkt.com/campeonato-paulista-serie-a1/startseite/wettbewerb/BCP1', 'club_num': '16', 'player_num': '477', 'total_value': '€587.15m'}, {'league_name': 'Carioca - Taça Guanabara', 'league_url': 'https://www.transfermarkt.com/campeonato-carioca-taca-guanabara/startseite/wettbewerb/BRCG', 'club_num': '12', 'player_num': '330', 'total_value': '€506.90m'}, {'league_name': 'Paulistão A1 - Fase Final', 'league_url': 'https://www.transfermarkt.com/campeonato-paulista-serie-a1-fase-final/startseite/wettbewerb/BCPF', 'club_num': '8', 'player_num': '246', 'total_value': '€442.63m'}, {'league_name': 'Campeonato Carioca - Final', 'league_url': 'https://www.transfermarkt.com/campeonato-carioca-final/startseite/wettbewerb/BRCF', 'club_num': '4', 'player_num': '129', 'total_value': '€370.33m'}, {'league_name': 'Campeonato Mineiro', 'league_url': 'https://www.transfermarkt.com/campeonato-mineiro/startseite/wettbewerb/BRCM', 'club_num': '12', 'player_num': '279', 'total_value': '€205.88m'}, {'league_name': 'Campeonato Gaúcho', 'league_url': 'https://www.transfermarkt.com/campeonato-gaucho/startseite/wettbewerb/BRRS', 'club_num': '12', 'player_num': '265', 'total_value': '€190.60m'}, {'league_name': 'Gauchão - Fase Final', 'league_url': 'https://www.transfermarkt.com/campeonato-gaucho-fase-final/startseite/wettbewerb/RS2f', 'club_num': '8', 'player_num': '182', 'total_value': '€189.30m'}, {'league_name': 'Carioca - Taça Rio', 'league_url': 'https://www.transfermarkt.com/campeonato-carioca-taca-rio/startseite/wettbewerb/BRCR', 'club_num': '4', 'player_num': '87', 'total_value': '€136.40m'}, {'league_name': 'Campeonato Baiano', 'league_url': 'https://www.transfermarkt.com/campeonato-baiano/startseite/wettbewerb/BRCB', 'club_num': '10', 'player_num': '165', 'total_value': '€101.43m'}, {'league_name': 'Campeonato Paranaense', 'league_url': 'https://www.transfermarkt.com/campeonato-paranaense/startseite/wettbewerb/BRPR', 'club_num': '12', 'player_num': '264', 'total_value': '€87.55m'}, {'league_name': 'Campeonato Cearense - Group', 'league_url': 'https://www.transfermarkt.com/campeonato-cearense-group-stage/startseite/wettbewerb/BRCE', 'club_num': '10', 'player_num': '255', 'total_value': '€62.70m'}, {'league_name': 'Campeonato Catarinense', 'league_url': 'https://www.transfermarkt.com/campeonato-catarinense/startseite/wettbewerb/BRSC', 'club_num': '12', 'player_num': '331', 'total_value': '€47.23m'}, {'league_name': 'Campeonato Goiano', 'league_url': 'https://www.transfermarkt.com/campeonato-goiano/startseite/wettbewerb/BRGO', 'club_num': '12', 'player_num': '253', 'total_value': '€46.90m'}, {'league_name': 'Campeonato Mato-Grossense', 'league_url': 'https://www.transfermarkt.com/campeonato-mato-grossense/startseite/wettbewerb/BRMS', 'club_num': '10', 'player_num': '172', 'total_value': '€26.80m'}, {'league_name': 'Campeonato Pernambucano', 'league_url': 'https://www.transfermarkt.com/campeonato-pernambucano/startseite/wettbewerb/BRPE', 'club_num': '10', 'player_num': '185', 'total_value': '€20.25m'}, {'league_name': 'Campeonato Alagoano', 'league_url': 'https://www.transfermarkt.com/campeonato-alagoano/startseite/wettbewerb/BRAL', 'club_num': '8', 'player_num': '158', 'total_value': '€9.50m'}, {'league_name': 'Campeonato Paraense', 'league_url': 'https://www.transfermarkt.com/campeonato-paraense/startseite/wettbewerb/BRPA', 'club_num': '12', 'player_num': '216', 'total_value': '€9.28m'}, {'league_name': 'Campeonato Amazonense', 'league_url': 'https://www.transfermarkt.com/campeonato-amazonense/startseite/wettbewerb/BRAM', 'club_num': '10', 'player_num': '212', 'total_value': '€6.54m'}, {'league_name': 'Campeonato Paraibano', 'league_url': 'https://www.transfermarkt.com/campeonato-paraibano/startseite/wettbewerb/BRPB', 'club_num': '10', 'player_num': '157', 'total_value': '€1.85m'}, {'league_name': 'Campeonato Maranhense', 'league_url': 'https://www.transfermarkt.com/campeonato-maranhense/startseite/wettbewerb/BRMA', 'club_num': '8', 'player_num': '207', 'total_value': '€1.15m'}, {'league_name': 'Troféu Inconfidência', 'league_url': 'https://www.transfermarkt.com/trofeu-inconfidencia/startseite/wettbewerb/brti', 'club_num': '4', 'player_num': '83', 'total_value': '€900k'}, {'league_name': 'Campeonato Brasiliense', 'league_url': 'https://www.transfermarkt.com/campeonato-brasiliense/startseite/wettbewerb/BRDF', 'club_num': '10', 'player_num': '174', 'total_value': '€400k'}, {'league_name': 'Campeonato Potiguar', 'league_url': 'https://www.transfermarkt.com/campeonato-potiguar/startseite/wettbewerb/BRRN', 'club_num': '8', 'player_num': '195', 'total_value': '€400k'}, {'league_name': 'Campeonato Acreano', 'league_url': 'https://www.transfermarkt.com/campeonato-acreano/startseite/wettbewerb/BRAC', 'club_num': '11', 'player_num': '202', 'total_value': '-'}, {'league_name': 'Campeonato Piauiense', 'league_url': 'https://www.transfermarkt.com/campeonato-piauiense/startseite/wettbewerb/BRPI', 'club_num': '8', 'player_num': '162', 'total_value': '-'}, {'league_name': 'Campeonato Sergipano', 'league_url': 'https://www.transfermarkt.com/campeonato-sergipano/startseite/wettbewerb/BRSE', 'club_num': '10', 'player_num': '198', 'total_value': '-'}, {'league_name': 'Campeonato Cearense - Finals', 'league_url': 'https://www.transfermarkt.com/campeonato-cearense-finals/startseite/wettbewerb/BCE1', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Campeonato Cearense - Relegation Round', 'league_url': 'https://www.transfermarkt.com/campeonato-cearense-relegation-round/startseite/wettbewerb/BCE2', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Campeonato Potiguar - Finals', 'league_url': 'https://www.transfermarkt.com/campeonato-potiguar-finals/startseite/wettbewerb/CPF1', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Primeira Liga do Brasil', 'league_url': 'https://www.transfermarkt.com/primeira-liga-do-brasil/startseite/wettbewerb/BRC2', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Campeonato Paulista - Troféu Independência', 'league_url': 'https://www.transfermarkt.com/campeonato-paulista-trofeu-independencia/startseite/wettbewerb/BCP2', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Copa FMF - Maranhão', 'league_url': 'https://www.transfermarkt.com/copa-fmf-maranhao/startseite/wettbewerb/CFMF', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Campeonato Amapaense', 'league_url': 'https://www.transfermarkt.com/campeonato-amapaense/startseite/wettbewerb/BRAP', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Campeonato Capixaba', 'league_url': 'https://www.transfermarkt.com/campeonato-capixaba/startseite/wettbewerb/BRES', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Campeonato Gaúcho - 2º Turno', 'league_url': 'https://www.transfermarkt.com/campeonato-gaucho-2-ordm-turno/startseite/wettbewerb/BRga', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Campeonato Gaúcho - Final', 'league_url': 'https://www.transfermarkt.com/campeonato-gaucho-final/startseite/wettbewerb/RSFF', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Campeonato Rondoniense', 'league_url': 'https://www.transfermarkt.com/campeonato-rondoniense/startseite/wettbewerb/BRRD', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Campeonato Roraimense', 'league_url': 'https://www.transfermarkt.com/campeonato-roraimense/startseite/wettbewerb/BRRR', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Campeonato Sul-Mato-Grossense', 'league_url': 'https://www.transfermarkt.com/campeonato-sul-mato-grossense/startseite/wettbewerb/BRMT', 'club_num': None, 'player_num': None, 'total_value': None}, {'league_name': 'Campeonato Tocantinense', 'league_url': 'https://www.transfermarkt.com/campeonato-tocantinense/startseite/wettbewerb/BRTO', 'club_num': None, 'player_num': None, 'total_value': None}]}
-2024-11-03 18:43:36 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:36 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:36 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:36 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:36 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:36 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:36 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:36 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:36 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:36 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:36 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:36 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:36 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:36 [transfermarkt.pipelines] ERROR: Dropped league: Missing club_num 
-2024-11-03 18:43:36 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/wettbewerbe/national/wettbewerbe/26>
-{'country_name': 'Brazil', 'leagues': [{'league_name': 'Série A', 'league_url': 'https://www.transfermarkt.com/campeonato-brasileiro-serie-a/startseite/wettbewerb/BRA1', 'club_num': '20', 'player_num': '643', 'total_value': '€1.65bn'}, {'league_name': 'Série B', 'league_url': 'https://www.transfermarkt.com/campeonato-brasileiro-serie-b/startseite/wettbewerb/BRA2', 'club_num': '20', 'player_num': '692', 'total_value': '€241.99m'}, {'league_name': 'Série C', 'league_url': 'https://www.transfermarkt.com/campeonato-brasileiro-serie-c/startseite/wettbewerb/BRA3', 'club_num': '20', 'player_num': '573', 'total_value': '€15.93m'}, {'league_name': 'Série D', 'league_url': 'https://www.transfermarkt.com/campeonato-brasileiro-serie-d/startseite/wettbewerb/BRA4', 'club_num': '64', 'player_num': '1.650', 'total_value': '€2.90m'}, {'league_name': 'CBF Brasileiro U20', 'league_url': 'https://www.transfermarkt.com/cbf-brasileiro-u20/startseite/wettbewerb/CB20', 'club_num': '20', 'player_num': '821', 'total_value': '€38.25m'}, {'league_name': 'Copa do Brasil', 'league_url': 'https://www.transfermarkt.com/copa-do-brasil/startseite/wettbewerb/BRC', 'club_num': '92', 'player_num': '2.551', 'total_value': '€1.81bn'}, {'league_name': 'Copa do Nordeste - Fase Preliminar', 'league_url': 'https://www.transfermarkt.com/copa-do-nordeste-fase-preliminar/startseite/wettbewerb/BRNP', 'club_num': '16', 'player_num': '422', 'total_value': '€3.25m'}, {'league_name': 'Supercopa Rei', 'league_url': 'https://www.transfermarkt.com/supercopa-rei/startseite/wettbewerb/SCBR', 'club_num': '2', 'player_num': '68', 'total_value': '€315.40m'}, {'league_name': 'Brasileiro U20 - Finals', 'league_url': 'https://www.transfermarkt.com/cbf-brasileiro-u20-finals/startseite/wettbewerb/C20P', 'club_num': '8', 'player_num': '324', 'total_value': '€24.95m'}, {'league_name': 'Camp. Mineiro - Rel.', 'league_url': 'https://www.transfermarkt.com/campeonato-mineiro-relegation/startseite/wettbewerb/CMR2', 'club_num': '3', 'player_num': '65', 'total_value': '-'}, {'league_name': 'Copinha', 'league_url': 'https://www.transfermarkt.com/copa-sao-paulo-de-futebol-junior/startseite/wettbewerb/SPjr', 'club_num': '128', 'player_num': '3.459', 'total_value': '€42.20m'}, {'league_name': 'Copa do Nordeste - Fase de Grupos', 'league_url': 'https://www.transfermarkt.com/copa-do-nordeste-fase-de-grupos/startseite/wettbewerb/BRNE', 'club_num': '16', 'player_num': '466', 'total_value': '€195.28m'}, {'league_name': 'Copa do Nordeste - Fase Final', 'league_url': 'https://www.transfermarkt.com/copa-do-nordeste-fase-final/startseite/wettbewerb/BRNF', 'club_num': '8', 'player_num': '247', 'total_value': '€170.00m'}, {'league_name': 'Copa Verde', 'league_url': 'https://www.transfermarkt.com/copa-verde/startseite/wettbewerb/BRVE', 'club_num': '24', 'player_num': '719', 'total_value': '€66.06m'}, {'league_name': 'Paulistão A1 - Primeira Fase', 'league_url': 'https://www.transfermarkt.com/campeonato-paulista-serie-a1/startseite/wettbewerb/BCP1', 'club_num': '16', 'player_num': '477', 'total_value': '€587.15m'}, {'league_name': 'Carioca - Taça Guanabara', 'league_url': 'https://www.transfermarkt.com/campeonato-carioca-taca-guanabara/startseite/wettbewerb/BRCG', 'club_num': '12', 'player_num': '330', 'total_value': '€506.90m'}, {'league_name': 'Paulistão A1 - Fase Final', 'league_url': 'https://www.transfermarkt.com/campeonato-paulista-serie-a1-fase-final/startseite/wettbewerb/BCPF', 'club_num': '8', 'player_num': '246', 'total_value': '€442.63m'}, {'league_name': 'Campeonato Carioca - Final', 'league_url': 'https://www.transfermarkt.com/campeonato-carioca-final/startseite/wettbewerb/BRCF', 'club_num': '4', 'player_num': '129', 'total_value': '€370.33m'}, {'league_name': 'Campeonato Mineiro', 'league_url': 'https://www.transfermarkt.com/campeonato-mineiro/startseite/wettbewerb/BRCM', 'club_num': '12', 'player_num': '279', 'total_value': '€205.88m'}, {'league_name': 'Campeonato Gaúcho', 'league_url': 'https://www.transfermarkt.com/campeonato-gaucho/startseite/wettbewerb/BRRS', 'club_num': '12', 'player_num': '265', 'total_value': '€190.60m'}, {'league_name': 'Gauchão - Fase Final', 'league_url': 'https://www.transfermarkt.com/campeonato-gaucho-fase-final/startseite/wettbewerb/RS2f', 'club_num': '8', 'player_num': '182', 'total_value': '€189.30m'}, {'league_name': 'Carioca - Taça Rio', 'league_url': 'https://www.transfermarkt.com/campeonato-carioca-taca-rio/startseite/wettbewerb/BRCR', 'club_num': '4', 'player_num': '87', 'total_value': '€136.40m'}, {'league_name': 'Campeonato Baiano', 'league_url': 'https://www.transfermarkt.com/campeonato-baiano/startseite/wettbewerb/BRCB', 'club_num': '10', 'player_num': '165', 'total_value': '€101.43m'}, {'league_name': 'Campeonato Paranaense', 'league_url': 'https://www.transfermarkt.com/campeonato-paranaense/startseite/wettbewerb/BRPR', 'club_num': '12', 'player_num': '264', 'total_value': '€87.55m'}, {'league_name': 'Campeonato Cearense - Group', 'league_url': 'https://www.transfermarkt.com/campeonato-cearense-group-stage/startseite/wettbewerb/BRCE', 'club_num': '10', 'player_num': '255', 'total_value': '€62.70m'}, {'league_name': 'Campeonato Catarinense', 'league_url': 'https://www.transfermarkt.com/campeonato-catarinense/startseite/wettbewerb/BRSC', 'club_num': '12', 'player_num': '331', 'total_value': '€47.23m'}, {'league_name': 'Campeonato Goiano', 'league_url': 'https://www.transfermarkt.com/campeonato-goiano/startseite/wettbewerb/BRGO', 'club_num': '12', 'player_num': '253', 'total_value': '€46.90m'}, {'league_name': 'Campeonato Mato-Grossense', 'league_url': 'https://www.transfermarkt.com/campeonato-mato-grossense/startseite/wettbewerb/BRMS', 'club_num': '10', 'player_num': '172', 'total_value': '€26.80m'}, {'league_name': 'Campeonato Pernambucano', 'league_url': 'https://www.transfermarkt.com/campeonato-pernambucano/startseite/wettbewerb/BRPE', 'club_num': '10', 'player_num': '185', 'total_value': '€20.25m'}, {'league_name': 'Campeonato Alagoano', 'league_url': 'https://www.transfermarkt.com/campeonato-alagoano/startseite/wettbewerb/BRAL', 'club_num': '8', 'player_num': '158', 'total_value': '€9.50m'}, {'league_name': 'Campeonato Paraense', 'league_url': 'https://www.transfermarkt.com/campeonato-paraense/startseite/wettbewerb/BRPA', 'club_num': '12', 'player_num': '216', 'total_value': '€9.28m'}, {'league_name': 'Campeonato Amazonense', 'league_url': 'https://www.transfermarkt.com/campeonato-amazonense/startseite/wettbewerb/BRAM', 'club_num': '10', 'player_num': '212', 'total_value': '€6.54m'}, {'league_name': 'Campeonato Paraibano', 'league_url': 'https://www.transfermarkt.com/campeonato-paraibano/startseite/wettbewerb/BRPB', 'club_num': '10', 'player_num': '157', 'total_value': '€1.85m'}, {'league_name': 'Campeonato Maranhense', 'league_url': 'https://www.transfermarkt.com/campeonato-maranhense/startseite/wettbewerb/BRMA', 'club_num': '8', 'player_num': '207', 'total_value': '€1.15m'}, {'league_name': 'Troféu Inconfidência', 'league_url': 'https://www.transfermarkt.com/trofeu-inconfidencia/startseite/wettbewerb/brti', 'club_num': '4', 'player_num': '83', 'total_value': '€900k'}, {'league_name': 'Campeonato Brasiliense', 'league_url': 'https://www.transfermarkt.com/campeonato-brasiliense/startseite/wettbewerb/BRDF', 'club_num': '10', 'player_num': '174', 'total_value': '€400k'}, {'league_name': 'Campeonato Potiguar', 'league_url': 'https://www.transfermarkt.com/campeonato-potiguar/startseite/wettbewerb/BRRN', 'club_num': '8', 'player_num': '195', 'total_value': '€400k'}, {'league_name': 'Campeonato Acreano', 'league_url': 'https://www.transfermarkt.com/campeonato-acreano/startseite/wettbewerb/BRAC', 'club_num': '11', 'player_num': '202', 'total_value': '-'}, {'league_name': 'Campeonato Piauiense', 'league_url': 'https://www.transfermarkt.com/campeonato-piauiense/startseite/wettbewerb/BRPI', 'club_num': '8', 'player_num': '162', 'total_value': '-'}, {'league_name': 'Campeonato Sergipano', 'league_url': 'https://www.transfermarkt.com/campeonato-sergipano/startseite/wettbewerb/BRSE', 'club_num': '10', 'player_num': '198', 'total_value': '-'}]}
-2024-11-03 18:43:36 [scrapy.core.engine] INFO: Closing spider (finished)
-2024-11-03 18:43:36 [scrapy.extensions.feedexport] INFO: Stored json feed (3 items) in: output.json
-2024-11-03 18:43:36 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
-{'downloader/request_bytes': 1331,
- 'downloader/request_count': 4,
- 'downloader/request_method_count/GET': 4,
- 'downloader/response_bytes': 70281,
- 'downloader/response_count': 4,
- 'downloader/response_status_count/200': 4,
- 'elapsed_time_seconds': 13.252222,
- 'feedexport/success_count/FileFeedStorage': 1,
+2024-11-03 19:29:34 [scrapy.middleware] INFO: Enabled item pipelines:
+['transfermarkt.pipelines.LeaguePipeline',
+ 'transfermarkt.pipelines.TeamPipeline']
+2024-11-03 19:29:34 [scrapy.core.engine] INFO: Spider opened
+2024-11-03 19:29:34 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2024-11-03 19:29:34 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2024-11-03 19:29:34 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36
+2024-11-03 19:29:34 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET https://www.transfermarkt.com/robots.txt> (failed 1 times): [<twisted.python.failure.Failure twisted.internet.error.ConnectionLost: Connection to the other side was lost in a non-clean fashion: Connection lost.>]
+2024-11-03 19:29:34 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.109 Safari/537.36
+2024-11-03 19:29:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.transfermarkt.com/robots.txt> (referer: None)
+2024-11-03 19:29:38 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36
+2024-11-03 19:29:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1> (referer: None)
+2024-11-03 19:29:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:29:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:29:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:29:45 [scrapy.core.engine] INFO: Closing spider (finished)
+2024-11-03 19:29:45 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/exception_count': 1,
+ 'downloader/exception_type_count/twisted.web._newclient.ResponseNeverReceived': 1,
+ 'downloader/request_bytes': 966,
+ 'downloader/request_count': 3,
+ 'downloader/request_method_count/GET': 3,
+ 'downloader/response_bytes': 27138,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 11.379662,
  'finish_reason': 'finished',
- 'finish_time': datetime.datetime(2024, 11, 3, 15, 13, 36, 117494),
- 'httpcompression/response_bytes': 470443,
- 'httpcompression/response_count': 4,
+ 'finish_time': datetime.datetime(2024, 11, 3, 15, 59, 45, 451985),
+ 'httpcompression/response_bytes': 198565,
+ 'httpcompression/response_count': 2,
  'item_scraped_count': 3,
- 'log_count/DEBUG': 14,
- 'log_count/ERROR': 51,
- 'log_count/INFO': 14,
+ 'log_count/DEBUG': 12,
+ 'log_count/INFO': 10,
  'log_count/WARNING': 45,
- 'memusage/max': 160837632,
- 'memusage/startup': 160837632,
- 'response_received_count': 4,
+ 'memusage/max': 160940032,
+ 'memusage/startup': 160940032,
+ 'response_received_count': 2,
+ 'retry/count': 1,
+ 'retry/reason_count/twisted.web._newclient.ResponseNeverReceived': 1,
  'robotstxt/request_count': 1,
  'robotstxt/response_count': 1,
  'robotstxt/response_status_count/200': 1,
- 'scheduler/dequeued': 3,
- 'scheduler/dequeued/memory': 3,
- 'scheduler/enqueued': 3,
- 'scheduler/enqueued/memory': 3,
- 'start_time': datetime.datetime(2024, 11, 3, 15, 13, 22, 865272)}
-2024-11-03 18:43:36 [scrapy.core.engine] INFO: Spider closed (finished)
-2024-11-03 19:05:57 [scrapy.utils.log] INFO: Scrapy 2.8.0 started (bot: transfermarkt)
-2024-11-03 19:05:57 [scrapy.utils.log] INFO: Versions: lxml 4.9.3.0, libxml2 2.10.4, cssselect 1.1.0, parsel 1.6.0, w3lib 1.21.0, Twisted 22.10.0, Python 3.11.5 (main, Sep 11 2023, 13:54:46) [GCC 11.2.0], pyOpenSSL 23.2.0 (OpenSSL 3.0.10 1 Aug 2023), cryptography 41.0.3, Platform Linux-6.8.0-47-generic-x86_64-with-glibc2.39
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2024, 11, 3, 15, 59, 34, 72323)}
+2024-11-03 19:29:45 [scrapy.core.engine] INFO: Spider closed (finished)
+2024-11-03 19:32:47 [scrapy.utils.log] INFO: Scrapy 2.8.0 started (bot: transfermarkt)
+2024-11-03 19:32:47 [scrapy.utils.log] INFO: Versions: lxml 4.9.3.0, libxml2 2.10.4, cssselect 1.1.0, parsel 1.6.0, w3lib 1.21.0, Twisted 22.10.0, Python 3.11.5 (main, Sep 11 2023, 13:54:46) [GCC 11.2.0], pyOpenSSL 23.2.0 (OpenSSL 3.0.10 1 Aug 2023), cryptography 41.0.3, Platform Linux-6.8.0-47-generic-x86_64-with-glibc2.39
+2024-11-03 19:32:47 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'AUTOTHROTTLE_MAX_DELAY': 10,
+ 'AUTOTHROTTLE_START_DELAY': 1,
+ 'BOT_NAME': 'transfermarkt',
+ 'DOWNLOAD_DELAY': 3,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'scrapy_log.txt',
+ 'NEWSPIDER_MODULE': 'transfermarkt.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['transfermarkt.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2024-11-03 19:32:47 [asyncio] DEBUG: Using selector: EpollSelector
+2024-11-03 19:32:47 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2024-11-03 19:32:47 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
+2024-11-03 19:32:47 [scrapy.extensions.telnet] INFO: Telnet Password: fbf052b930409f14
+2024-11-03 19:32:47 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Android
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV13, Brand: Sony, Model: BDV13
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Nintendo DSi, Brand: Nintendo, Model: DSi
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF F90M, Brand: LYF, Model: F90M
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV14, Brand: Sony, Model: BDV14
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LG Web0S SmartTV, Brand: LG, Model: Web0S SmartTV
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV11, Brand: Sony, Model: BDV11
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Nintendo DSi, Brand: Nintendo, Model: DSi
+2024-11-03 19:32:47 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF LF-2403N, Brand: LYF, Model: LF-2403N
+2024-11-03 19:32:48 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF F90M, Brand: LYF, Model: F90M
+2024-11-03 19:32:48 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:32:48 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:32:48 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Applebot
+2024-11-03 19:32:48 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:32:48 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Applebot
+2024-11-03 19:32:48 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:32:48 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:32:48 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:32:48 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: SMTBot
+2024-11-03 19:32:48 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:32:48 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:32:48 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: WebKit Nightly
+2024-11-03 19:32:48 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:32:48 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:32:48 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:32:48 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:32:48 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Robot
+2024-11-03 19:32:48 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:32:48 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Zune
+2024-11-03 19:32:48 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy_user_agents.middlewares.RandomUserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2024-11-03 19:32:48 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2024-11-03 19:32:48 [scrapy.middleware] INFO: Enabled item pipelines:
+['transfermarkt.pipelines.LeaguePipeline',
+ 'transfermarkt.pipelines.TeamPipeline']
+2024-11-03 19:32:48 [scrapy.core.engine] INFO: Spider opened
+2024-11-03 19:32:48 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2024-11-03 19:32:48 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2024-11-03 19:32:48 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.101 Safari/537.36
+2024-11-03 19:32:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.transfermarkt.com/robots.txt> (referer: None)
+2024-11-03 19:32:49 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+2024-11-03 19:32:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1> (referer: None)
+2024-11-03 19:32:52 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:32:52 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:32:52 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:32:52 [scrapy.core.engine] INFO: Closing spider (finished)
+2024-11-03 19:32:52 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 650,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 27117,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 3.37223,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2024, 11, 3, 16, 2, 52, 124840),
+ 'httpcompression/response_bytes': 198565,
+ 'httpcompression/response_count': 2,
+ 'item_scraped_count': 3,
+ 'log_count/DEBUG': 10,
+ 'log_count/INFO': 10,
+ 'log_count/WARNING': 45,
+ 'memusage/max': 161071104,
+ 'memusage/startup': 161071104,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2024, 11, 3, 16, 2, 48, 752610)}
+2024-11-03 19:32:52 [scrapy.core.engine] INFO: Spider closed (finished)
+2024-11-03 19:36:44 [scrapy.utils.log] INFO: Scrapy 2.11.0 started (bot: transfermarkt)
+2024-11-03 19:36:44 [scrapy.utils.log] INFO: Versions: lxml 4.9.3.0, libxml2 2.10.3, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.10.12 | packaged by conda-forge | (main, Jun 23 2023, 22:40:32) [GCC 12.3.0], pyOpenSSL 23.2.0 (OpenSSL 3.1.3 19 Sep 2023), cryptography 41.0.4, Platform Linux-6.8.0-47-generic-x86_64-with-glibc2.39
+2024-11-03 19:36:44 [scrapy.addons] INFO: Enabled addons:
+[]
+2024-11-03 19:36:44 [asyncio] DEBUG: Using selector: EpollSelector
+2024-11-03 19:36:44 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2024-11-03 19:36:44 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
+2024-11-03 19:36:44 [scrapy.extensions.telnet] INFO: Telnet Password: 866afc6c6848193a
+2024-11-03 19:36:44 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2024-11-03 19:36:44 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'AUTOTHROTTLE_MAX_DELAY': 10,
+ 'AUTOTHROTTLE_START_DELAY': 1,
+ 'BOT_NAME': 'transfermarkt',
+ 'DOWNLOAD_DELAY': 3,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'scrapy_log.txt',
+ 'NEWSPIDER_MODULE': 'transfermarkt.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['transfermarkt.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2024-11-03 19:36:44 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Android
+2024-11-03 19:36:44 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:36:44 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:36:44 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:36:44 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV13, Brand: Sony, Model: BDV13
+2024-11-03 19:36:44 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Nintendo DSi, Brand: Nintendo, Model: DSi
+2024-11-03 19:36:44 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:36:44 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:36:44 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF F90M, Brand: LYF, Model: F90M
+2024-11-03 19:36:44 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV14, Brand: Sony, Model: BDV14
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LG Web0S SmartTV, Brand: LG, Model: Web0S SmartTV
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV11, Brand: Sony, Model: BDV11
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Nintendo DSi, Brand: Nintendo, Model: DSi
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF LF-2403N, Brand: LYF, Model: LF-2403N
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF F90M, Brand: LYF, Model: F90M
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Applebot
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Applebot
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: SMTBot
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: WebKit Nightly
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:36:45 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:36:46 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:36:46 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:36:46 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Robot
+2024-11-03 19:36:46 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:36:46 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Zune
+2024-11-03 19:36:46 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy_user_agents.middlewares.RandomUserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2024-11-03 19:36:46 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2024-11-03 19:36:46 [scrapy.middleware] INFO: Enabled item pipelines:
+['transfermarkt.pipelines.LeaguePipeline',
+ 'transfermarkt.pipelines.TeamPipeline']
+2024-11-03 19:36:46 [scrapy.core.engine] INFO: Spider opened
+2024-11-03 19:36:46 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2024-11-03 19:36:46 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2024-11-03 19:36:46 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 5.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36
+2024-11-03 19:36:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.transfermarkt.com/robots.txt> (referer: None)
+2024-11-03 19:36:46 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36
+2024-11-03 19:36:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1> (referer: None)
+2024-11-03 19:36:49 [scrapy.core.engine] INFO: Closing spider (finished)
+2024-11-03 19:36:49 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 642,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 27079,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 3.436243,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2024, 11, 3, 16, 6, 49, 680766, tzinfo=datetime.timezone.utc),
+ 'httpcompression/response_bytes': 198519,
+ 'httpcompression/response_count': 2,
+ 'log_count/DEBUG': 7,
+ 'log_count/INFO': 10,
+ 'log_count/WARNING': 45,
+ 'memusage/max': 108429312,
+ 'memusage/startup': 108429312,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2024, 11, 3, 16, 6, 46, 244523, tzinfo=datetime.timezone.utc)}
+2024-11-03 19:36:49 [scrapy.core.engine] INFO: Spider closed (finished)
+2024-11-03 19:38:14 [scrapy.utils.log] INFO: Scrapy 2.11.0 started (bot: transfermarkt)
+2024-11-03 19:38:14 [scrapy.utils.log] INFO: Versions: lxml 4.9.3.0, libxml2 2.10.3, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.10.12 | packaged by conda-forge | (main, Jun 23 2023, 22:40:32) [GCC 12.3.0], pyOpenSSL 23.2.0 (OpenSSL 3.1.3 19 Sep 2023), cryptography 41.0.4, Platform Linux-6.8.0-47-generic-x86_64-with-glibc2.39
+2024-11-03 19:38:14 [scrapy.addons] INFO: Enabled addons:
+[]
+2024-11-03 19:38:14 [asyncio] DEBUG: Using selector: EpollSelector
+2024-11-03 19:38:14 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2024-11-03 19:38:14 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
+2024-11-03 19:38:14 [scrapy.extensions.telnet] INFO: Telnet Password: f31681b7f9c944d9
+2024-11-03 19:38:14 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2024-11-03 19:38:14 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'AUTOTHROTTLE_MAX_DELAY': 10,
+ 'AUTOTHROTTLE_START_DELAY': 1,
+ 'BOT_NAME': 'transfermarkt',
+ 'DOWNLOAD_DELAY': 3,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'scrapy_log.txt',
+ 'NEWSPIDER_MODULE': 'transfermarkt.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['transfermarkt.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2024-11-03 19:38:14 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Android
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV13, Brand: Sony, Model: BDV13
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Nintendo DSi, Brand: Nintendo, Model: DSi
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF F90M, Brand: LYF, Model: F90M
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV14, Brand: Sony, Model: BDV14
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LG Web0S SmartTV, Brand: LG, Model: Web0S SmartTV
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV11, Brand: Sony, Model: BDV11
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Nintendo DSi, Brand: Nintendo, Model: DSi
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF LF-2403N, Brand: LYF, Model: LF-2403N
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF F90M, Brand: LYF, Model: F90M
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Applebot
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:15 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Applebot
+2024-11-03 19:38:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:38:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:38:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:38:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: SMTBot
+2024-11-03 19:38:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:38:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:38:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: WebKit Nightly
+2024-11-03 19:38:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:38:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:38:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:38:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Robot
+2024-11-03 19:38:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:16 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Zune
+2024-11-03 19:38:16 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy_user_agents.middlewares.RandomUserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2024-11-03 19:38:16 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2024-11-03 19:38:16 [scrapy.middleware] INFO: Enabled item pipelines:
+['transfermarkt.pipelines.LeaguePipeline',
+ 'transfermarkt.pipelines.TeamPipeline']
+2024-11-03 19:38:16 [scrapy.core.engine] INFO: Spider opened
+2024-11-03 19:38:16 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2024-11-03 19:38:16 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2024-11-03 19:38:16 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36
+2024-11-03 19:38:17 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.transfermarkt.com/robots.txt> (referer: None)
+2024-11-03 19:38:17 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.43 Safari/537.31
+2024-11-03 19:38:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1> (referer: None)
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:38:22 [scrapy.core.engine] INFO: Closing spider (finished)
+2024-11-03 19:38:22 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 641,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 27123,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 5.655195,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2024, 11, 3, 16, 8, 22, 202040, tzinfo=datetime.timezone.utc),
+ 'httpcompression/response_bytes': 198513,
+ 'httpcompression/response_count': 2,
+ 'item_scraped_count': 39,
+ 'log_count/DEBUG': 46,
+ 'log_count/INFO': 10,
+ 'log_count/WARNING': 45,
+ 'memusage/max': 108670976,
+ 'memusage/startup': 108670976,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2024, 11, 3, 16, 8, 16, 546845, tzinfo=datetime.timezone.utc)}
+2024-11-03 19:38:22 [scrapy.core.engine] INFO: Spider closed (finished)
+2024-11-03 19:38:53 [scrapy.utils.log] INFO: Scrapy 2.11.0 started (bot: transfermarkt)
+2024-11-03 19:38:53 [scrapy.utils.log] INFO: Versions: lxml 4.9.3.0, libxml2 2.10.3, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.10.12 | packaged by conda-forge | (main, Jun 23 2023, 22:40:32) [GCC 12.3.0], pyOpenSSL 23.2.0 (OpenSSL 3.1.3 19 Sep 2023), cryptography 41.0.4, Platform Linux-6.8.0-47-generic-x86_64-with-glibc2.39
+2024-11-03 19:38:53 [scrapy.addons] INFO: Enabled addons:
+[]
+2024-11-03 19:38:53 [asyncio] DEBUG: Using selector: EpollSelector
+2024-11-03 19:38:53 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2024-11-03 19:38:53 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
+2024-11-03 19:38:53 [scrapy.extensions.telnet] INFO: Telnet Password: 0bc298b5835a8947
+2024-11-03 19:38:53 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2024-11-03 19:38:53 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'AUTOTHROTTLE_MAX_DELAY': 10,
+ 'AUTOTHROTTLE_START_DELAY': 1,
+ 'BOT_NAME': 'transfermarkt',
+ 'DOWNLOAD_DELAY': 3,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'scrapy_log.txt',
+ 'NEWSPIDER_MODULE': 'transfermarkt.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['transfermarkt.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Android
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV13, Brand: Sony, Model: BDV13
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Nintendo DSi, Brand: Nintendo, Model: DSi
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF F90M, Brand: LYF, Model: F90M
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV14, Brand: Sony, Model: BDV14
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LG Web0S SmartTV, Brand: LG, Model: Web0S SmartTV
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV11, Brand: Sony, Model: BDV11
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Nintendo DSi, Brand: Nintendo, Model: DSi
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF LF-2403N, Brand: LYF, Model: LF-2403N
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF F90M, Brand: LYF, Model: F90M
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:54 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:55 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Applebot
+2024-11-03 19:38:55 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:55 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Applebot
+2024-11-03 19:38:55 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:38:55 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:38:55 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:38:55 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: SMTBot
+2024-11-03 19:38:55 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:38:55 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:38:55 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: WebKit Nightly
+2024-11-03 19:38:55 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:38:55 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:55 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:38:55 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:38:55 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Robot
+2024-11-03 19:38:55 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:38:55 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Zune
+2024-11-03 19:38:55 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy_user_agents.middlewares.RandomUserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2024-11-03 19:38:55 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2024-11-03 19:38:55 [scrapy.middleware] INFO: Enabled item pipelines:
+['transfermarkt.pipelines.LeaguePipeline',
+ 'transfermarkt.pipelines.TeamPipeline']
+2024-11-03 19:38:55 [scrapy.core.engine] INFO: Spider opened
+2024-11-03 19:38:55 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2024-11-03 19:38:55 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2024-11-03 19:38:55 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36
+2024-11-03 19:38:56 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.transfermarkt.com/robots.txt> (referer: None)
+2024-11-03 19:38:56 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36
+2024-11-03 19:39:00 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1> (referer: None)
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:39:00 [scrapy.core.engine] INFO: Closing spider (finished)
+2024-11-03 19:39:00 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 630,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 27080,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 4.717481,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2024, 11, 3, 16, 9, 0, 405664, tzinfo=datetime.timezone.utc),
+ 'httpcompression/response_bytes': 198519,
+ 'httpcompression/response_count': 2,
+ 'item_scraped_count': 39,
+ 'log_count/DEBUG': 46,
+ 'log_count/INFO': 10,
+ 'log_count/WARNING': 45,
+ 'memusage/max': 108670976,
+ 'memusage/startup': 108670976,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2024, 11, 3, 16, 8, 55, 688183, tzinfo=datetime.timezone.utc)}
+2024-11-03 19:39:00 [scrapy.core.engine] INFO: Spider closed (finished)
+2024-11-03 19:46:55 [scrapy.utils.log] INFO: Scrapy 2.11.0 started (bot: transfermarkt)
+2024-11-03 19:46:55 [scrapy.utils.log] INFO: Versions: lxml 4.9.3.0, libxml2 2.10.3, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.10.12 | packaged by conda-forge | (main, Jun 23 2023, 22:40:32) [GCC 12.3.0], pyOpenSSL 23.2.0 (OpenSSL 3.1.3 19 Sep 2023), cryptography 41.0.4, Platform Linux-6.8.0-47-generic-x86_64-with-glibc2.39
+2024-11-03 19:46:55 [scrapy.addons] INFO: Enabled addons:
+[]
+2024-11-03 19:46:55 [asyncio] DEBUG: Using selector: EpollSelector
+2024-11-03 19:46:55 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2024-11-03 19:46:55 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
+2024-11-03 19:46:55 [scrapy.extensions.telnet] INFO: Telnet Password: 134ca242d770cef5
+2024-11-03 19:46:55 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2024-11-03 19:46:55 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'AUTOTHROTTLE_MAX_DELAY': 10,
+ 'AUTOTHROTTLE_START_DELAY': 1,
+ 'BOT_NAME': 'transfermarkt',
+ 'DOWNLOAD_DELAY': 3,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'scrapy_log.txt',
+ 'NEWSPIDER_MODULE': 'transfermarkt.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['transfermarkt.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Android
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV13, Brand: Sony, Model: BDV13
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Nintendo DSi, Brand: Nintendo, Model: DSi
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF F90M, Brand: LYF, Model: F90M
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV14, Brand: Sony, Model: BDV14
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LG Web0S SmartTV, Brand: LG, Model: Web0S SmartTV
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV11, Brand: Sony, Model: BDV11
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Nintendo DSi, Brand: Nintendo, Model: DSi
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF LF-2403N, Brand: LYF, Model: LF-2403N
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF F90M, Brand: LYF, Model: F90M
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Applebot
+2024-11-03 19:46:56 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:46:57 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Applebot
+2024-11-03 19:46:57 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:46:57 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:46:57 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:46:57 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: SMTBot
+2024-11-03 19:46:57 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:46:57 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:46:57 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: WebKit Nightly
+2024-11-03 19:46:57 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:46:57 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:46:57 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:46:57 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:46:57 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Robot
+2024-11-03 19:46:57 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:46:57 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Zune
+2024-11-03 19:46:57 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy_user_agents.middlewares.RandomUserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2024-11-03 19:46:57 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2024-11-03 19:46:57 [scrapy.middleware] INFO: Enabled item pipelines:
+['transfermarkt.pipelines.LeaguePipeline',
+ 'transfermarkt.pipelines.TeamPipeline']
+2024-11-03 19:46:57 [scrapy.core.engine] INFO: Spider opened
+2024-11-03 19:46:57 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2024-11-03 19:46:57 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2024-11-03 19:46:57 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.109 Safari/537.36
+2024-11-03 19:46:58 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.transfermarkt.com/robots.txt> (referer: None)
+2024-11-03 19:46:58 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 5.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36
+2024-11-03 19:47:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1> (referer: None)
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:47:03 [scrapy.core.engine] INFO: Closing spider (finished)
+2024-11-03 19:47:03 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 641,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 27127,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 6.009353,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2024, 11, 3, 16, 17, 3, 595221, tzinfo=datetime.timezone.utc),
+ 'httpcompression/response_bytes': 198528,
+ 'httpcompression/response_count': 2,
+ 'item_scraped_count': 39,
+ 'log_count/DEBUG': 46,
+ 'log_count/INFO': 10,
+ 'log_count/WARNING': 45,
+ 'memusage/max': 108806144,
+ 'memusage/startup': 108806144,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2024, 11, 3, 16, 16, 57, 585868, tzinfo=datetime.timezone.utc)}
+2024-11-03 19:47:03 [scrapy.core.engine] INFO: Spider closed (finished)
+2024-11-03 19:55:02 [scrapy.utils.log] INFO: Scrapy 2.11.0 started (bot: transfermarkt)
+2024-11-03 19:55:02 [scrapy.utils.log] INFO: Versions: lxml 4.9.3.0, libxml2 2.10.3, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.10.12 | packaged by conda-forge | (main, Jun 23 2023, 22:40:32) [GCC 12.3.0], pyOpenSSL 23.2.0 (OpenSSL 3.1.3 19 Sep 2023), cryptography 41.0.4, Platform Linux-6.8.0-47-generic-x86_64-with-glibc2.39
+2024-11-03 19:55:02 [scrapy.addons] INFO: Enabled addons:
+[]
+2024-11-03 19:55:02 [asyncio] DEBUG: Using selector: EpollSelector
+2024-11-03 19:55:02 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2024-11-03 19:55:02 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
+2024-11-03 19:55:02 [scrapy.extensions.telnet] INFO: Telnet Password: c219f2b7e98ee359
+2024-11-03 19:55:02 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2024-11-03 19:55:02 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'AUTOTHROTTLE_MAX_DELAY': 10,
+ 'AUTOTHROTTLE_START_DELAY': 1,
+ 'BOT_NAME': 'transfermarkt',
+ 'DOWNLOAD_DELAY': 3,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'scrapy_log.txt',
+ 'NEWSPIDER_MODULE': 'transfermarkt.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['transfermarkt.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2024-11-03 19:55:02 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Android
+2024-11-03 19:55:02 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:55:02 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:55:02 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:55:02 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV13, Brand: Sony, Model: BDV13
+2024-11-03 19:55:02 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Nintendo DSi, Brand: Nintendo, Model: DSi
+2024-11-03 19:55:02 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:55:02 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:55:02 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF F90M, Brand: LYF, Model: F90M
+2024-11-03 19:55:02 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV14, Brand: Sony, Model: BDV14
+2024-11-03 19:55:02 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LG Web0S SmartTV, Brand: LG, Model: Web0S SmartTV
+2024-11-03 19:55:03 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:55:03 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:55:03 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:55:03 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:55:03 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:55:03 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:55:03 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:55:03 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV11, Brand: Sony, Model: BDV11
+2024-11-03 19:55:03 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:55:03 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:55:03 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:55:03 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:55:03 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Nintendo DSi, Brand: Nintendo, Model: DSi
+2024-11-03 19:55:03 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF LF-2403N, Brand: LYF, Model: LF-2403N
+2024-11-03 19:55:03 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF F90M, Brand: LYF, Model: F90M
+2024-11-03 19:55:03 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:55:03 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:55:03 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Applebot
+2024-11-03 19:55:03 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:55:03 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Applebot
+2024-11-03 19:55:03 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:55:04 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:55:04 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:55:04 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: SMTBot
+2024-11-03 19:55:04 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:55:04 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:55:04 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: WebKit Nightly
+2024-11-03 19:55:04 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:55:04 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:55:04 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:55:04 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:55:04 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Robot
+2024-11-03 19:55:04 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:55:04 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Zune
+2024-11-03 19:55:04 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy_user_agents.middlewares.RandomUserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2024-11-03 19:55:04 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2024-11-03 19:55:04 [scrapy.middleware] INFO: Enabled item pipelines:
+['transfermarkt.pipelines.LeaguePipeline',
+ 'transfermarkt.pipelines.TeamPipeline']
+2024-11-03 19:55:04 [scrapy.core.engine] INFO: Spider opened
+2024-11-03 19:55:04 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2024-11-03 19:55:04 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2024-11-03 19:55:04 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36
+2024-11-03 19:55:05 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.transfermarkt.com/robots.txt> (referer: None)
+2024-11-03 19:55:05 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.93 Safari/537.36
+2024-11-03 19:55:09 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1> (referer: None)
+2024-11-03 19:55:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:55:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:55:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:55:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:55:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:55:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:55:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:55:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:55:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:55:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:55:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:55:09 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:55:09 [scrapy.core.engine] INFO: Closing spider (finished)
+2024-11-03 19:55:09 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 629,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 27139,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 5.334075,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2024, 11, 3, 16, 25, 9, 815469, tzinfo=datetime.timezone.utc),
+ 'httpcompression/response_bytes': 198580,
+ 'httpcompression/response_count': 2,
+ 'item_scraped_count': 12,
+ 'log_count/DEBUG': 19,
+ 'log_count/INFO': 10,
+ 'log_count/WARNING': 45,
+ 'memusage/max': 108687360,
+ 'memusage/startup': 108556288,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2024, 11, 3, 16, 25, 4, 481394, tzinfo=datetime.timezone.utc)}
+2024-11-03 19:55:09 [scrapy.core.engine] INFO: Spider closed (finished)
+2024-11-03 19:57:20 [scrapy.utils.log] INFO: Scrapy 2.11.0 started (bot: transfermarkt)
+2024-11-03 19:57:20 [scrapy.utils.log] INFO: Versions: lxml 4.9.3.0, libxml2 2.10.3, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.10.12 | packaged by conda-forge | (main, Jun 23 2023, 22:40:32) [GCC 12.3.0], pyOpenSSL 23.2.0 (OpenSSL 3.1.3 19 Sep 2023), cryptography 41.0.4, Platform Linux-6.8.0-47-generic-x86_64-with-glibc2.39
+2024-11-03 19:57:20 [scrapy.addons] INFO: Enabled addons:
+[]
+2024-11-03 19:57:20 [asyncio] DEBUG: Using selector: EpollSelector
+2024-11-03 19:57:20 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
+2024-11-03 19:57:20 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
+2024-11-03 19:57:20 [scrapy.extensions.telnet] INFO: Telnet Password: 51c2279fc01fc480
+2024-11-03 19:57:20 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2024-11-03 19:57:20 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'AUTOTHROTTLE_MAX_DELAY': 10,
+ 'AUTOTHROTTLE_START_DELAY': 1,
+ 'BOT_NAME': 'transfermarkt',
+ 'DOWNLOAD_DELAY': 3,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'scrapy_log.txt',
+ 'NEWSPIDER_MODULE': 'transfermarkt.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['transfermarkt.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'}
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Android
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV13, Brand: Sony, Model: BDV13
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Nintendo DSi, Brand: Nintendo, Model: DSi
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF F90M, Brand: LYF, Model: F90M
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV14, Brand: Sony, Model: BDV14
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LG Web0S SmartTV, Brand: LG, Model: Web0S SmartTV
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Sony BDV11, Brand: Sony, Model: BDV11
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Nintendo DSi, Brand: Nintendo, Model: DSi
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF LF-2403N, Brand: LYF, Model: LF-2403N
+2024-11-03 19:57:21 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: LYF F90M, Brand: LYF, Model: F90M
+2024-11-03 19:57:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:57:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:57:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Applebot
+2024-11-03 19:57:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:57:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Applebot
+2024-11-03 19:57:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:57:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Other
+2024-11-03 19:57:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:57:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: SMTBot
+2024-11-03 19:57:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:57:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:57:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: WebKit Nightly
+2024-11-03 19:57:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:57:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:57:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:57:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: PhantomJS
+2024-11-03 19:57:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Robot
+2024-11-03 19:57:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedDeviceType] Family: Other, Brand: None, Model: None
+2024-11-03 19:57:22 [scrapy_user_agents.user_agent_picker] WARNING: [UnsupportedBrowserType] Family: Zune
+2024-11-03 19:57:22 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy_user_agents.middlewares.RandomUserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2024-11-03 19:57:22 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2024-11-03 19:57:22 [scrapy.middleware] INFO: Enabled item pipelines:
+['transfermarkt.pipelines.LeaguePipeline',
+ 'transfermarkt.pipelines.TeamPipeline']
+2024-11-03 19:57:22 [scrapy.core.engine] INFO: Spider opened
+2024-11-03 19:57:22 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2024-11-03 19:57:22 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2024-11-03 19:57:22 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36
+2024-11-03 19:57:23 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.transfermarkt.com/robots.txt> (referer: None)
+2024-11-03 19:57:23 [scrapy_user_agents.middlewares] DEBUG: Assigned User-Agent Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36
+2024-11-03 19:57:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1> (referer: None)
+2024-11-03 19:57:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:57:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:57:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:57:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:57:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:57:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:57:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:57:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:57:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:57:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:57:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:57:27 [scrapy.core.scraper] DEBUG: Scraped from <200 https://www.transfermarkt.com/bundesliga/startseite/wettbewerb/A1>
+None
+2024-11-03 19:57:27 [scrapy.core.engine] INFO: Closing spider (finished)
+2024-11-03 19:57:27 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 623,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 27110,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'elapsed_time_seconds': 4.758795,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2024, 11, 3, 16, 27, 27, 545093, tzinfo=datetime.timezone.utc),
+ 'httpcompression/response_bytes': 198538,
+ 'httpcompression/response_count': 2,
+ 'item_scraped_count': 12,
+ 'log_count/DEBUG': 19,
+ 'log_count/INFO': 10,
+ 'log_count/WARNING': 45,
+ 'memusage/max': 108584960,
+ 'memusage/startup': 108584960,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2024, 11, 3, 16, 27, 22, 786298, tzinfo=datetime.timezone.utc)}
+2024-11-03 19:57:27 [scrapy.core.engine] INFO: Spider closed (finished)

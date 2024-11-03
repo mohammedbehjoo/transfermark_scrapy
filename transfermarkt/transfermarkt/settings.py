@@ -120,3 +120,22 @@ LOG_FORMAT = '%(asctime)s [%(name)s] %(levelname)s: %(message)s'
 
 # Optional: Set log dateformat
 LOG_DATEFORMAT = '%Y-%m-%d %H:%M:%S'
+
+
+FEEDS = {
+    'leagues.json': {
+        'format': 'json',
+        'encoding': 'utf8',
+        'store_empty': False,
+        'item_classes': ['transfermarkt.items.LeagueItem'],
+        'fields': None,
+    },
+    'teams.json': {
+        'format': 'json',
+        'encoding': 'utf8',
+        'store_empty': False,
+        'item_classes': ['transfermarkt.items.TeamItem'],
+        'fields': None,
+        'indent': 4,
+    },
+}

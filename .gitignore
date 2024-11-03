@@ -15,3 +15,5 @@
 # ignore temp.py
 temp.py
 temp*.py
+# ignore .txt files
+*.txt
