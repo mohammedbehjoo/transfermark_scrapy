@@ -26,9 +26,9 @@ class LeaguePipeline:
 
     def process_item(self, item, spider):
         # only process items from the league spider
-        if not spider.name=="leagues_spider":
+        if not spider.name == "leagues_spider":
             return item
-        
+
         self.logger.info(f"Processing item: {item}")
 
         # check if this a country item
@@ -72,16 +72,18 @@ class LeaguePipeline:
         else:
             self.logger.error("Item missing country_name or leagues")
             raise DropItem("Invalid item structure")
-        
+
+
 class TeamPipeline:
-    def __init__(self) :
-        self.logger=logging.getLogger(__name__)
-        self.team_names=set()
-        
+    def __init__(self):
+        self.logger = logging.getLogger(__name__)
+        self.team_names = set()
+
     def process_item(self, item, spider):
-        if not spider.name=="teams_spider":
+        if not spider.name == "teams_spider":
             return item
 
-        # clean the team name
-        item["team_name"]=item["team_name"].strip()
+        # clean the team_name and squad_size
+        item["team_name"] = item["team_name"].strip()
+        item["squad_size"] = item["squad_size"].strip()
         return item
