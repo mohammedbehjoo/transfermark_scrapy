@@ -83,7 +83,8 @@ class TeamPipeline:
         if not spider.name == "teams_spider":
             return item
 
-        # clean the team_name and squad_size
+        # clean the team_name, squad_size, avg age
         item["team_name"] = item["team_name"].strip()
         item["squad_size"] = item["squad_size"].strip()
+        item["avg_age"] = item["avg_age"].strip()
         return item

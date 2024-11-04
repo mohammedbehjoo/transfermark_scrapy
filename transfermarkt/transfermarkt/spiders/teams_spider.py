@@ -19,5 +19,7 @@ class TeamsSpiderSpider(scrapy.Spider):
                 "td.hauptlink.no-border-links a::text").get()
             team["squad_size"] = team_row.css(
                 "td.zentriert:nth-of-type(3) a::text").get()
-            print(f"Found team {team["team_name"]}, Found squad size: {team['squad_size']}")
+            team["avg_age"] = team_row.css(
+                "td.zentriert:nth-of-type(4)::text").get()
+            print(f"Found team {team['team_name']}, Found squad size: {team['squad_size']}, avg age is: {team['avg_age']}")
             yield team
