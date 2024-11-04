@@ -17,9 +17,13 @@ class TeamsSpiderSpider(scrapy.Spider):
             team = TeamItem()
             team["team_name"] = team_row.css(
                 "td.hauptlink.no-border-links a::text").get()
+            team["team_url"] = "https://www.transfermarkt.com" + \
+                team_row.css(
+                    "td.hauptlink.no-border-links a::attr(href)").get()
             team["squad_size"] = team_row.css(
                 "td.zentriert:nth-of-type(3) a::text").get()
             team["avg_age"] = team_row.css(
                 "td.zentriert:nth-of-type(4)::text").get()
-            print(f"Found team {team['team_name']}, Found squad size: {team['squad_size']}, avg age is: {team['avg_age']}")
+            print(
+                f"Found team {team['team_name']}, Found squad size: {team['squad_size']}, avg age is: {team['avg_age']}, team url is: {team['team_url']}")
             yield team

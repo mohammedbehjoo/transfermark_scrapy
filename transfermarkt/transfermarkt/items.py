@@ -15,5 +15,6 @@ class LeagueItem(scrapy.Item):
     
 class TeamItem(scrapy.Item):
     team_name=scrapy.Field()
+    team_url=scrapy.Field()
     squad_size=scrapy.Field()
     avg_age=scrapy.Field()
