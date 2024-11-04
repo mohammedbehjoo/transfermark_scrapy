@@ -18,3 +18,4 @@ class TeamItem(scrapy.Item):
     team_url=scrapy.Field()
     squad_size=scrapy.Field()
     avg_age=scrapy.Field()
+    foreigners_num=scrapy.Field()
