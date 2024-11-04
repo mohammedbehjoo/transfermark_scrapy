@@ -19,3 +19,4 @@ class TeamItem(scrapy.Item):
     squad_size=scrapy.Field()
     avg_age=scrapy.Field()
     foreigners_num=scrapy.Field()
+    avg_market=scrapy.Field()
