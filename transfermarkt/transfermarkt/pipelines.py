@@ -80,9 +80,24 @@ class TeamPipeline:
         self.team_names = set()
         self.team_urls=set()
 
+        # required fields
+        self.required_fields=[
+            "team_name",
+            "squad_size",
+            "avg_age",
+            "foreigners_num",
+            "avg_market",
+            "total_market"
+        ]
+        
     def process_item(self, item, spider):
         if not spider.name == "teams_spider":
             return item
+        
+        # check if the fields are not present. return an empty string or "-"
+        for field in self.required_fields:
+            if field not in item or not item[field]:
+                item[field]="empty string"
 
         # clean the team_name, squad_size, avg age, foreigners_num, avg_market, and toal_market
         item["team_name"] = item["team_name"].strip()
@@ -95,5 +110,7 @@ class TeamPipeline:
         # check for duplicate team urls
         if item["team_url"] in self.team_urls:
             raise DropItem(f"Duplicate URL found {item}")
+        
+        
         
         return item
