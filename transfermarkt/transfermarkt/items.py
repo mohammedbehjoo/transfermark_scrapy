@@ -4,6 +4,7 @@
 # https://docs.scrapy.org/en/latest/topics/items.html
 
 import scrapy
+import scrapy.item
 
 
 class LeagueItem(scrapy.Item):
@@ -22,3 +23,7 @@ class TeamItem(scrapy.Item):
     foreigners_num = scrapy.Field()
     avg_market = scrapy.Field()
     total_market = scrapy.Field()
+
+
+class TeamDetailsItem(scrapy.Item):
+    league_name = scrapy.Field()

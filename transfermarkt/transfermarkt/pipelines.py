@@ -71,10 +71,10 @@ class TeamPipeline:
     def __init__(self):
         self.logger = logging.getLogger(__name__)
         self.team_names = set()
-        self.team_urls=set()
+        self.team_urls = set()
 
         # required fields
-        self.required_fields=[
+        self.required_fields = [
             "team_name",
             "team_url",
             "squad_size",
@@ -83,39 +83,56 @@ class TeamPipeline:
             "avg_market",
             "total_market"
         ]
-        
+
     def process_item(self, item, spider):
         if not spider.name == "teams_spider":
             return item
-        
+
         if "country_name" in item and "league_name" in item and "season" in item:
-            valid_seasons=[]
+            valid_seasons = []
             for team in item["teams"]:
                 try:
                     # check if the fields are not present. return "empty string".
                     for field in self.required_fields:
                         if field not in team or not team[field]:
-                            team[field]="empty string"
-                    
+                            team[field] = "empty string"
+
                     # clean the team_name, squad_size, avg age, foreigners_num, avg_market, and toal_market
                     team["team_name"] = team["team_name"].strip()
                     team["squad_size"] = team["squad_size"].strip()
                     team["avg_age"] = team["avg_age"].strip()
                     team["foreigners_num"] = team["foreigners_num"].strip()
-                    team["avg_market"]=team["avg_market"].strip()
-                    team["total_market"] =team["total_market"].strip()
-                    
+                    team["avg_market"] = team["avg_market"].strip()
+                    team["total_market"] = team["total_market"].strip()
+
                     # # check for duplicate team urls
                     if team["team_url"] in self.team_urls:
                         raise DropItem(f"Duplicate URL found {team}")
-                    
-                    
+
                     valid_seasons.append(team)
-                    
+
                 except DropItem as e:
                     self.logger.info(f"Dropped season {str(e)}")
                     continue
-                
-            item["teams"]=valid_seasons
+
+            item["teams"] = valid_seasons
             return item
-        raise DropItem(f"Missing country_name, league_name, or season in item: {item}")
+        raise DropItem(
+            f"Missing country_name, league_name, or season in item: {item}")
+
+
+class TeamDetailsPipeline:
+    def __init__(self):
+        self.logger = logging.getLogger(__name__)
+
+    def process_item(self, item, spider):
+        if not spider.name == "team_details":
+            return item
+
+        self.logger.info(f"Processing item of team details: {item}")
+
+        # Strip leading/trailing whitespace
+        item["league_name"] = item["league_name"].strip()
+        self.logger.info(f"Cleaned item: '{item['league_name']}'")
+
+        return item

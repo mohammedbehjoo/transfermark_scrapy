@@ -22,7 +22,7 @@ class TeamsSpiderSpider(scrapy.Spider):
     team_counter = 0
 
     # start year and end year
-    start_year, end_year = 2023, 2025
+    start_year, end_year = 2022, 2024
 
     name = "teams_spider"
     allowed_domains = ["www.transfermarkt.com"]
@@ -88,11 +88,8 @@ class TeamsSpiderSpider(scrapy.Spider):
                     "td.zentriert:nth-of-type(5)::text").get(),
                 "avg_market": team_row.css("td.rechts::text").get(),
                 "total_market": team_row.css("td.rechts a::text").get()
-                # print(
-                #     f"Found team {team['team_name']}, Found squad size: {team['squad_size']}, avg age is: {team['avg_age']}, team url is: {team['team_url']}")
-                # print(
-                #     f"Number of foreigners is: {team['foreigners_num']}, avg market value is: {team['avg_market']}, and total market value is: {team['total_market']}")
             }
+            
             self.team_counter += 1
             self.logger.info(f"team counter is: {self.team_counter}")
             print(f"team counter is: {self.team_counter}")
@@ -102,10 +99,3 @@ class TeamsSpiderSpider(scrapy.Spider):
             yield seasons_data
         else:
             self.logger.warning(f"No teams found for this league. {league_name}")
-
-        # Yield the data if any teams were found
-        # if any(seasons_data[key] for key in seasons_data if key.startswith("seasons_")):
-        #     yield seasons_data
-        # else:
-        #     self.logger.warning(
-        #         f"No teams found for this league: {league_name}")

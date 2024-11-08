@@ -75,6 +75,7 @@ DOWNLOADER_MIDDLEWARES = {
 ITEM_PIPELINES = {
     "transfermarkt.pipelines.LeaguePipeline": 300,
     "transfermarkt.pipelines.TeamPipeline": 301,
+    "transfermarkt.pipelines.TeamDetailsPipeline": 302,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -139,4 +140,12 @@ FEEDS = {
         'fields': None,
         'indent': 4,
     },
+    'teams_details.json': {
+        'format': 'json',
+        'encoding': 'utf8',
+        'store_empty': False,
+        'item_classes': ['transfermarkt.items.TeamDetailsItem'],
+        'fields': None,
+        'indent': 4,
+    }
 }
