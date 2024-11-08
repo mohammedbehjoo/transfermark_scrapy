@@ -96,23 +96,26 @@ class TeamPipeline:
                     for field in self.required_fields:
                         if field not in team or not team[field]:
                             team[field]="empty string"
+                    
+                    # clean the team_name, squad_size, avg age, foreigners_num, avg_market, and toal_market
+                    team["team_name"] = team["team_name"].strip()
+                    team["squad_size"] = team["squad_size"].strip()
+                    team["avg_age"] = team["avg_age"].strip()
+                    team["foreigners_num"] = team["foreigners_num"].strip()
+                    team["avg_market"]=team["avg_market"].strip()
+                    team["total_market"] =team["total_market"].strip()
+                    
+                    # # check for duplicate team urls
+                    if team["team_url"] in self.team_urls:
+                        raise DropItem(f"Duplicate URL found {team}")
+                    
+                    
                     valid_seasons.append(team)
                     
                 except DropItem as e:
-                    self.logger.info(f"Dropped seasons {str(e)}")
+                    self.logger.info(f"Dropped season {str(e)}")
                     continue
+                
             item["teams"]=valid_seasons
             return item
-        raise DropItem(f"Missing country_name, league_name, or seasons in item: {item}")
-        # # clean the team_name, squad_size, avg age, foreigners_num, avg_market, and toal_market
-        # item["team_name"] = item["team_name"].strip()
-        # item["squad_size"] = item["squad_size"].strip()
-        # item["avg_age"] = item["avg_age"].strip()
-        # item["foreigners_num"] = item["foreigners_num"].strip()
-        # item["avg_market"]=item["avg_market"].strip()
-        # item["total_market"] =item["total_market"].strip()
-        
-        # # check for duplicate team urls
-        # if item["team_url"] in self.team_urls:
-        #     raise DropItem(f"Duplicate URL found {item}")
-        
+        raise DropItem(f"Missing country_name, league_name, or season in item: {item}")
