@@ -129,6 +129,7 @@ FEEDS = {
         'store_empty': False,
         'item_classes': ['transfermarkt.items.LeagueItem'],
         'fields': None,
+        'indent': 4,
     },
     'teams.json': {
         'format': 'json',

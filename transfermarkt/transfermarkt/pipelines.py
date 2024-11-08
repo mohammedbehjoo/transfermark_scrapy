@@ -31,22 +31,15 @@ class LeaguePipeline:
 
         self.logger.info(f"Processing item: {item}")
 
-        # check if this a country item
+        # check if this is a country item
         if "country_name" in item and "leagues" in item:
             valid_leagues = []
             for league in item["leagues"]:
                 try:
                     # check if required fields are present
-                    '''
-                    what it does is that it looks for these required fields in each item.
-                    Since each item in scrapy is like a dictionary, so we use the get()
-                    method to retrieve the value of each key. the keys here are
-                    the required fields. So if the value of each key is not present
-                    the item will be dropped.
-                    '''
                     for field in self.required_fields:
                         if field not in league or not league[field]:
-                            raise DropItem(f"Missing {field} ")
+                            raise DropItem(league)
 
                     # clean league_name
                     league["league_name"] = league["league_name"].strip()
@@ -83,6 +76,7 @@ class TeamPipeline:
         # required fields
         self.required_fields=[
             "team_name",
+            "team_url",
             "squad_size",
             "avg_age",
             "foreigners_num",
@@ -94,23 +88,31 @@ class TeamPipeline:
         if not spider.name == "teams_spider":
             return item
         
-        # check if the fields are not present. return an empty string or "-"
-        for field in self.required_fields:
-            if field not in item or not item[field]:
-                item[field]="empty string"
-
-        # clean the team_name, squad_size, avg age, foreigners_num, avg_market, and toal_market
-        item["team_name"] = item["team_name"].strip()
-        item["squad_size"] = item["squad_size"].strip()
-        item["avg_age"] = item["avg_age"].strip()
-        item["foreigners_num"] = item["foreigners_num"].strip()
-        item["avg_market"]=item["avg_market"].strip()
-        item["total_market"] =item["total_market"].strip()
+        if "country_name" in item and "league_name" in item and "season" in item:
+            valid_seasons=[]
+            for team in item["teams"]:
+                try:
+                    # check if the fields are not present. return "empty string".
+                    for field in self.required_fields:
+                        if field not in team or not team[field]:
+                            team[field]="empty string"
+                    valid_seasons.append(team)
+                    
+                except DropItem as e:
+                    self.logger.info(f"Dropped seasons {str(e)}")
+                    continue
+            item["teams"]=valid_seasons
+            return item
+        raise DropItem(f"Missing country_name, league_name, or seasons in item: {item}")
+        # # clean the team_name, squad_size, avg age, foreigners_num, avg_market, and toal_market
+        # item["team_name"] = item["team_name"].strip()
+        # item["squad_size"] = item["squad_size"].strip()
+        # item["avg_age"] = item["avg_age"].strip()
+        # item["foreigners_num"] = item["foreigners_num"].strip()
+        # item["avg_market"]=item["avg_market"].strip()
+        # item["total_market"] =item["total_market"].strip()
         
-        # check for duplicate team urls
-        if item["team_url"] in self.team_urls:
-            raise DropItem(f"Duplicate URL found {item}")
+        # # check for duplicate team urls
+        # if item["team_url"] in self.team_urls:
+        #     raise DropItem(f"Duplicate URL found {item}")
         
-        
-        
-        return item
