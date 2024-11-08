@@ -27,3 +27,5 @@ class TeamItem(scrapy.Item):
 
 class TeamDetailsItem(scrapy.Item):
     league_name = scrapy.Field()
+    table_position=scrapy.Field()
+    country=scrapy.Field()

@@ -133,6 +133,7 @@ class TeamDetailsPipeline:
 
         # Strip leading/trailing whitespace
         item["league_name"] = item["league_name"].strip()
+        item["table_position"] = item["table_position"].strip()
         self.logger.info(f"Cleaned item: '{item['league_name']}'")
 
         return item
