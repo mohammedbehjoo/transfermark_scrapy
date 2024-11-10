@@ -40,14 +40,7 @@ class TeamDetailsSpider(scrapy.Spider):
                 yield response.follow(next_page, callback=self.parse_next, meta={"team_detail": team_detail})
             else:
                 yield team_detail
-            # if len(elements)>0:
-            #     for i, element in enumerate(elements):
-            #         print(f"Element {i}:")
-            #         for attr, value in element.attrib.items():
-            #             print(f"{attr}: {value}")
-            # else:
-            #     print("Elements is empty")
-            # print("href selector:",team_detail.css(HREF_SELECTOR))
+
 
     def parse_next(self, response):
         # retrieve the item passed from the previous parse method
@@ -56,7 +49,8 @@ class TeamDetailsSpider(scrapy.Spider):
         # extract additional details here
         PLAYER_NAME_SELECTOR = ".items tbody td.posrela td.hauptlink a::text"
         PLAYER_POSITION_SELECTOR = ".items tbody  td.posrela tr td::text"
-        PLAYER_DATE_OF_BIRTH_SELECTOR = ".items td.zentriert"
+        PLAYER_DATE_OF_BIRTH_NATIONALITY_SELECTOR = ".items td.zentriert"
+        
         # response of the selectors
         raw_names = response.css(PLAYER_NAME_SELECTOR).getall()
         raw_positions = response.css(PLAYER_POSITION_SELECTOR).getall()
@@ -68,7 +62,7 @@ class TeamDetailsSpider(scrapy.Spider):
 
         # extract date of birth elements
         temp_list = []
-        dob_elements = response.css(PLAYER_DATE_OF_BIRTH_SELECTOR)[
+        dob_elements = response.css(PLAYER_DATE_OF_BIRTH_NATIONALITY_SELECTOR)[
             1::2]  # Select every second element
         for element in dob_elements:
             text_content = element.css("::text").get()
@@ -78,20 +72,31 @@ class TeamDetailsSpider(scrapy.Spider):
         dob_list = temp_list[::2]
         # strip and split the raaw date of birth nag age. only get the dates.
         dates_only_list = [item.split("(")[0].strip() for item in dob_list]
-        # # Print extracted dates of birth for verification
-        # print(f"Extracted dates of birth (every second element): {dob_texts}")
-        print(f"daets_only_list is: {dates_only_list}")
-        print(f"len dates_only_list is: {len(dates_only_list)}")
 
+        # get the nationality of players
+        nationality_list=[]
+        for element in response.css(PLAYER_DATE_OF_BIRTH_NATIONALITY_SELECTOR):
+            img_tags=element.css("img.flaggenrahmen")
+            if len(img_tags)==2:
+                nationality=", ".join([img.css("::attr(alt)").get() for img in img_tags])
+            elif len(img_tags)==1:
+                nationality=img_tags.css("::attr(alt)").get()
+            else:
+                nationality=None
+            if nationality:
+                nationality_list.append(nationality)
+        print(f"nationality_list is: {nationality_list}, and its len is {len(nationality_list)}")
         # list of players
         player_list = []
         for i, name in enumerate(cleaned_names):
+            # position of each player
             position = cleaned_positions[i] if i < len(
                 cleaned_positions) else None
+            # date of birth of each player
             date_of_birth = dates_only_list[i] if i < len(
                 dates_only_list) else None
-            # print(
-            #     f"Player {i + 1} - Name: {name}, Position: {position.strip() if position else 'N/A'}")
+            
+            # player details to be added to the player_dict
             player_dict = {
                 "player_name": name,
                 "player_position": position.strip() if position else None,
@@ -100,6 +105,7 @@ class TeamDetailsSpider(scrapy.Spider):
             player_list.append(player_dict)
         # add the player_list to the team_detail item
         team_detail["players"] = player_list
+        # print the player_list to see all the details that are crawled
         print(f"extracted players with details: {player_list}")
 
         # yield the complete item after accumulating data from the second page
