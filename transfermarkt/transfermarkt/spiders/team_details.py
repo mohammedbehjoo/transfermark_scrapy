@@ -106,9 +106,13 @@ class TeamDetailsSpider(scrapy.Spider):
             height_string = element.css("::text").get()
             if height_string:
                 temp_list.append(height_string)
+        print(f"temp list:\n", temp_list)
         height_list = temp_list[2::5]
         height_list = [i.replace("m", "").replace(",", "")
                        for i in height_list]
+
+        # foot list of the players
+        foot_list = temp_list[3::5]
         # list of players
         player_list = []
         for i, name in enumerate(cleaned_names):
@@ -129,6 +133,8 @@ class TeamDetailsSpider(scrapy.Spider):
             # height of each player
             height = height_list[i] if i < len(height_list) else None
 
+            # foot of the player
+            foot = foot_list[i] if i < len(foot_list) else None
             # player details to be added to the player_dict
             player_dict = {
                 "player_name": name,
@@ -136,7 +142,8 @@ class TeamDetailsSpider(scrapy.Spider):
                 "date_of_birth": date_of_birth,
                 "nationality": nationality,
                 "current_club": current_club,
-                "height_CM": height
+                "height_CM": height,
+                "foot": foot
             }
 
             player_list.append(player_dict)
