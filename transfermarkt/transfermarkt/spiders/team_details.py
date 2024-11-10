@@ -51,6 +51,7 @@ class TeamDetailsSpider(scrapy.Spider):
         PLAYER_DATE_OF_BIRTH_NATIONALITY_SELECTOR = ".items td.zentriert"
         PLAYER_CURRENT_CLUB_SELECTOR = ".items td.zentriert"
         PLAYER_HEIGHT_SELECTOR = ".items td.zentriert"
+        MARKET_VALUE_SELECTOR = ".rechts"
 
         # response of the selectors
         raw_names = response.css(PLAYER_NAME_SELECTOR).getall()
@@ -73,6 +74,18 @@ class TeamDetailsSpider(scrapy.Spider):
         dob_list = temp_list[::2]
         # strip and split the raaw date of birth nag age. only get the dates.
         dates_only_list = [item.split("(")[0].strip() for item in dob_list]
+        temp_list = []
+        for element in response.css(MARKET_VALUE_SELECTOR):
+            temp_list.append(element.css("a::text").get())
+        # add to market_value list and process the items to be just digits
+        market_value_list = [item for item in temp_list if any(
+            char.isdigit() for char in item)]
+        market_value_list = [item.replace("€", "")
+                             for item in market_value_list]
+        market_value_list = [float(item.replace("m", ""))*1000000 if "m" in item
+                             else float(item.replace("k", ""))*1000 if "k" in item
+                             else float(item)
+                             for item in market_value_list]
 
         # get the nationality of players
         nationality_list = []
@@ -148,6 +161,10 @@ class TeamDetailsSpider(scrapy.Spider):
             signed_from = signed_from_list[i] if i < len(
                 signed_from_list) else None
 
+            # market value of each player
+            market_value = market_value_list[i] if i < len(
+                market_value_list) else None
+
             # player details to be added to the player_dict
             player_dict = {
                 "player_name": name,
@@ -158,7 +175,8 @@ class TeamDetailsSpider(scrapy.Spider):
                 "height_CM": height,
                 "foot": foot,
                 "joined": joined,
-                "signed_from": signed_from
+                "signed_from": signed_from,
+                "market_value": market_value
             }
 
             player_list.append(player_dict)
@@ -166,7 +184,7 @@ class TeamDetailsSpider(scrapy.Spider):
         # add the player_list to the team_detail item
         team_detail["players"] = player_list
         # print the player_list to see all the details that are crawled
-        print(f"extracted players with details: {player_list}")
+        # print(f"extracted players with details: {player_list}")
 
         # yield the complete item after accumulating data from the second page
         yield team_detail
