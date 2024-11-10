@@ -107,7 +107,8 @@ class TeamDetailsSpider(scrapy.Spider):
             if height_string:
                 temp_list.append(height_string)
         height_list = temp_list[2::5]
-
+        height_list = [i.replace("m", "").replace(",", "")
+                       for i in height_list]
         # list of players
         player_list = []
         for i, name in enumerate(cleaned_names):
@@ -135,7 +136,7 @@ class TeamDetailsSpider(scrapy.Spider):
                 "date_of_birth": date_of_birth,
                 "nationality": nationality,
                 "current_club": current_club,
-                "height": height
+                "height_CM": height
             }
 
             player_list.append(player_dict)
