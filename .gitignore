@@ -17,3 +17,5 @@ temp.py
 temp*.py
 # ignore .txt files
 *.txt
+# ignore jpg files
+*.jpg
