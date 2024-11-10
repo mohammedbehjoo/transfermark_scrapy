@@ -113,6 +113,10 @@ class TeamDetailsSpider(scrapy.Spider):
 
         # foot list of the players
         foot_list = temp_list[3::5]
+
+        # joined date list
+        joined_list = temp_list[4::5]
+
         # list of players
         player_list = []
         for i, name in enumerate(cleaned_names):
@@ -133,6 +137,8 @@ class TeamDetailsSpider(scrapy.Spider):
             # height of each player
             height = height_list[i] if i < len(height_list) else None
 
+            # joined date of each player
+            joined = joined_list[i] if i < len(joined_list) else None
             # foot of the player
             foot = foot_list[i] if i < len(foot_list) else None
             # player details to be added to the player_dict
@@ -143,7 +149,8 @@ class TeamDetailsSpider(scrapy.Spider):
                 "nationality": nationality,
                 "current_club": current_club,
                 "height_CM": height,
-                "foot": foot
+                "foot": foot,
+                "joined": joined
             }
 
             player_list.append(player_dict)
