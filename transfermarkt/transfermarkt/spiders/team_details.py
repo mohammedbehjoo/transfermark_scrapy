@@ -99,6 +99,8 @@ class TeamDetailsSpider(scrapy.Spider):
                 temp_club_list.append(cur_club)
         # current club list gets every thrid element from all the clubs list
         current_club_list = temp_club_list[1::3]
+        # signed from team, every third element, starting from index 2
+        signed_from_list = temp_club_list[2::3]
 
         # height of the player
         temp_list = []
@@ -106,7 +108,6 @@ class TeamDetailsSpider(scrapy.Spider):
             height_string = element.css("::text").get()
             if height_string:
                 temp_list.append(height_string)
-        print(f"temp list:\n", temp_list)
         height_list = temp_list[2::5]
         height_list = [i.replace("m", "").replace(",", "")
                        for i in height_list]
@@ -139,8 +140,14 @@ class TeamDetailsSpider(scrapy.Spider):
 
             # joined date of each player
             joined = joined_list[i] if i < len(joined_list) else None
+
             # foot of the player
             foot = foot_list[i] if i < len(foot_list) else None
+
+            # signed from club for each player
+            signed_from = signed_from_list[i] if i < len(
+                signed_from_list) else None
+
             # player details to be added to the player_dict
             player_dict = {
                 "player_name": name,
@@ -150,7 +157,8 @@ class TeamDetailsSpider(scrapy.Spider):
                 "current_club": current_club,
                 "height_CM": height,
                 "foot": foot,
-                "joined": joined
+                "joined": joined,
+                "signed_from": signed_from
             }
 
             player_list.append(player_dict)
