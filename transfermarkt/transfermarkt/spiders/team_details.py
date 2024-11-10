@@ -50,6 +50,7 @@ class TeamDetailsSpider(scrapy.Spider):
         PLAYER_POSITION_SELECTOR = ".items tbody  td.posrela tr td::text"
         PLAYER_DATE_OF_BIRTH_NATIONALITY_SELECTOR = ".items td.zentriert"
         PLAYER_CURRENT_CLUB_SELECTOR = ".items td.zentriert"
+        PLAYER_HEIGHT_SELECTOR = ".items td.zentriert"
 
         # response of the selectors
         raw_names = response.css(PLAYER_NAME_SELECTOR).getall()
@@ -92,13 +93,20 @@ class TeamDetailsSpider(scrapy.Spider):
 
         # get the current club of the player
         temp_club_list = []
-        for index, element in enumerate(response.css(PLAYER_CURRENT_CLUB_SELECTOR)):
+        for element in response.css(PLAYER_CURRENT_CLUB_SELECTOR):
             cur_club = element.css("img::attr(alt)").get()
-            print(f"cur_club {cur_club}")
             if cur_club:
                 temp_club_list.append(cur_club)
         # current club list gets every thrid element from all the clubs list
         current_club_list = temp_club_list[1::3]
+
+        # height of the player
+        temp_list = []
+        for element in response.css(PLAYER_HEIGHT_SELECTOR):
+            height_string = element.css("::text").get()
+            if height_string:
+                temp_list.append(height_string)
+        height_list = temp_list[2::5]
 
         # list of players
         player_list = []
@@ -116,14 +124,18 @@ class TeamDetailsSpider(scrapy.Spider):
             # current club of each player
             current_club = current_club_list[i] if i < len(
                 current_club_list) else None
-            
+
+            # height of each player
+            height = height_list[i] if i < len(height_list) else None
+
             # player details to be added to the player_dict
             player_dict = {
                 "player_name": name,
                 "player_position": position.strip() if position else None,
                 "date_of_birth": date_of_birth,
                 "nationality": nationality,
-                "current_club": current_club
+                "current_club": current_club,
+                "height": height
             }
 
             player_list.append(player_dict)
