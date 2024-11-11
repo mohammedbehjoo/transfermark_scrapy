@@ -136,8 +136,11 @@ class TeamDetailsPipeline:
         item["table_position"] = item["table_position"].strip()
         item["team_name"]=item["team_name"].strip()
         
-        # proccessing the data type
+        # processing datatypes
         item["table_position"]=int(item["table_position"])
+        item["national_players_num"]=int(item["national_players_num"])
+        
+        
         self.logger.info(f"Cleaned item: '{item['league_name']}'")
 
         return item
