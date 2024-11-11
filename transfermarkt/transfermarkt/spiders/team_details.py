@@ -101,9 +101,6 @@ class TeamDetailsSpider(scrapy.Spider):
             # Check for special characters
             elif any(char in "-!@#$%^&*()_+=[]{}|\\:;\"\'<>,.?/~`" for char in item):
                 market_value_list.append(str(0))  # Set value to 0 and append
-        print(f"len temp list\n{len(temp_list)}")
-        print(
-            f"market_value_list:\n{market_value_list},\nlen{len(market_value_list)}")
 
         market_value_list = [item.replace("€", "")
                              for item in market_value_list]
@@ -155,7 +152,9 @@ class TeamDetailsSpider(scrapy.Spider):
 
         # joined date list
         joined_list = temp_list[4::5]
-
+        # handle missing dates
+        joined_list=[item.replace("\u00A0", "00-00-0000") if item else None for item in joined_list]
+        
         # list of players
         player_list = []
         for i, name in enumerate(cleaned_names):
