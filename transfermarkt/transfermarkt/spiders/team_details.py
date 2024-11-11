@@ -13,6 +13,8 @@ class TeamDetailsSpider(scrapy.Spider):
         LEAGUE_NAME_SELECTOR = ".data-header__box--big div.data-header__club-info span.data-header__club"
         TABLE_COUNTRY_POSITION_SELECTOR = ".data-header__box--big div.data-header__club-info span.data-header__label span.data-header__content a"
         NATIONAL_PLAYERS_NUM_SELECTOR = ".data-header__info-box  div.data-header__details ul.data-header__items li.data-header__label span.data-header__content"
+        TEAM_NAME_SELECTOR=".data-header__headline-wrapper--oswald"
+        
         for team_detail_item in response.css(TEAM_SELECTOR):
             team_detail = TeamDetailsItem()
             team_detail["league_name"] = team_detail_item.css(
@@ -25,7 +27,10 @@ class TeamDetailsSpider(scrapy.Spider):
             elements = team_detail_item.css(NATIONAL_PLAYERS_NUM_SELECTOR)
             team_detail["national_players_num"] = elements[3].css(
                 "a::text").get()
-
+            team_detail["season"]=int(self.start_urls[0].split("/")[-1])
+            team_detail["team_name"]=team_detail_item.css(TEAM_NAME_SELECTOR).css("::text").get()
+            
+            
             print(
                 f"Found league name: {team_detail['league_name']},position is: {team_detail['table_position']},country is: {team_detail['country']}")
             print(f"National Players: {team_detail['national_players_num']}")

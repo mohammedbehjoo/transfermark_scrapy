@@ -31,3 +31,5 @@ class TeamDetailsItem(scrapy.Item):
     country = scrapy.Field()
     national_players_num = scrapy.Field()
     players = scrapy.Field()
+    season=scrapy.Field()
+    team_name=scrapy.Field()

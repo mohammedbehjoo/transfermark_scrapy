@@ -134,6 +134,10 @@ class TeamDetailsPipeline:
         # Strip leading/trailing whitespace
         item["league_name"] = item["league_name"].strip()
         item["table_position"] = item["table_position"].strip()
+        item["team_name"]=item["team_name"].strip()
+        
+        # proccessing the data type
+        # item["table_position"]=int(item["table_position"])
         self.logger.info(f"Cleaned item: '{item['league_name']}'")
 
         return item
