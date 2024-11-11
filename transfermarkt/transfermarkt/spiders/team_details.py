@@ -72,23 +72,21 @@ class TeamDetailsSpider(scrapy.Spider):
                              for pos in raw_positions if pos.strip()]
 
         # extract date of birth elements
-        temp_list = []
-        dob_elements = response.css(PLAYER_DATE_OF_BIRTH_NATIONALITY_SELECTOR)[
-            1::2]  # Select every second element
+        dob_temp_list = []
+        dob_elements = response.css(PLAYER_DATE_OF_BIRTH_NATIONALITY_SELECTOR)
         for element in dob_elements:
-            text_content = element.css("::text").get()
+            text_content = element.css("::text").get(default="empty string")
             if text_content:
-                temp_list.append(text_content.strip())
-        # only get every second item that is date of birth + age
-        dob_list = temp_list[::2]
-        # strip and split the raaw date of birth nag age. only get the dates.
-        dates_only_list = [item.split("(")[0].strip() for item in dob_list]
+                dob_temp_list.append(text_content.strip())
+        # only item that is date of birth + age
+        dates_only_list = dob_temp_list[1::8]
+        # strip and split the raw date of birth nag age. only get the dates.
+        dates_only_list = [item.split("(")[0].strip() for item in dates_only_list]
 
         # market value list
         temp_list = []
         for element in response.css(MARKET_VALUE_SELECTOR):
             temp_list.append(element.css("a::text").get())
-        print(f"temp list\n{temp_list}")
 
         # add to market_value list and process the items to be just digits
         market_value_list = []
