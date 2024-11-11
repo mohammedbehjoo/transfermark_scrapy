@@ -6,8 +6,14 @@ class TeamDetailsSpider(scrapy.Spider):
     name = "team_details"
     allowed_domains = ["www.transfermarkt.com"]
     start_urls = [
-        # "https://www.transfermarkt.com/red-bull-salzburg/startseite/verein/409/saison_id/2022"]
-        "https://www.transfermarkt.com/fc-paris-saint-germain/startseite/verein/583/saison_id/2022"]
+        "https://www.transfermarkt.com/red-bull-salzburg/startseite/verein/409/saison_id/2022"
+        # "https://www.transfermarkt.com/fc-paris-saint-germain/startseite/verein/583/saison_id/2022"
+    ]
+    root_url=start_urls[0].split("/")
+    season_id=root_url[-1]
+    stats_url="/".join(root_url[:4])+"/leistungsdaten/"
+    stats_url=stats_url+"/".join(root_url[5:7])+"/reldata"+f"/%26{season_id}"+"/plus/1"
+    print(f"statsURL\n{stats_url}")
 
     def parse(self, response):
         TEAM_SELECTOR = "#tm-main"
@@ -35,22 +41,18 @@ class TeamDetailsSpider(scrapy.Spider):
             team_detail["current_transfer_record"] = team_detail_item.css(
                 CURRENT_TRANSFER_RECORD_SELECTOR).css("::text").get()
 
-            print(
-                f"Found league name: {team_detail['league_name']},position is: {team_detail['table_position']},country is: {team_detail['country']}")
-            print(f"National Players: {team_detail['national_players_num']}")
-
             # let's go to the next page, and get the detailed squad data.
             HREF_SELECTOR = "div.tm-tabs a.tm-tab"
             elements = team_detail_item.css(HREF_SELECTOR)
-            next_page = "https://www.transfermarkt.com" + \
+            detailed_squad_page = "https://www.transfermarkt.com" + \
                 elements[1].css("a").attrib.get("href")
-            print(f"next page is: {next_page}")
-            if next_page:
-                yield response.follow(next_page, callback=self.parse_next, meta={"team_detail": team_detail})
+            print(f"next page is: {detailed_squad_page}")
+            if detailed_squad_page:
+                yield response.follow(detailed_squad_page, callback=self.parse_detailed_squad, meta={"team_detail": team_detail})
             else:
                 yield team_detail
 
-    def parse_next(self, response):
+    def parse_detailed_squad(self, response):
         # retrieve the item passed from the previous parse method
         team_detail = response.meta["team_detail"]
 
@@ -208,6 +210,10 @@ class TeamDetailsSpider(scrapy.Spider):
         team_detail["players"] = player_list
         # print the player_list to see all the details that are crawled
         # print(f"extracted players with details: {player_list}")
-
+        
+        # the URL of the detailed stats of the team players
+        # TODO: create another parse method. follow the following link.
+        stsurl=self.stats_url
+        print(f"stsurl\n{stsurl}")
         # yield the complete item after accumulating data from the second page
         yield team_detail
