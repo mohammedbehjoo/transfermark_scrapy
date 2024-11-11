@@ -125,15 +125,16 @@ class TeamDetailsSpider(scrapy.Spider):
                 nationality_list.append(nation)
 
         # get the current club of the player
-        temp_club_list = []
+        temp_all_clubs_list = []
         for element in response.css(PLAYER_CURRENT_CLUB_SELECTOR):
-            cur_club = element.css("img::attr(alt)").get()
+            cur_club = element.css("img::attr(alt)").get(default="empty string")
             if cur_club:
-                temp_club_list.append(cur_club)
+                temp_all_clubs_list.append(cur_club)
+                
         # current club list gets every thrid element from all the clubs list
-        current_club_list = temp_club_list[1::3]
-        # signed from team, every third element, starting from index 2
-        signed_from_list = temp_club_list[2::3]
+        current_club_list=temp_all_clubs_list[3::8]
+        # signed from team every seventh element from all the clubs list
+        signed_from_list=temp_all_clubs_list[7::8]
 
         # height of the player
         temp_list = []
