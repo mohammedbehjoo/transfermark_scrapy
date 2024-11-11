@@ -6,15 +6,17 @@ class TeamDetailsSpider(scrapy.Spider):
     name = "team_details"
     allowed_domains = ["www.transfermarkt.com"]
     start_urls = [
-        "https://www.transfermarkt.com/red-bull-salzburg/startseite/verein/409/saison_id/2022"]
+        # "https://www.transfermarkt.com/red-bull-salzburg/startseite/verein/409/saison_id/2022"]
+        "https://www.transfermarkt.com/fc-paris-saint-germain/startseite/verein/583/saison_id/2022"]
 
     def parse(self, response):
         TEAM_SELECTOR = "#tm-main"
         LEAGUE_NAME_SELECTOR = ".data-header__box--big div.data-header__club-info span.data-header__club"
         TABLE_COUNTRY_POSITION_SELECTOR = ".data-header__box--big div.data-header__club-info span.data-header__label span.data-header__content a"
         NATIONAL_PLAYERS_NUM_SELECTOR = ".data-header__info-box  div.data-header__details ul.data-header__items li.data-header__label span.data-header__content"
-        TEAM_NAME_SELECTOR=".data-header__headline-wrapper--oswald"
-        
+        TEAM_NAME_SELECTOR = ".data-header__headline-wrapper--oswald"
+        CURRENT_TRANSFER_RECORD_SELECTOR = ".data-header__content span a"
+
         for team_detail_item in response.css(TEAM_SELECTOR):
             team_detail = TeamDetailsItem()
             team_detail["league_name"] = team_detail_item.css(
@@ -27,10 +29,12 @@ class TeamDetailsSpider(scrapy.Spider):
             elements = team_detail_item.css(NATIONAL_PLAYERS_NUM_SELECTOR)
             team_detail["national_players_num"] = elements[3].css(
                 "a::text").get()
-            team_detail["season"]=int(self.start_urls[0].split("/")[-1])
-            team_detail["team_name"]=team_detail_item.css(TEAM_NAME_SELECTOR).css("::text").get()
-            
-            
+            team_detail["season"] = int(self.start_urls[0].split("/")[-1])
+            team_detail["team_name"] = team_detail_item.css(
+                TEAM_NAME_SELECTOR).css("::text").get()
+            team_detail["current_transfer_record"] = team_detail_item.css(
+                CURRENT_TRANSFER_RECORD_SELECTOR).css("::text").get()
+
             print(
                 f"Found league name: {team_detail['league_name']},position is: {team_detail['table_position']},country is: {team_detail['country']}")
             print(f"National Players: {team_detail['national_players_num']}")
@@ -79,12 +83,28 @@ class TeamDetailsSpider(scrapy.Spider):
         dob_list = temp_list[::2]
         # strip and split the raaw date of birth nag age. only get the dates.
         dates_only_list = [item.split("(")[0].strip() for item in dob_list]
+
+        # market value list
         temp_list = []
         for element in response.css(MARKET_VALUE_SELECTOR):
             temp_list.append(element.css("a::text").get())
+        print(f"temp list\n{temp_list}")
+
         # add to market_value list and process the items to be just digits
-        market_value_list = [item for item in temp_list if any(
-            char.isdigit() for char in item)]
+        market_value_list = []
+        for item in temp_list:
+            if item is None:  # if the value is None
+                market_value_list.append(str(0))  # Set value to 0 and append
+            # Check if item contains at least one digit
+            elif any(char.isdigit() for char in item):
+                market_value_list.append(item)  # Append item as-is
+            # Check for special characters
+            elif any(char in "-!@#$%^&*()_+=[]{}|\\:;\"\'<>,.?/~`" for char in item):
+                market_value_list.append(str(0))  # Set value to 0 and append
+        print(f"len temp list\n{len(temp_list)}")
+        print(
+            f"market_value_list:\n{market_value_list},\nlen{len(market_value_list)}")
+
         market_value_list = [item.replace("€", "")
                              for item in market_value_list]
         market_value_list = [float(item.replace("m", ""))*1000000 if "m" in item

@@ -33,3 +33,4 @@ class TeamDetailsItem(scrapy.Item):
     players = scrapy.Field()
     season=scrapy.Field()
     team_name=scrapy.Field()
+    current_transfer_record=scrapy.Field()

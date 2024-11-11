@@ -134,13 +134,31 @@ class TeamDetailsPipeline:
         # Strip leading/trailing whitespace
         item["league_name"] = item["league_name"].strip()
         item["table_position"] = item["table_position"].strip()
-        item["team_name"]=item["team_name"].strip()
-        
+        item["team_name"] = item["team_name"].strip()
+
         # processing datatypes
-        item["table_position"]=int(item["table_position"])
-        item["national_players_num"]=int(item["national_players_num"])
-        
-        
+        item["table_position"] = int(item["table_position"])
+        item["national_players_num"] = int(item["national_players_num"])
+
+        # process the current_transfer_record field
+        item["current_transfer_record"] = item["current_transfer_record"].replace(
+            "€", "")
+        if "m" in item["current_transfer_record"]:
+            item["current_transfer_record"] = item["current_transfer_record"].replace(
+                "m", "")
+            item["current_transfer_record"] = float(
+                item["current_transfer_record"])*1000000
+        elif "k" in item["current_transfer_record"]:
+            item["current_transfer_record"] = item["current_transfer_record"].replace(
+                "k", "")
+            item["current_transfer_record"] = float(
+                item["current_transfer_record"])*1000
+
+        else:
+            item["current_transfer_record"] = float(
+                item["current_transfer_record"])
+            
+
         self.logger.info(f"Cleaned item: '{item['league_name']}'")
 
         return item
