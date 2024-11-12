@@ -228,22 +228,22 @@ class TeamDetailsSpider(scrapy.Spider):
         # retrieve the team_detail and player_list from meta
         team_detail = response.meta["team_detail"]
         player_list = response.meta["player_list"]
-        
+
         # create a dictionary mapping player names to their corresponding player_dicts from the player_list
-        player_map={player["player_name"]:player for player in player_list}
+        player_map = {player["player_name"]: player for player in player_list}
 
         # css selectors
-        PLAYER_NAME_SELECTOR="table.inline-table td.hauptlink a"
+        PLAYER_NAME_SELECTOR = "table.inline-table td.hauptlink a"
         DETAILS_SELECTOR = ".items td.zentriert"
 
         # extract names from stats page for the player_map dictionary
-        temp_player_names_list=[]
+        temp_player_names_list = []
         for element in response.css(PLAYER_NAME_SELECTOR):
-            player_name_data=element.css("::text").get()
+            player_name_data = element.css("::text").get()
             temp_player_names_list.append(player_name_data)
-        cleaned_names=temp_player_names_list[::2]
-        cleaned_names=[name.strip() for name in cleaned_names]
-        
+        cleaned_names = temp_player_names_list[::2]
+        cleaned_names = [name.strip() for name in cleaned_names]
+
         # Extract data for age of players
         temp_detail_list = []
         age_list = []
@@ -256,22 +256,33 @@ class TeamDetailsSpider(scrapy.Spider):
 
         # age list from the temp details list
         age_list = temp_detail_list[1::13]
-        # in squad list from th temp details list
-        in_squad_list=temp_detail_list[3::13]
+
+        # in squad list from the temp details list
+        in_squad_list = temp_detail_list[3::13]
         # process the in_squad_list to have integer values. if the initial value is not a number, return 0
-        in_squad_list=[int(item) if item is not None and any(char.isdigit() for char in item)
-            else 0 if  not any(char.isdigit() for char in item) else None
-            for item in in_squad_list]
+        in_squad_list = [int(item) if item is not None and any(char.isdigit() for char in item)
+                         else 0 if not any(char.isdigit() for char in item) else None
+                         for item in in_squad_list]
+
+        # appearances_list
         
+        appearances_list = temp_detail_list[4::13]
+        appearances_list = [int(item) if any(char.isdigit() for char in item)
+                            else None # you can change it to "Not used during this season" later if you want. but now it returns null.
+                            for item in appearances_list]
         # match extracted data with existing players based on the "player_name" key
-        for i,name in enumerate(cleaned_names):
+        for i, name in enumerate(cleaned_names):
             if name in player_map:
                 # add or update the data fields in the corresponding player_dict
-                player_map[name]["age"]=age_list[i] if i <len(age_list) else None
-                player_map[name]["in_sqaud"]=in_squad_list[i] if i<len(in_squad_list) else None
-                
+                player_map[name]["age"] = age_list[i] if i < len(
+                    age_list) else None
+                player_map[name]["in_sqaud"] = in_squad_list[i] if i < len(
+                    in_squad_list) else None
+                player_map[name]["appearance"] = appearances_list[i] if i < len(
+                    appearances_list) else None
+
         # update the team_detail with the modified player_list
-        team_detail["players"]=list(player_map.values())
-        
+        team_detail["players"] = list(player_map.values())
+
         # yield the final updated team_detail
         yield team_detail
