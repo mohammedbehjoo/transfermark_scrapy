@@ -228,10 +228,22 @@ class TeamDetailsSpider(scrapy.Spider):
         # retrieve the team_detail and player_list from meta
         team_detail = response.meta["team_detail"]
         player_list = response.meta["player_list"]
+        
+        # create a dictionary mapping player names to their corresponding player_dicts from the player_list
+        player_map={player["player_name"]:player for player in player_list}
 
-        # Example of extracting new data for each player (replace with your actual selectors)
+        # css selectors
+        PLAYER_NAME_SELECTOR="table.inline-table td.hauptlink a"
         AGE_SELECTOR = ".items td.zentriert"
 
+        # extract names from stats page for the player_map dictionary
+        temp_player_names_list=[]
+        for element in response.css(PLAYER_NAME_SELECTOR):
+            player_name_data=element.css("::text").get()
+            temp_player_names_list.append(player_name_data)
+        cleaned_names=temp_player_names_list[::2]
+        cleaned_names=[name.strip() for name in cleaned_names]
+        
         # Extract data for age of players
         temp_age_list = []
         age_list = []
@@ -243,21 +255,14 @@ class TeamDetailsSpider(scrapy.Spider):
                 print("age data is empty")
         age_list = temp_age_list[1::13]
 
-        # Iterate over the player_list and add new data to each player_dict
-        # for i, value in enumerate(age_list):
-        #     # get the age value for each player
-        #     age = age_list[i] if i < len(age_list) else None
-        #     # Add new keys and values, handling cases where data might be missing
-        #     player_dict = {
-        #         "age": age
-        #     }
-        #     player_list.append(player_dict)
+        # match extracted data with existing players based on the "player_name" key
+        for i,name in enumerate(cleaned_names):
+            if name in player_map:
+                # add or update the data fields in the corresponding player_dict
+                player_map[name]["age"]=age_list[i] if i <len(age_list) else None
+                
+        # update the team_detail with the modified player_list
+        team_detail["players"]=list(player_map.values())
         
-        for i,player_dict in enumerate(player_list):
-            player_dict["age"]=age_list[i] if i <len(age_list) else None
-        
-        # Update the team_detail with the modified player_list
-        team_detail["players"] = player_list
-
-        # Yield the final updated team_detail
+        # yield the final updated team_detail
         yield team_detail
