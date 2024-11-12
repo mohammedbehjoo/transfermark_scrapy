@@ -265,11 +265,25 @@ class TeamDetailsSpider(scrapy.Spider):
                          for item in in_squad_list]
 
         # appearances_list
-        
+
         appearances_list = temp_detail_list[4::13]
         appearances_list = [int(item) if any(char.isdigit() for char in item)
-                            else None # you can change it to "Not used during this season" later if you want. but now it returns null.
+                            # you can change it to "Not used during this season" later if you want. but now it returns null.
+                            else None
                             for item in appearances_list]
+
+        # number of goals of each player
+        goals_list = temp_detail_list[5::13]
+        goals_list = [int(item) if any(char.isdigit() for char in item)
+                      else None
+                      for item in goals_list]
+
+        # number of assists of each player
+        assists_list = temp_detail_list[6::13]
+        assists_list = [int(item) if any(char.isdigit() for char in item)
+                        else None
+                        for item in assists_list]
+
         # match extracted data with existing players based on the "player_name" key
         for i, name in enumerate(cleaned_names):
             if name in player_map:
@@ -280,6 +294,10 @@ class TeamDetailsSpider(scrapy.Spider):
                     in_squad_list) else None
                 player_map[name]["appearance"] = appearances_list[i] if i < len(
                     appearances_list) else None
+                player_map[name]["goals"] = goals_list[i] if i < len(
+                    goals_list) else None
+                player_map[name]["assists"] = assists_list[i] if i < len(
+                    assists_list) else None
 
         # update the team_detail with the modified player_list
         team_detail["players"] = list(player_map.values())
