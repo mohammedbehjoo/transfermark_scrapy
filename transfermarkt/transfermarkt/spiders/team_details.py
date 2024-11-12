@@ -9,11 +9,11 @@ class TeamDetailsSpider(scrapy.Spider):
         "https://www.transfermarkt.com/red-bull-salzburg/startseite/verein/409/saison_id/2022"
         # "https://www.transfermarkt.com/fc-paris-saint-germain/startseite/verein/583/saison_id/2022"
     ]
-    root_url=start_urls[0].split("/")
-    season_id=root_url[-1]
-    stats_url="/".join(root_url[:4])+"/leistungsdaten/"
-    stats_url=stats_url+"/".join(root_url[5:7])+"/reldata"+f"/%26{season_id}"+"/plus/1"
-    print(f"statsURL\n{stats_url}")
+    root_url = start_urls[0].split("/")
+    season_id = root_url[-1]
+    stats_url = "/".join(root_url[:4])+"/leistungsdaten/"
+    stats_url = stats_url + \
+        "/".join(root_url[5:7])+"/reldata"+f"/%26{season_id}"+"/plus/1"
 
     def parse(self, response):
         TEAM_SELECTOR = "#tm-main"
@@ -46,7 +46,7 @@ class TeamDetailsSpider(scrapy.Spider):
             elements = team_detail_item.css(HREF_SELECTOR)
             detailed_squad_page = "https://www.transfermarkt.com" + \
                 elements[1].css("a").attrib.get("href")
-            print(f"next page is: {detailed_squad_page}")
+            print(f"detailed squad URL:\n{detailed_squad_page}")
             if detailed_squad_page:
                 yield response.follow(detailed_squad_page, callback=self.parse_detailed_squad, meta={"team_detail": team_detail})
             else:
@@ -83,7 +83,8 @@ class TeamDetailsSpider(scrapy.Spider):
         # only item that is date of birth + age
         dates_only_list = dob_temp_list[1::8]
         # strip and split the raw date of birth nag age. only get the dates.
-        dates_only_list = [item.split("(")[0].strip() for item in dates_only_list]
+        dates_only_list = [item.split("(")[0].strip()
+                           for item in dates_only_list]
 
         # market value list
         temp_list = []
@@ -129,14 +130,15 @@ class TeamDetailsSpider(scrapy.Spider):
         # get the current club of the player
         temp_all_clubs_list = []
         for element in response.css(PLAYER_CURRENT_CLUB_SELECTOR):
-            cur_club = element.css("img::attr(alt)").get(default="empty string")
+            cur_club = element.css("img::attr(alt)").get(
+                default="empty string")
             if cur_club:
                 temp_all_clubs_list.append(cur_club)
-                
+
         # current club list gets every thrid element from all the clubs list
-        current_club_list=temp_all_clubs_list[3::8]
+        current_club_list = temp_all_clubs_list[3::8]
         # signed from team every seventh element from all the clubs list
-        signed_from_list=temp_all_clubs_list[7::8]
+        signed_from_list = temp_all_clubs_list[7::8]
 
         # height of the player
         temp_list = []
@@ -154,8 +156,9 @@ class TeamDetailsSpider(scrapy.Spider):
         # joined date list
         joined_list = temp_list[4::5]
         # handle missing dates
-        joined_list=[item.replace("\u00A0", "00-00-0000") if item else None for item in joined_list]
-        
+        joined_list = [item.replace(
+            "\u00A0", "00-00-0000") if item else None for item in joined_list]
+
         # list of players
         player_list = []
         for i, name in enumerate(cleaned_names):
@@ -210,10 +213,51 @@ class TeamDetailsSpider(scrapy.Spider):
         team_detail["players"] = player_list
         # print the player_list to see all the details that are crawled
         # print(f"extracted players with details: {player_list}")
-        
+
         # the URL of the detailed stats of the team players
-        # TODO: create another parse method. follow the following link.
-        stsurl=self.stats_url
-        print(f"stsurl\n{stsurl}")
+        stsurl = self.stats_url
+        print(f"detailed stats URL:\n{stsurl}")
+
+        if stsurl:
+            yield response.follow(stsurl, callback=self.parse_detailed_stats_page, meta={"team_detail": team_detail, "player_list": player_list})
         # yield the complete item after accumulating data from the second page
+        else:
+            yield team_detail
+
+    def parse_detailed_stats_page(self, response):
+        # retrieve the team_detail and player_list from meta
+        team_detail = response.meta["team_detail"]
+        player_list = response.meta["player_list"]
+
+        # Example of extracting new data for each player (replace with your actual selectors)
+        AGE_SELECTOR = ".items td.zentriert"
+
+        # Extract data for age of players
+        temp_age_list = []
+        age_list = []
+        for element in response.css(AGE_SELECTOR):
+            age_data = element.css("::text").get(default="empty string")
+            if age_data:
+                temp_age_list.append(age_data)
+            else:
+                print("age data is empty")
+        age_list = temp_age_list[1::13]
+
+        # Iterate over the player_list and add new data to each player_dict
+        # for i, value in enumerate(age_list):
+        #     # get the age value for each player
+        #     age = age_list[i] if i < len(age_list) else None
+        #     # Add new keys and values, handling cases where data might be missing
+        #     player_dict = {
+        #         "age": age
+        #     }
+        #     player_list.append(player_dict)
+        
+        for i,player_dict in enumerate(player_list):
+            player_dict["age"]=age_list[i] if i <len(age_list) else None
+        
+        # Update the team_detail with the modified player_list
+        team_detail["players"] = player_list
+
+        # Yield the final updated team_detail
         yield team_detail
