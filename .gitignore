@@ -19,3 +19,5 @@ temp*.py
 *.txt
 # ignore jpg files
 *.jpg
+# ignore ipynb files
+*.ipynb

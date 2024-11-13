@@ -1,5 +1,15 @@
 import scrapy
 from transfermarkt.items import TeamDetailsItem
+import os
+
+# # path of the teams.json file
+# teams_file_path = "/home/mohammed/projects/coding/transfermarkt_scrapy/transfermarkt/transfermarkt/spiders/teams.json"
+
+# # check if the file is not empty
+# if os.path.exists(teams_file_path) and os.path.getsize(teams_file_path) > 0:
+#     print("file is not empty")
+# else:
+#     print("file is empty")
 
 
 class TeamDetailsSpider(scrapy.Spider):
@@ -15,7 +25,19 @@ class TeamDetailsSpider(scrapy.Spider):
     stats_url = stats_url + \
         "/".join(root_url[5:7])+"/reldata"+f"/%26{season_id}"+"/plus/1"
 
+    # def start_requests(self):
+    #     pass
+
     def parse(self, response):
+        # logging response status and url
+        print(f"reponse status: {response.status}")
+        self.logger.info(f"response status: {response.status}")
+        self.logger.info(f"response status: {response.status}")
+        self.logger.info(f"response url: {response.url}")
+        if response.status != 200:
+            self.logger.error(f"failed to retrieve data from {response.url}")
+            return
+        # css selectors
         TEAM_SELECTOR = "#tm-main"
         LEAGUE_NAME_SELECTOR = ".data-header__box--big div.data-header__club-info span.data-header__club"
         TABLE_COUNTRY_POSITION_SELECTOR = ".data-header__box--big div.data-header__club-info span.data-header__label span.data-header__content a"
@@ -23,23 +45,29 @@ class TeamDetailsSpider(scrapy.Spider):
         TEAM_NAME_SELECTOR = ".data-header__headline-wrapper--oswald"
         CURRENT_TRANSFER_RECORD_SELECTOR = ".data-header__content span a"
 
+        for index, element in enumerate(response.css(TABLE_COUNTRY_POSITION_SELECTOR)):
+            if index == 1:
+                position_data = element.css("::text").get()
+            if element.css("img"):
+                country_data = element.css("img").attrib.get("title")
+
+        for index, element in enumerate(response.css(NATIONAL_PLAYERS_NUM_SELECTOR)):
+            if index == 3:
+                national_players_data = element.css("a::text").get()
+
         for team_detail_item in response.css(TEAM_SELECTOR):
-            team_detail = TeamDetailsItem()
-            team_detail["league_name"] = team_detail_item.css(
-                LEAGUE_NAME_SELECTOR+" a::text").get()
-            elements = team_detail_item.css(
-                TABLE_COUNTRY_POSITION_SELECTOR)
-            team_detail["table_position"] = elements[1].css("::text").get() if len(
-                elements) > 0 else None
-            team_detail["country"] = elements[0].css("img").attrib.get("title")
-            elements = team_detail_item.css(NATIONAL_PLAYERS_NUM_SELECTOR)
-            team_detail["national_players_num"] = elements[3].css(
-                "a::text").get()
-            team_detail["season"] = int(self.start_urls[0].split("/")[-1])
-            team_detail["team_name"] = team_detail_item.css(
-                TEAM_NAME_SELECTOR).css("::text").get()
-            team_detail["current_transfer_record"] = team_detail_item.css(
-                CURRENT_TRANSFER_RECORD_SELECTOR).css("::text").get()
+            team_detail = {
+                "league_name": team_detail_item.css(
+                    LEAGUE_NAME_SELECTOR+" a::text").get(),
+                "table_position":  position_data,
+                "country": country_data,
+                "national_players_num": national_players_data,
+                "season": int(self.start_urls[0].split("/")[-1]),
+                "team_name": team_detail_item.css(
+                    TEAM_NAME_SELECTOR).css("::text").get(),
+                "current_transfer_record": team_detail_item.css(
+                    CURRENT_TRANSFER_RECORD_SELECTOR).css("::text").get()
+            }
 
             # let's go to the next page, and get the detailed squad data.
             HREF_SELECTOR = "div.tm-tabs a.tm-tab"
@@ -53,6 +81,15 @@ class TeamDetailsSpider(scrapy.Spider):
                 yield team_detail
 
     def parse_detailed_squad(self, response):
+        # logging response status and url
+        print(f"reponse status: {response.status}")
+        self.logger.info(f"response status: {response.status}")
+        self.logger.info(f"response status: {response.status}")
+        self.logger.info(f"response url: {response.url}")
+        if response.status != 200:
+            self.logger.error(f"failed to retrieve data from {response.url}")
+            return
+
         # retrieve the item passed from the previous parse method
         team_detail = response.meta["team_detail"]
 
@@ -225,6 +262,15 @@ class TeamDetailsSpider(scrapy.Spider):
             yield team_detail
 
     def parse_detailed_stats_page(self, response):
+        # logging response status and url
+        print(f"reponse status: {response.status}")
+        self.logger.info(f"response status: {response.status}")
+        self.logger.info(f"response status: {response.status}")
+        self.logger.info(f"response url: {response.url}")
+        if response.status != 200:
+            self.logger.error(f"failed to retrieve data from {response.url}")
+            return
+
         # retrieve the team_detail and player_list from meta
         team_detail = response.meta["team_detail"]
         player_list = response.meta["player_list"]
