@@ -312,6 +312,12 @@ class TeamDetailsSpider(scrapy.Spider):
         substitutions_off_list = [int(item) if any(char.isdigit() for char in item)
                                   else None
                                   for item in substitutions_off_list]
+
+        # list of PPG(points per game) for each player
+        points_per_game_list = temp_detail_list[12::13]
+        points_per_game_list = [float(item) if any(char.isdigit() for char in item)
+                                else None
+                                for item in points_per_game_list]
         # match extracted data with existing players based on the "player_name" key
         for i, name in enumerate(cleaned_names):
             if name in player_map:
@@ -336,6 +342,8 @@ class TeamDetailsSpider(scrapy.Spider):
                     substitutions_on_list) else None
                 player_map[name]["substitutions_off"] = substitutions_off_list[i] if i < len(
                     substitutions_on_list) else None
+                player_map[name]["PPG"] = points_per_game_list[i] if i < len(
+                    points_per_game_list) else None
 
         # update the team_detail with the modified player_list
         team_detail["players"] = list(player_map.values())
