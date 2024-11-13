@@ -301,7 +301,13 @@ class TeamDetailsSpider(scrapy.Spider):
         red_cards_list = [int(item) if any(char.isdigit() for char in item)
                           else None
                           for item in red_cards_list]
-        
+
+        # number of times a player was subsititued on as a list
+        substitutions_on_list = temp_detail_list[10::13]
+        substitutions_on_list = [int(item) if any(char.isdigit() for char in item)
+                                 else None
+                                 for item in substitutions_on_list]
+
         # match extracted data with existing players based on the "player_name" key
         for i, name in enumerate(cleaned_names):
             if name in player_map:
@@ -322,6 +328,9 @@ class TeamDetailsSpider(scrapy.Spider):
                     second_yellow_cards_list) else None
                 player_map[name]["red_cards"] = red_cards_list[i] if i < len(
                     red_cards_list) else None
+                player_map[name]["substitutions_on"] = substitutions_on_list[i] if i < len(
+                    substitutions_on_list) else None
+                
 
         # update the team_detail with the modified player_list
         team_detail["players"] = list(player_map.values())
