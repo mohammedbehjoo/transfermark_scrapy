@@ -235,6 +235,7 @@ class TeamDetailsSpider(scrapy.Spider):
         # css selectors
         PLAYER_NAME_SELECTOR = "table.inline-table td.hauptlink a"
         DETAILS_SELECTOR = ".items td.zentriert"
+        MINUTES_PLAYED_SELECTOR = ".rechts"
 
         # extract names from stats page for the player_map dictionary
         temp_player_names_list = []
@@ -318,6 +319,24 @@ class TeamDetailsSpider(scrapy.Spider):
         points_per_game_list = [float(item) if any(char.isdigit() for char in item)
                                 else None
                                 for item in points_per_game_list]
+
+        # minutes played during the season for each player
+        temp_minutes_list = []
+        for element in response.css(MINUTES_PLAYED_SELECTOR):
+            minutes_data = element.css("::text").get()
+            temp_minutes_list.append(minutes_data)
+        # process and clean the minutes. remove "'" characters. return int value.
+        minutes_played_list = []
+        for i in temp_minutes_list:
+            if any(char.isdigit() for char in i):
+                i = i.replace("'", "")
+                i = i.split(".")
+                i = "".join(i)
+                minutes_played_list.append(int(i))
+            elif i == "-":
+                i = i.replace("-", "0")
+                minutes_played_list.append(int(i))
+
         # match extracted data with existing players based on the "player_name" key
         for i, name in enumerate(cleaned_names):
             if name in player_map:
@@ -344,6 +363,8 @@ class TeamDetailsSpider(scrapy.Spider):
                     substitutions_on_list) else None
                 player_map[name]["PPG"] = points_per_game_list[i] if i < len(
                     points_per_game_list) else None
+                player_map[name]["minutes_played"] = minutes_played_list[i] if i < len(
+                    minutes_played_list) else None
 
         # update the team_detail with the modified player_list
         team_detail["players"] = list(player_map.values())
