@@ -4,6 +4,7 @@ import json
 import pandas as pd
 from dotenv import load_dotenv
 
+
 class TeamDetailsSpider(scrapy.Spider):
     name = "team_details"
     allowed_domains = ["www.transfermarkt.com"]
@@ -116,7 +117,6 @@ class TeamDetailsSpider(scrapy.Spider):
                 if len(elements) > 1:
                     detailed_squad_page = "https://www.transfermarkt.com" + \
                         elements[1].css("a").attrib.get("href")
-                    
 
                     if detailed_squad_page:
                         yield response.follow(detailed_squad_page, callback=self.parse_detailed_squad, meta={"team_detail": team_detail})
@@ -138,50 +138,76 @@ class TeamDetailsSpider(scrapy.Spider):
 
         # retrieve the item passed from the previous parse method
         team_detail = response.meta["team_detail"]
-        
+
         # css selectors
         PLAYER_NAME_SELECTOR = ".items tbody td.posrela td.hauptlink a::text"
         PLAYER_POSITION_SELECTOR = ".items tbody  td.posrela tr td::text"
-        
-        
+        PLAYER_DATE_OF_BIRTH_NATIONALITY_SELECTOR = ".items td.zentriert"
+
         # extraction
         raw_names = response.css(PLAYER_NAME_SELECTOR).getall()
+        raw_positions = response.css(PLAYER_POSITION_SELECTOR).getall()
+
+        # Clean up the extracted player positions, and names by removing unwanted characters
         cleaned_names = [name.strip() for name in raw_names if name.strip()]
-        
+        cleaned_positions = [pos.strip()
+                             for pos in raw_positions if pos.strip()]
+
+        # extract date of birth elements
+        dob_temp_list = []
+        dob_elements = response.css(PLAYER_DATE_OF_BIRTH_NATIONALITY_SELECTOR)
+        for element in dob_elements:
+            text_content = element.css("::text").get(default="empty string")
+            if text_content:
+                dob_temp_list.append(text_content.strip())
+        # only item that is date of birth + age
+        dates_only_list = dob_temp_list[1::8]
+        # strip and split the raw date of birth nag age. only get the dates.
+        dates_only_list = [item.split("(")[0].strip()
+                           for item in dates_only_list]
+
         player_list = []
-        for name in cleaned_names:
+        for i, name in enumerate(cleaned_names):
+            # position of each player
+            position = cleaned_positions[i] if i < len(
+                cleaned_positions) else None
+            # date of birth of each player
+            date_of_birth = dates_only_list[i] if i < len(
+                dates_only_list) else None
             player_dict = {
-                "player_name": name
+                "player_name": name,
+                "player_position": position.strip() if position else None,
+                "date_of_birth": date_of_birth
             }
             player_list.append(player_dict)
-        
+
         print(f"players list detailed squad\n{player_list}\n")
-        
+
         # Update team_detail with the player list
         team_detail["players"] = player_list
-        
+
         if self.stats_url_list:
-            next_url=self.stats_url_list.pop(0)
-            yield response.follow(next_url,callback=self.parse_detailed_stats_page,meta={"team_detail":team_detail,"player_list":player_list})
+            next_url = self.stats_url_list.pop(0)
+            yield response.follow(next_url, callback=self.parse_detailed_stats_page, meta={"team_detail": team_detail, "player_list": player_list})
         else:
             yield self.league_data
 
-    def parse_detailed_stats_page(self,response):
+    def parse_detailed_stats_page(self, response):
 
         if response.status != 200:
             self.logger.error(f"Failed to retrieve data from {response.url}")
             return
-        team_detail=response.meta["team_detail"]
-        player_list=response.meta["player_list"].copy()
-        
+        team_detail = response.meta["team_detail"]
+        player_list = response.meta["player_list"].copy()
+
         # create a player map
         player_map = {player["player_name"]: player for player in player_list}
         print(f"\nresponse url\n{response.url}\nplayer map is:\n{player_map}")
-        
+
         # css selectors
         PLAYER_NAME_SELECTOR = "table.inline-table td.hauptlink a"
         DETAILS_SELECTOR = ".items td.zentriert"
-        
+
         # extract names from stats page for the player_map dictionary
         temp_player_names_list = []
         for element in response.css(PLAYER_NAME_SELECTOR):
@@ -202,17 +228,17 @@ class TeamDetailsSpider(scrapy.Spider):
 
         # age list from the temp details list
         age_list = temp_detail_list[1::13]
-        
+
         for i, name in enumerate(cleaned_names):
             if name in player_map:
                 # add or update the data fields in the corresponding player_dict
                 player_map[name]["age"] = age_list[i] if i < len(
                     age_list) else None
-                
+
         # print(f"player map after age:\n{player_map}")
         team_detail["players"] = list(player_map.values())
         if team_detail not in self.league_data["teams"]:
             self.league_data["teams"].append(team_detail)
-        
+
         if len(self.league_data["teams"]) == len(self.teams_url_list):
             yield self.league_data
