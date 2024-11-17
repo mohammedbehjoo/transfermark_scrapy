@@ -21,3 +21,5 @@ temp*.py
 *.jpg
 # ignore ipynb files
 *.ipynb
+# ignore .env files
+*.env

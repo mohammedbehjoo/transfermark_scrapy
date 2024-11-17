@@ -2,7 +2,7 @@ import scrapy
 import os
 import json
 import pandas as pd
-
+from dotenv import load_dotenv
 
 class TeamDetailsSpider(scrapy.Spider):
     name = "team_details"
@@ -11,9 +11,10 @@ class TeamDetailsSpider(scrapy.Spider):
 
     def __init__(self, *args, **kwargs):
         super(TeamDetailsSpider, self).__init__(*args, **kwargs)
+        load_dotenv("config.env")
         # path of the teams.json file
-        teams_file_path = "/home/mohammed/projects/coding/transfermarkt_scrapy/transfermarkt/transfermarkt/spiders/teams0.json"
-
+        teams_file_path = os.getenv("TEAMS_FILE_PATH")
+        print(f"teams file path:{teams_file_path}")
         # check if the file is not empty
         if os.path.exists(teams_file_path) and os.path.getsize(teams_file_path) > 0:
             print("teams json file is not empty")
@@ -138,8 +139,12 @@ class TeamDetailsSpider(scrapy.Spider):
         # retrieve the item passed from the previous parse method
         team_detail = response.meta["team_detail"]
         
-        # extraction
+        # css selectors
         PLAYER_NAME_SELECTOR = ".items tbody td.posrela td.hauptlink a::text"
+        PLAYER_POSITION_SELECTOR = ".items tbody  td.posrela tr td::text"
+        
+        
+        # extraction
         raw_names = response.css(PLAYER_NAME_SELECTOR).getall()
         cleaned_names = [name.strip() for name in raw_names if name.strip()]
         
@@ -155,21 +160,11 @@ class TeamDetailsSpider(scrapy.Spider):
         # Update team_detail with the player list
         team_detail["players"] = player_list
         
-        # Append the updated team_detail to league_data
-        # Only append if the team_detail is not already in league_data
-        # if team_detail not in self.league_data["teams"]:
-        #     self.league_data["teams"].append(team_detail)
-
-        
         if self.stats_url_list:
             next_url=self.stats_url_list.pop(0)
             yield response.follow(next_url,callback=self.parse_detailed_stats_page,meta={"team_detail":team_detail,"player_list":player_list})
         else:
             yield self.league_data
-        
-        # # Only yield league_data after all teams have been processed
-        # if len(self.league_data["teams"]) == len(self.teams_url_list):
-        #     yield self.league_data
 
     def parse_detailed_stats_page(self,response):
 
@@ -178,9 +173,7 @@ class TeamDetailsSpider(scrapy.Spider):
             return
         team_detail=response.meta["team_detail"]
         player_list=response.meta["player_list"].copy()
-        # print(f"response stts url\n{response.url}\n")
-        # print(f"player list detailed stats\n{player_list}\n")
-
+        
         # create a player map
         player_map = {player["player_name"]: player for player in player_list}
         print(f"\nresponse url\n{response.url}\nplayer map is:\n{player_map}")
