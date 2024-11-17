@@ -99,7 +99,7 @@ class TeamDetailsSpider(scrapy.Spider):
 
         for team_detail_item in response.css(TEAM_SELECTOR):
             team_name = team_detail_item.css(
-                TEAM_NAME_SELECTOR).css("::text").get()
+                TEAM_NAME_SELECTOR).css("::text").get().strip()
             current_transfer_record = team_detail_item.css(
                 CURRENT_TRANSFER_RECORD_SELECTOR).css("::text").get()
 
