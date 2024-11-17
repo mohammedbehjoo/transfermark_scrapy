@@ -338,12 +338,13 @@ class TeamDetailsSpider(scrapy.Spider):
 
         # age list from the temp details list
         age_list = temp_detail_list[1::13]
-
+        age_list=[int(age) for age in age_list]
+        
         # in squad list from the temp details list
         in_squad_list = temp_detail_list[3::13]
         # process the in_squad_list to have integer values. if the initial value is not a number, return 0
         in_squad_list = [int(item) if item is not None and any(char.isdigit() for char in item)
-                         else 0 if not any(char.isdigit() for char in item) else None
+                         else 0 if not any(char.isdigit() for char in item) else 0
                          for item in in_squad_list]
 
         # appearances_list
@@ -351,54 +352,54 @@ class TeamDetailsSpider(scrapy.Spider):
         appearances_list = temp_detail_list[4::13]
         appearances_list = [int(item) if any(char.isdigit() for char in item)
                             # you can change it to "Not used during this season" later if you want. but now it returns null.
-                            else None
+                            else 0
                             for item in appearances_list]
 
         # number of goals of each player
         goals_list = temp_detail_list[5::13]
         goals_list = [int(item) if any(char.isdigit() for char in item)
-                      else None
+                      else 0
                       for item in goals_list]
 
         # number of assists list of each player
         assists_list = temp_detail_list[6::13]
         assists_list = [int(item) if any(char.isdigit() for char in item)
-                        else None
+                        else 0
                         for item in assists_list]
 
         # number of yellows cards list of each player
         yellow_cards_list = temp_detail_list[7::13]
         yellow_cards_list = [int(item) if any(char.isdigit() for char in item)
-                             else None
+                             else 0
                              for item in yellow_cards_list]
 
         # number of second yellow cards list of each player
         second_yellow_cards_list = temp_detail_list[8::13]
         second_yellow_cards_list = [int(item) if any(char.isdigit() for char in item)
-                                    else None
+                                    else 0
                                     for item in second_yellow_cards_list]
 
         # number of red cards list for each player
         red_cards_list = temp_detail_list[9::13]
         red_cards_list = [int(item) if any(char.isdigit() for char in item)
-                          else None
+                          else 0
                           for item in red_cards_list]
 
         # number of times a player was substituted on as a list
         substitutions_on_list = temp_detail_list[10::13]
         substitutions_on_list = [int(item) if any(char.isdigit() for char in item)
-                                 else None
+                                 else 0
                                  for item in substitutions_on_list]
         # number of time a player was substituted off as a list
         substitutions_off_list = temp_detail_list[11::13]
         substitutions_off_list = [int(item) if any(char.isdigit() for char in item)
-                                  else None
+                                  else 0
                                   for item in substitutions_off_list]
 
         # list of PPG(points per game) for each player
         points_per_game_list = temp_detail_list[12::13]
         points_per_game_list = [float(item) if any(char.isdigit() for char in item)
-                                else None
+                                else 0
                                 for item in points_per_game_list]
         
         # minutes played during the season for each player
