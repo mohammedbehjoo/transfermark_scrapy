@@ -239,10 +239,10 @@ class TeamDetailsSpider(scrapy.Spider):
         foot_list = temp_list[3::5]
 
         # joined date list
-        joined_list = temp_list[4::5]
+        joined_date_list = temp_list[4::5]
         # handle missing dates
-        joined_list = [item.replace(
-            "\u00A0", "00-00-0000") if item else None for item in joined_list]
+        joined_date_list = [item.replace(
+            "\u00A0", "00-00-0000") if item else None for item in joined_date_list]
 
         player_list = []
         for i, name in enumerate(cleaned_names):
@@ -264,7 +264,7 @@ class TeamDetailsSpider(scrapy.Spider):
             height = height_list[i] if i < len(height_list) else None
 
             # joined date of each player
-            joined = joined_list[i] if i < len(joined_list) else None
+            joined_date = joined_date_list[i] if i < len(joined_date_list) else None
 
             # foot of the player
             foot = foot_list[i] if i < len(foot_list) else None
@@ -284,7 +284,7 @@ class TeamDetailsSpider(scrapy.Spider):
                 "current_club": current_club,
                 "height_CM": height,
                 "foot": foot,
-                "joined": joined,
+                "joined_date": joined_date,
                 "signed_from": signed_from,
                 "market_value": market_value
             }
@@ -316,6 +316,7 @@ class TeamDetailsSpider(scrapy.Spider):
         # css selectors
         PLAYER_NAME_SELECTOR = "table.inline-table td.hauptlink a"
         DETAILS_SELECTOR = ".items td.zentriert"
+        MINUTES_PLAYED_SELECTOR = ".rechts"
 
         # extract names from stats page for the player_map dictionary
         temp_player_names_list = []
@@ -338,11 +339,112 @@ class TeamDetailsSpider(scrapy.Spider):
         # age list from the temp details list
         age_list = temp_detail_list[1::13]
 
+        # in squad list from the temp details list
+        in_squad_list = temp_detail_list[3::13]
+        # process the in_squad_list to have integer values. if the initial value is not a number, return 0
+        in_squad_list = [int(item) if item is not None and any(char.isdigit() for char in item)
+                         else 0 if not any(char.isdigit() for char in item) else None
+                         for item in in_squad_list]
+
+        # appearances_list
+
+        appearances_list = temp_detail_list[4::13]
+        appearances_list = [int(item) if any(char.isdigit() for char in item)
+                            # you can change it to "Not used during this season" later if you want. but now it returns null.
+                            else None
+                            for item in appearances_list]
+
+        # number of goals of each player
+        goals_list = temp_detail_list[5::13]
+        goals_list = [int(item) if any(char.isdigit() for char in item)
+                      else None
+                      for item in goals_list]
+
+        # number of assists list of each player
+        assists_list = temp_detail_list[6::13]
+        assists_list = [int(item) if any(char.isdigit() for char in item)
+                        else None
+                        for item in assists_list]
+
+        # number of yellows cards list of each player
+        yellow_cards_list = temp_detail_list[7::13]
+        yellow_cards_list = [int(item) if any(char.isdigit() for char in item)
+                             else None
+                             for item in yellow_cards_list]
+
+        # number of second yellow cards list of each player
+        second_yellow_cards_list = temp_detail_list[8::13]
+        second_yellow_cards_list = [int(item) if any(char.isdigit() for char in item)
+                                    else None
+                                    for item in second_yellow_cards_list]
+
+        # number of red cards list for each player
+        red_cards_list = temp_detail_list[9::13]
+        red_cards_list = [int(item) if any(char.isdigit() for char in item)
+                          else None
+                          for item in red_cards_list]
+
+        # number of times a player was substituted on as a list
+        substitutions_on_list = temp_detail_list[10::13]
+        substitutions_on_list = [int(item) if any(char.isdigit() for char in item)
+                                 else None
+                                 for item in substitutions_on_list]
+        # number of time a player was substituted off as a list
+        substitutions_off_list = temp_detail_list[11::13]
+        substitutions_off_list = [int(item) if any(char.isdigit() for char in item)
+                                  else None
+                                  for item in substitutions_off_list]
+
+        # list of PPG(points per game) for each player
+        points_per_game_list = temp_detail_list[12::13]
+        points_per_game_list = [float(item) if any(char.isdigit() for char in item)
+                                else None
+                                for item in points_per_game_list]
+        
+        # minutes played during the season for each player
+        temp_minutes_list = []
+        for element in response.css(MINUTES_PLAYED_SELECTOR):
+            minutes_data = element.css("::text").get()
+            temp_minutes_list.append(minutes_data)
+        # process and clean the minutes. remove "'" characters. return int value.
+        minutes_played_list = []
+        for i in temp_minutes_list:
+            if any(char.isdigit() for char in i):
+                i = i.replace("'", "")
+                i = i.split(".")
+                i = "".join(i)
+                minutes_played_list.append(int(i))
+            elif i == "-":
+                i = i.replace("-", "0")
+                minutes_played_list.append(int(i))
+        
         for i, name in enumerate(cleaned_names):
             if name in player_map:
                 # add or update the data fields in the corresponding player_dict
                 player_map[name]["age"] = age_list[i] if i < len(
                     age_list) else None
+                player_map[name]["in_sqaud"] = in_squad_list[i] if i < len(
+                    in_squad_list) else None
+                player_map[name]["appearance"] = appearances_list[i] if i < len(
+                    appearances_list) else None
+                player_map[name]["goals"] = goals_list[i] if i < len(
+                    goals_list) else None
+                player_map[name]["assists"] = assists_list[i] if i < len(
+                    assists_list) else None
+                player_map[name]["yelow_cards"] = yellow_cards_list[i] if i < len(
+                    yellow_cards_list) else None
+                player_map[name]["second_yellow_cards"] = second_yellow_cards_list[i] if i < len(
+                    second_yellow_cards_list) else None
+                player_map[name]["red_cards"] = red_cards_list[i] if i < len(
+                    red_cards_list) else None
+                player_map[name]["substitutions_on"] = substitutions_on_list[i] if i < len(
+                    substitutions_on_list) else None
+                player_map[name]["substitutions_off"] = substitutions_off_list[i] if i < len(
+                    substitutions_on_list) else None
+                player_map[name]["PPG"] = points_per_game_list[i] if i < len(
+                    points_per_game_list) else None
+                player_map[name]["minutes_played"] = minutes_played_list[i] if i < len(
+                    minutes_played_list) else None
 
         # print(f"player map after age:\n{player_map}")
         team_detail["players"] = list(player_map.values())
