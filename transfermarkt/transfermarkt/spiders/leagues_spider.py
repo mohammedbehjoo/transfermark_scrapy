@@ -1,9 +1,11 @@
 import scrapy
 import pandas as pd
 
-country_id_df = pd.DataFrame([{"country_id": 127, "country_name": "Austria"},
-                            #   {"country_id": 19, "country_name": "Belgium"},
-                            #   {"country_id": 26, "country_name": "Brazil"},
+country_id_df = pd.DataFrame([{"country_id": 189, "country_name": "England"},
+                              {"country_id": 50, "country_name": "France"},
+                              {"country_id": 40, "country_name": "Germany"},
+                              {"country_id": 75, "country_name": "Italy"},
+                              {"country_id": 157, "country_name": "Spain"}
                               ])
 
 

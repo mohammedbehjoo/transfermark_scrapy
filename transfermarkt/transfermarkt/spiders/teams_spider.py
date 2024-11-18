@@ -22,7 +22,7 @@ class TeamsSpiderSpider(scrapy.Spider):
     team_counter = 0
 
     # start year and end year
-    start_year, end_year = 2022, 2024
+    start_year, end_year = 2022, 2023
 
     name = "teams_spider"
     allowed_domains = ["www.transfermarkt.com"]
