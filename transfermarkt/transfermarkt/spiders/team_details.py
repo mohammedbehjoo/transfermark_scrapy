@@ -34,12 +34,13 @@ class TeamDetailsSpider(scrapy.Spider):
             record_path=["teams"],
             meta=["country_name", "league_name", "season"]
         )
-    def check_team_exists(data, target_team_name):
-        for league_key, league_info in data.items():
-            for team in league_info['teams']:
-                if team['team_name'] == target_team_name:
-                    return True  # Team found
-        return False  # Team not found
+        
+    # def check_team_exists(data, target_team_name):
+    #     for league_key, league_info in data.items():
+    #         for team in league_info['teams']:
+    #             if team['team_name'] == target_team_name:
+    #                 return True  # Team found
+    #     return False  # Team not found
     
     def start_requests(self):
         # Initialize a list to store all teams' URLs
@@ -48,6 +49,18 @@ class TeamDetailsSpider(scrapy.Spider):
             self.teams_url_list.append(row["team_url"])
         print(f"teams url list:\n{self.teams_url_list},len: {len(self.teams_url_list)}")
 
+        # get stats url list for the prase_detailed_stats method
+        self.stats_url_list = []
+        if self.teams_url_list:
+            for team_url in self.teams_url_list:
+                root_url = team_url.split("/")
+                season_id = root_url[-1]
+                stats_url = "/".join(root_url[:4])+"/leistungsdaten/"
+                stats_url = stats_url + \
+                    "/".join(root_url[5:7])+"/reldata" + \
+                    f"/%26{season_id}"+"/plus/1"
+                self.stats_url_list.append(stats_url)
+        print(f"stats url list:\n{self.stats_url_list}\nlen stats URL: {len(self.stats_url_list)}\n")
         # Initialize a dictionary to hold league data
         self.league_data_dict = {}
 
@@ -179,18 +192,31 @@ class TeamDetailsSpider(scrapy.Spider):
                         "season": team_detail["season"],
                         "teams": [team_detail]  # Start with the current team
                     }
-        for key, league_data in league_data_dict.items():
-            # Find the last team in the teams list
-            last_team = league_data['teams'][-1] if league_data['teams'] else None
+        if self.stats_url_list:
+            next_url = self.stats_url_list.pop(0)
+            yield response.follow(next_url, callback=self.parse_detailed_stats_page, meta={"team_detail": team_detail, "player_list": player_list,"league_data_dict":league_data_dict})
+        else:
+            yield self.league_data
+                    
+                    
+        # for key, league_data in league_data_dict.items():
+        #     # Find the last team in the teams list
+        #     last_team = league_data['teams'][-1] if league_data['teams'] else None
 
-        if last_team and 'players' in last_team and last_team['players']:
-            # Check if there is any player value in the last team's players list
-            if last_team['players']:
-                print(f"Found players in the last team '{last_team['team_name']}'")
-                print(f"yeilding second time\n")
-                yield league_data_dict
-            else:
-                print(f"No players found in the last team '{last_team['team_name']}'")
+        # if last_team and 'players' in last_team and last_team['players']:
+        #     # Check if there is any player value in the last team's players list
+        #     if last_team['players']:
+        #         print(f"Found players in the last team '{last_team['team_name']}'")
+        #         print(f"yeilding second time\n")
+        #         yield league_data_dict
+        #     else:
+        #         print(f"No players found in the last team '{last_team['team_name']}'")
+
+
+
+
+
+
         # team_to_check=team_detail['team_name']
         # print(f"team to check\n{team_to_check}\n")
         
@@ -209,3 +235,86 @@ class TeamDetailsSpider(scrapy.Spider):
         #     yield self.league_data_dict
         # else:
         #     print("their length is not the same")
+    def parse_detailed_stats_page(self, response):
+        print(f"detailed stats page\n{response.url}")
+        
+        team_detail = response.meta["team_detail"]
+        player_list = response.meta["player_list"].copy()
+        league_data_dict=response.meta["league_data_dict"]
+        # create a player map
+        player_map = {player["player_name"]: player for player in player_list}
+        print(
+            f"\ndetailed stats url\n{response.url}\nplayer map is:\n{player_map}")
+        
+        # css selectors
+        PLAYER_NAME_SELECTOR = "table.inline-table td.hauptlink a"
+        DETAILS_SELECTOR = ".items td.zentriert"
+        
+        # extract names from stats page for the player_map dictionary
+        temp_player_names_list = []
+        for element in response.css(PLAYER_NAME_SELECTOR):
+            player_name_data = element.css("::text").get()
+            temp_player_names_list.append(player_name_data)
+        cleaned_names = temp_player_names_list[::2]
+        cleaned_names = [name.strip() for name in cleaned_names]
+        
+        # Extract data for age of players
+        temp_detail_list = []
+        age_list = []
+        for element in response.css(DETAILS_SELECTOR):
+            age_data = element.css("::text").get(default="empty string")
+            if age_data:
+                temp_detail_list.append(age_data)
+            else:
+                print("age data is empty")
+
+        # age list from the temp details list
+        age_list = temp_detail_list[1::13]
+        age_list = [int(age) for age in age_list]
+        
+        for i, name in enumerate(cleaned_names):
+            if name in player_map:
+                # add or update the data fields in the corresponding player_dict
+                player_map[name]["age"] = age_list[i] if i < len(
+                    age_list) else None
+        
+        team_detail["players"] = list(player_map.values())
+        print(f"detailed stats team_detail\n{team_detail}\n")
+        print(f"detailed stats team name\n{team_detail['team_name']}\n")
+        team_name_check=team_detail['team_name']
+        print(f"team_name_check\n{team_name_check}\n")
+        for key, league_data in league_data_dict.items():
+            if any(team['team_name'] == team_name_check for team in league_data['teams']):
+                generated_key = f"{league_data['league_name']}_{league_data['country_name']}_{league_data['season']}"
+                print(f"Found {team_name_check}. Generated key: {generated_key}")
+                if generated_key in league_data_dict:
+                    # Remove existing team if it exists
+                    league_data_dict[generated_key]["teams"] = [team for team in league_data_dict[generated_key]["teams"] if team['team_name'] != team_detail['team_name']]
+                    # Append the updated team_detail to the correct league entry
+                    league_data_dict[generated_key]["teams"].append(team_detail)
+                else:
+                    # If the league doesn't exist, create a new entry
+                    league_data_dict[generated_key] = {
+                        "league_name": team_detail["league_name"],
+                        "country_name": team_detail["country_name"],
+                        "season": team_detail["season"],
+                        "teams": [team_detail]  # Start with the current team
+                    }
+        print(f"detailed stats league_data_dict\n{league_data_dict}\n")
+        can_yeild=False
+        for key, league_data in league_data_dict.items():
+            # Find the last team in the teams list
+            last_team = league_data['teams'][-1] if league_data['teams'] else None
+        print(f"last team is:\n{last_team}")
+        if last_team and 'players' in last_team:
+            for player in last_team["players"]:
+                if "age" in player and player["age"] is not None:
+                    can_yeild=True
+        if can_yeild:
+            print("yieldng detailed stats")
+            yield league_data_dict
+        # if team_detail not in self.league_data["teams"]:
+        #     self.league_data["teams"].append(team_detail)
+
+        # if len(self.league_data["teams"]) == len(self.teams_url_list):
+        #     yield self.league_data
