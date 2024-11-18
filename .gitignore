@@ -23,3 +23,5 @@ temp*.py
 *.ipynb
 # ignore .env files
 *.env
+# ignore buffer files
+buffer*.*
