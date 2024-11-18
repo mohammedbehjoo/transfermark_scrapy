@@ -34,7 +34,13 @@ class TeamDetailsSpider(scrapy.Spider):
             record_path=["teams"],
             meta=["country_name", "league_name", "season"]
         )
-
+    def check_team_exists(data, target_team_name):
+        for league_key, league_info in data.items():
+            for team in league_info['teams']:
+                if team['team_name'] == target_team_name:
+                    return True  # Team found
+        return False  # Team not found
+    
     def start_requests(self):
         # Initialize a list to store all teams' URLs
         self.teams_url_list = []
@@ -91,7 +97,8 @@ class TeamDetailsSpider(scrapy.Spider):
             "team_name": team_name,
             "table_position": position_data,
             "current_transfer_record": current_transfer_record,
-            "national_players_num": national_players_data
+            "national_players_num": national_players_data,
+            "players":[]
         }
 
         # Create a unique key for the league
@@ -105,18 +112,100 @@ class TeamDetailsSpider(scrapy.Spider):
                 "season": season,
                 "teams": []
             }
-
-        # Append this team to the league's team list
+                    
         self.league_data_dict[league_key]["teams"].append(team_detail)
-
-        
         print(f"league_data_dict:\n{self.league_data_dict}\n")
-        team_names_from_league_data_dict=[team["team_name"] for league in self.league_data_dict.values() for team in league["teams"]]
-        print(f"len team names:{len(team_names_from_league_data_dict)}")
-        # Check if all teams for this league are processed
-        if len(team_names_from_league_data_dict) == len(self.teams_url_list):
-            # Yield the final structured data
-            yield self.league_data_dict
-        else:
-            print("NOOOOO")
+        team_names_league_data=[team["team_name"] for league in self.league_data_dict.values() for team in league["teams"]]
+        print(f"len team names:{len(team_names_league_data)}\n")
+        print(f"team names:\n{team_names_league_data}\n")
+        
+        HREF_SELECTOR = "div.tm-tabs a.tm-tab"
+        elements = response.css(HREF_SELECTOR)
+        if len(elements) > 1:
+            detailed_squad_page = "https://www.transfermarkt.com" + \
+                elements[1].css("a").attrib.get("href")
 
+            if detailed_squad_page:
+                yield response.follow(detailed_squad_page, callback=self.parse_detailed_squad, meta={"team_detail": team_detail,"league_data_dict":self.league_data_dict})
+            else:
+                # Append this team to the league's team list
+                self.league_data_dict[league_key]["teams"].append(team_detail)
+                
+                
+    def parse_detailed_squad(self, response):
+        print(f"now detailed squad url: {response.url}\n")
+        print(f"hello\n")
+        
+        team_detail=response.meta["team_detail"]
+        league_data_dict=response.meta["league_data_dict"]
+        print(f"first league data dict\n{league_data_dict}\n")
+        print(f"first team detail detailed sqaud:\n{team_detail},type:\n{type(team_detail)}\n")
+        # extraction
+        PLAYER_NAME_SELECTOR = ".items tbody td.posrela td.hauptlink a::text"
+        raw_names = response.css(PLAYER_NAME_SELECTOR).getall()
+        cleaned_names = [name.strip() for name in raw_names if name.strip()]
+        
+        player_list = []
+        for name in cleaned_names:
+            player_dict = {
+                "player_name": name
+            }
+            player_list.append(player_dict)
+        print(f"players list detailed squad\n{player_list}\n")
+        
+        # Update team_detail with the player list
+        team_detail["players"] = player_list
+        # print(f"second team detail\n{team_detail}\n")
+
+        print(f"second league data dict\n{league_data_dict}\n")
+        
+        print(f"second team detail team name\n{team_detail['team_name']}\n")
+        team_name_check=team_detail['team_name']
+        print(f"team_name_check\n{team_name_check}\n")
+        for key, league_data in league_data_dict.items():
+            if any(team['team_name'] == team_name_check for team in league_data['teams']):
+                generated_key = f"{league_data['league_name']}_{league_data['country_name']}_{league_data['season']}"
+                print(f"Found {team_name_check}. Generated key: {generated_key}")
+                if generated_key in league_data_dict:
+                    # Remove existing team if it exists
+                    league_data_dict[generated_key]["teams"] = [team for team in league_data_dict[generated_key]["teams"] if team['team_name'] != team_detail['team_name']]
+                    # Append the updated team_detail to the correct league entry
+                    league_data_dict[generated_key]["teams"].append(team_detail)
+                else:
+                    # If the league doesn't exist, create a new entry
+                    league_data_dict[generated_key] = {
+                        "league_name": team_detail["league_name"],
+                        "country_name": team_detail["country_name"],
+                        "season": team_detail["season"],
+                        "teams": [team_detail]  # Start with the current team
+                    }
+        for key, league_data in league_data_dict.items():
+            # Find the last team in the teams list
+            last_team = league_data['teams'][-1] if league_data['teams'] else None
+
+        if last_team and 'players' in last_team and last_team['players']:
+            # Check if there is any player value in the last team's players list
+            if last_team['players']:
+                print(f"Found players in the last team '{last_team['team_name']}'")
+                print(f"yeilding second time\n")
+                yield league_data_dict
+            else:
+                print(f"No players found in the last team '{last_team['team_name']}'")
+        # team_to_check=team_detail['team_name']
+        # print(f"team to check\n{team_to_check}\n")
+        
+        # exists = self.check_team_exists(league_data_dict, team_to_check) 
+
+        # key=f"{league_data_dict['league_name']}_{league_data_dict['country_name']}_{league_data_dict['season']}"
+
+        # print(f"key is:\n{key}\n")
+        # if exists:
+        #     print(f"appending team detail")
+        #     league_data_dict[key]["teams"].append(team_detail)
+        # team_names_league_data=[team["team_name"] for league in league_data_dict.values() for team in league["teams"]]
+        # if len(team_names_league_data) == len(self.teams_url_list):
+        #     # Yield the final structured data
+        #     print(f"yield\n")
+        #     yield self.league_data_dict
+        # else:
+        #     print("their length is not the same")
