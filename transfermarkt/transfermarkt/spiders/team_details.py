@@ -510,6 +510,8 @@ class TeamDetailsSpider(scrapy.Spider):
             for player in last_team["players"]:
                 if "age" in player and player["age"] is not None:
                     can_yeild=True
-        if can_yeild:
-            print("yielding data")
-            yield league_data_dict
+                    
+        with open("team_details.json", "w") as file:
+            json.dump(league_data_dict, file, indent=4)
+
+
