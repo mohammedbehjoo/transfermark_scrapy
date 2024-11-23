@@ -38,6 +38,11 @@ The project follows redirects and appends query parameters (like `?saison_id=202
 - Python 3.x
 - Scrapy
 - JSON (for storing scraped data)
+- os
+- sqlalchemy
+
+    In this repository we use PostgreSQL for the database. So you should run this command: `pip install sqlalchemy psycopg2` in order to install sqlalchemy and psql driver that is `psycopg2`.
+
 
 
 
