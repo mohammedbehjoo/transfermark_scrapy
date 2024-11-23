@@ -5,10 +5,50 @@ from sqlalchemy.types import Integer,VARCHAR,CHAR
 import pandas as pd
 import json
 
+# since some dataframes has many columns, set th max_columns to None.
 pd.set_option("display.max_columns",None)
 
-load_dotenv("config.env")
+print(os.path.exists("config_db.env"))  # Should return True
+# loading the env variables
+load_dotenv("config_db.env")
+
 leagues=os.getenv("leagues")
 country_csv=os.getenv("country_csv")
 teams=os.getenv("teams")
 team_details=os.getenv("team_details")
+
+# reading the env variables
+username = os.getenv('DB_USERNAME')
+password = os.getenv('DB_PASSWORD')
+host = os.getenv('DB_HOST')
+port = os.getenv('DB_PORT')
+port = int(port) if port else 0
+database = os.getenv('DB_NAME')
+if None in [username, password, host, port, database]:
+    raise ValueError("One or more connection parameters are missing!")
+
+# creating the engine for interactitng with the database
+engine = create_engine(f'postgresql+psycopg2://{username}:{password}@{host}:{port}/{database}')
+
+# check if the engine is connected.
+with engine.connect() as connection:
+    result = connection.execute(text("SELECT version();"))  # Use text() for raw SQL
+    for row in result:
+        print(row)
+
+# create the football schema
+with engine.connect() as conn:
+    conn.execute(text("CREATE SCHEMA IF NOT EXISTS football;"))
+    conn.commit()
+    
+inspector=inspect(engine)
+schemas=inspector.get_schema_names()
+print("schemas:\n",schemas)
+
+# Load the JSON file into a DataFrame
+if leagues and os.path.exists(leagues):
+    df_leagues = pd.read_json(leagues)
+    print(df_leagues.head())  # Display the first few rows
+else:
+    print("The JSON file path is not defined or the file does not exist.")
+    
