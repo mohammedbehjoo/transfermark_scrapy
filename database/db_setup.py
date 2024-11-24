@@ -5,6 +5,22 @@ from sqlalchemy.types import Integer,VARCHAR,CHAR
 import pandas as pd
 import json
 
+def cast_float(item):
+    if "€" in item:
+        item=item.replace("€","")
+        if "bn" in item: 
+            item=item.replace("bn","")
+            item=float(item)*1000000000
+        elif "m" in item:
+            item=item.replace("m","")
+            item=float(item)*1000000
+        elif "k" in item:
+            item=item.replace("k","")
+            item=float(item)*1000
+        else:
+            item=float(item)
+    return item
+
 # since some dataframes has many columns, set th max_columns to None.
 pd.set_option("display.max_columns",None)
 
