@@ -49,13 +49,7 @@ inspector=inspect(engine)
 schemas=inspector.get_schema_names()
 print("schemas:\n",schemas)
 
-# Load the JSON file into a DataFrame
-if leagues and os.path.exists(leagues):
-    df_leagues = pd.read_json(leagues)
-    print(df_leagues.head())  # Display the first few rows
-else:
-    print("The leagues JSON file path is not defined or the file does not exist.")
-    
+
 # check if the country csv file exists
 if country_csv and os.path.exists(country_csv):
     country_table=pd.read_csv(country_csv)
@@ -93,4 +87,26 @@ with engine.connect() as conn:
     print("the data was inserted into country table")
 
 
-    
+# working on leagues json file.
+# read the lagues json file
+with open(leagues,"r") as file:
+    data=json.load(file)
+
+
+# create a dataframe from leagues json file.
+flattened_data=[]
+for country in data:
+    country_name=country["country_name"]
+    for league in country["leagues"]:
+        league_data={"country_name":country_name,**league}
+        flattened_data.append(league_data)
+df_leagues=pd.DataFrame(flattened_data)
+# assign indexes as league_id for the database
+df_leagues=df_leagues.assign(league_id=range(1,6)).set_index("league_id")
+# strip the string values of country_name key.
+df_leagues['country_name'] = df_leagues['country_name'].str.strip()
+
+# print the first 3 rows of leagues dataframe
+print("leagues dataframe:\n",df_leagues.head(3))
+
+
