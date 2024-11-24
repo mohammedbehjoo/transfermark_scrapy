@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 import os
 from sqlalchemy import create_engine, text, inspect, MetaData, Table, Column, Integer, String, PrimaryKeyConstraint
-from sqlalchemy.types import Integer, VARCHAR, CHAR
+from sqlalchemy.types import Integer, VARCHAR, CHAR, Float
 import pandas as pd
 import json
 
@@ -111,56 +111,67 @@ with engine.connect() as conn:
     print("the data was inserted into countries table")
 
 
-# # working on leagues json file.
-# # read the lagues json file
-# with open(leagues,"r") as file:
-#     data=json.load(file)
+# working on leagues json file.
+# read the lagues json file
+with open(leagues, "r") as file:
+    data = json.load(file)
 
 
-# # create a dataframe from leagues json file.
-# flattened_data=[]
-# for country in data:
-#     country_name=country["country_name"]
-#     for league in country["leagues"]:
-#         league_data={"country_name":country_name,**league}
-#         flattened_data.append(league_data)
-# df_leagues=pd.DataFrame(flattened_data)
-# # assign indexes as league_id for the database
-# df_leagues=df_leagues.assign(league_id=range(1,6)).set_index("league_id")
-# # strip the string values of country_name key.
-# df_leagues['country_name'] = df_leagues['country_name'].str.strip()
+# create a dataframe from leagues json file.
+flattened_data = []
+for country in data:
+    country_name = country["country_name"]
+    for league in country["leagues"]:
+        league_data = {"country_name": country_name, **league}
+        flattened_data.append(league_data)
+df_leagues = pd.DataFrame(flattened_data)
+# assign indexes as league_id for the database
+df_leagues = df_leagues.assign(league_id=range(1, 6)).set_index("league_id")
+# strip the string values of country_name key.
+df_leagues['country_name'] = df_leagues['country_name'].str.strip()
 
-# # print the first 3 rows of leagues dataframe
-# print("leagues dataframe:\n",df_leagues.head(3))
+# print the first 3 rows of leagues dataframe
+print("leagues dataframe:\n", df_leagues.head(3))
 
-# # create a new dataframe to have the country_id for leagues, and remove the country_name from the leagues dataframe.
-# key_column="country_name"
-# source_column="country_id"
+# create a new dataframe to have the country_id for leagues, and remove the country_name from the leagues dataframe.
+key_column = "country_name"
+source_column = "country_id"
 
-# country_table_reset = country_table.reset_index()
-# merged_df=pd.merge(df_leagues,country_table_reset,on=key_column,how="inner")
-# merged_df.drop("country_name",axis=1,inplace=True)
-# merged_df["total_value"]=merged_df["total_value"].apply(cast_float)
-# print("merged dataframe:\n",merged_df)
-# print("merged dataframe shape:\n",merged_df.shape)
+country_table_reset = country_table.reset_index()
+merged_df = pd.merge(df_leagues, country_table_reset,
+                     on=key_column, how="inner")
+merged_df.drop("country_name", axis=1, inplace=True)
+merged_df["total_value"] = merged_df["total_value"].apply(cast_float).astype("float64")
+print("merged dataframe:\n", merged_df)
+print("merged dataframe shape:\n", merged_df.shape)
 
-# drop_query=text("DROP TABLE IF EXISTS football.leagues CASCADE;")
-# # query for creating the leagues table in football schema
-# query_leagues=text('''
-#                    CREATE TABLE football.leagues(
-#                        league_id SERIAL PRIMARY KEY,
-#                        league_name VARCHAR(30) NOT NULL,
-#                        country_id INT NOT NULL,
-#                        league_url VARCHAR(255) NOT NULL,
-#                        club_num INT NOT NULL,
-#                        player_num INT NOT NULL,
-#                        total_value INT NOT NULL,
-#                        FOREIGN KEY (country_id) REFERENCES football.countries(country_id)
-#                    )
-#                    ;''')
+drop_query = text("DROP TABLE IF EXISTS football.leagues CASCADE;")
+# query for creating the leagues table in football schema
+query_leagues = text('''
+                   CREATE TABLE football.leagues(
+                       league_id SERIAL PRIMARY KEY,
+                       league_name VARCHAR(30) NOT NULL,
+                       country_id INT NOT NULL,
+                       league_url VARCHAR(255) NOT NULL,
+                       club_num INT NOT NULL,
+                       player_num INT NOT NULL,
+                       total_value DOUBLE PRECISION NOT NULL,
+                       FOREIGN KEY (country_id) REFERENCES football.countries(country_id)
+                   )
+                   ;''')
 
-# with engine.connect() as conn:
-#     conn.execute(drop_query)
-#     conn.execute(query_leagues)
-#     conn.commit()
-#     print("leagues table is recreated with primary and foreign keys")
+with engine.connect() as conn:
+    conn.execute(drop_query)
+    conn.execute(query_leagues)
+    conn.commit()
+    print("leagues table is recreated with primary and foreign keys")
+
+with engine.connect() as conn:
+    merged_df.to_sql(name="leagues", con=conn, schema="football", if_exists="append",
+                     chunksize=50, method="multi", index_label="league_id", dtype={
+                         "league_id": Integer(), "league_name": VARCHAR(30),
+                         "country_id": Integer(), "league_url": VARCHAR(255),
+                         "club_num": Integer(), "player_num": Integer(), "total_value": Float()
+                     })
+    conn.commit()
+    print("data is inserted into leagues table.")
