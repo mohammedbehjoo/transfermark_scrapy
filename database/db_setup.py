@@ -38,9 +38,13 @@ with engine.connect() as connection:
 
 # create the football schema
 with engine.connect() as conn:
-    conn.execute(text("CREATE SCHEMA IF NOT EXISTS football;"))
-    conn.commit()
-    
+    try:
+        conn.execute(text("CREATE SCHEMA IF NOT EXISTS football;"))
+        conn.commit()
+        print("football schema created")
+    except:
+        print("the football schema was already created")
+
 inspector=inspect(engine)
 schemas=inspector.get_schema_names()
 print("schemas:\n",schemas)
@@ -50,5 +54,43 @@ if leagues and os.path.exists(leagues):
     df_leagues = pd.read_json(leagues)
     print(df_leagues.head())  # Display the first few rows
 else:
-    print("The JSON file path is not defined or the file does not exist.")
+    print("The leagues JSON file path is not defined or the file does not exist.")
+    
+# check if the country csv file exists
+if country_csv and os.path.exists(country_csv):
+    country_table=pd.read_csv(country_csv)
+    print(country_table.head(3))
+else:
+    print("the country.csv file is either missing or empty")
+    
+country_table=country_table.set_index("country_id")
+print("country_table:\n",country_table)
+print("country_table shape:\n",country_table.shape)
+
+query_country=text(
+    '''
+    create table if not exists football.country(
+        country_id serial primary key,
+        country_name varchar(50) not null
+    );
+    '''
+)
+
+# creating the country table in football schema
+with engine.connect() as conn:
+    try:
+        conn.execute(query_country)
+        conn.commit()
+        print("country table was created")
+    except:
+        print("country table was already created")
+
+# inserting values to country table
+with engine.connect() as conn:
+    country_table.to_sql(name="country",con=conn,schema="football",if_exists="replace",chunksize=50,method="multi",
+                         index_label="country_id",dtype={"country_id":Integer(),"country_name":VARCHAR(50)})
+    conn.commit()
+    print("the data was inserted into country table")
+
+
     
