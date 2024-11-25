@@ -175,3 +175,64 @@ with engine.connect() as conn:
                      })
     conn.commit()
     print("data is inserted into leagues table.")
+    
+
+# read the teams json file
+with open(teams,"r") as file:
+    if teams and os.path.exists(teams):
+        data=json.load(file)
+        print("teams json file is read.")
+    else:
+        print("the teams file is either missing or empty")
+    
+# create a dataframe from teams json file. process the file to be ready for database insertion.
+flattened_data=[]
+for league in data:
+    country_name=league["country_name"]
+    league_name=league["league_name"]
+    season=league["season"]
+    for team in league["teams"]:
+        team_data={"country_name":country_name,"league_name":league_name,"season":season,**team}
+        flattened_data.append(team_data)
+df_teams=pd.DataFrame(flattened_data)
+df_teams.drop("country_name",axis=1,inplace=True)
+# reset indexes of df_leagues file. we want to use it as a column.
+df_leagues=df_leagues.reset_index()
+
+# merge the df_teams, and df_leagues dataframes.
+key_column="league_name"
+
+merged_df=pd.merge(df_teams,df_leagues,on=key_column,how="inner")
+merged_df.drop(["league_name","country_name","league_url","club_num","player_num","total_value"],inplace=True,axis=1)
+merged_df["avg_market"]=merged_df["avg_market"].apply(cast_float).astype("float64")
+merged_df["total_market"]=merged_df["total_market"].apply(cast_float).astype("float64")
+
+merged_df=merged_df.assign(team_id=range(0,merged_df.shape[0])).set_index("team_id")
+
+# write the query to drop and create the teams table in the database.
+drop_query=text('''
+                drop table if exists footnall.teams;
+                ''')
+
+teams_query=text('''
+                 create table if not exists football.teams(
+                     team_id serial primary key,
+                     league_id int not null,
+                     team_name varchar(30) not null,
+                     season int not null,
+                     squad_size int not null,
+                     avg_age int not null,
+                     foreigners_num int not null,
+                     avg_market double precision not null,
+                     total_market double precision not null,
+                     team_url varchar(255) not null,
+                     foreign key (league_id) references football.leagues(league_id)
+                     
+                 )
+                 ''')
+
+with engine.connect() as conn:
+    conn.execute(drop_query)
+    conn.execute(teams_query)
+    conn.commit()
+    print("the teams table is recreated with primary and foreign keys contraint.")
