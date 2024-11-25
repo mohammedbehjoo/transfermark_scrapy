@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 import os
 from sqlalchemy import create_engine, text, inspect, MetaData, Table, Column, Integer, String, PrimaryKeyConstraint
-from sqlalchemy.types import Integer, VARCHAR, CHAR, Float
+from sqlalchemy.types import Integer, VARCHAR, CHAR, Float,Date
 import pandas as pd
 import json
 
@@ -126,7 +126,7 @@ for country in data:
         flattened_data.append(league_data)
 df_leagues = pd.DataFrame(flattened_data)
 # assign indexes as league_id for the database
-df_leagues = df_leagues.assign(league_id=range(1, 6)).set_index("league_id")
+# df_leagues = df_leagues.assign(league_id=range(1, 6)).set_index("league_id")
 # strip the string values of country_name key.
 df_leagues['country_name'] = df_leagues['country_name'].str.strip()
 
@@ -135,13 +135,13 @@ print("leagues dataframe:\n", df_leagues.head(3))
 
 # create a new dataframe to have the country_id for leagues, and remove the country_name from the leagues dataframe.
 key_column = "country_name"
-source_column = "country_id"
 
 country_table_reset = country_table.reset_index()
 merged_df = pd.merge(df_leagues, country_table_reset,
                      on=key_column, how="inner")
 merged_df.drop("country_name", axis=1, inplace=True)
 merged_df["total_value"] = merged_df["total_value"].apply(cast_float).astype("float64")
+merged_df=merged_df.assign(league_id=range(0,merged_df.shape[0])).set_index("league_id")
 print("merged dataframe:\n", merged_df)
 print("merged dataframe shape:\n", merged_df.shape)
 
@@ -210,12 +210,12 @@ merged_df["total_market"]=merged_df["total_market"].apply(cast_float).astype("fl
 merged_df['avg_age'] = pd.to_numeric(merged_df['avg_age'], errors='coerce').astype(int)
 merged_df["squad_size"]=pd.to_numeric(merged_df["squad_size"],errors="coerce").astype(int)
 merged_df["foreigners_num"]=pd.to_numeric(merged_df["foreigners_num"],errors="coerce").astype(int)
-
+merged_df.rename(columns={"index":"league_id"},inplace=True)
 merged_df=merged_df.assign(team_id=range(0,merged_df.shape[0])).set_index("team_id")
 
 # write the query to drop and create the teams table in the database.
 drop_query=text('''
-                drop table if exists footnall.teams;
+                drop table if exists football.teams cascade;
                 ''')
 
 teams_query=text('''
@@ -231,8 +231,7 @@ teams_query=text('''
                      total_market double precision not null,
                      team_url varchar(255) not null,
                      foreign key (league_id) references football.leagues(league_id)
-                     
-                 )
+                 );
                  ''')
 
 with engine.connect() as conn:
@@ -251,3 +250,108 @@ with engine.connect() as conn:
                      })
     conn.commit()
     print("data is inserted into the teams table.")
+
+
+# read the team_details json file
+with open(team_details,"r") as file:
+    if team_details and os.path.exists(team_details):
+        data=json.load(file)
+        print("team_details json file is read.")
+    else:
+        print("the team_details file is either missing or empty")
+
+# create the team_details dataframe
+# proccess the team_details file. it is a nested dict.
+flattened_data=[]
+for key,value in data.items():
+    league_name=value["league_name"]
+    country_name=value["country_name"]
+    season=value["season"]
+    teams=value["teams"]
+    for team in teams:
+        team_name=team["team_name"]
+        table_position=team["table_position"]
+        current_transfer_record=team["current_transfer_record"]
+        national_players_num=team["national_players_num"]
+        for player in team["players"]:
+            team_details_data={"league_name":league_name,"country_name":country_name,
+                               "season":season,**team,**player}
+            flattened_data.append(team_details_data)
+df_team_details=pd.DataFrame(flattened_data)
+df_team_details.drop(["country_name","league_name","players"],axis=1,inplace=True)
+df_team_details["table_position"]=pd.to_numeric(df_team_details["table_position"],errors="coerce").astype(int)
+df_team_details["national_players_num"]=pd.to_numeric(df_team_details["national_players_num"],errors="coerce").astype(int)
+
+# create players dataframe 
+df_players=df_team_details.drop(["table_position","current_transfer_record","national_players_num"],axis=1)
+# assign the player_id as the index
+df_players=df_players.assign(player_id=range(0,df_players.shape[0])).set_index("player_id")
+# use the team_details dataframe index as a column
+df_teams=df_teams.reset_index()
+
+# create a new dataframe 
+key_column="team_name"
+
+merged_df=pd.merge(df_teams,df_players,on=key_column,how="inner")
+merged_df.drop(["league_name","season_x","team_name","team_url","squad_size","avg_age","foreigners_num","avg_market","total_market"],inplace=True,axis=1)
+
+merged_df["date_of_birth"]=pd.to_datetime(merged_df["date_of_birth"])
+merged_df["joined_date"]=pd.to_datetime(merged_df["joined_date"],errors="coerce")
+merged_df.rename(columns={"season_y":"season","index":"team_id"},inplace=True)
+merged_df.columns=[col.lower() for col in merged_df.columns]
+# create the table structure
+drop_query=text('''
+                drop table if exists football.players cascade;''')
+
+players_query=text('''
+                   create table if not exists football.players(
+                    player_id serial primary key,
+                    team_id int not null,
+                    season int not null,
+                    player_name varchar(50) not null,
+                    player_position varchar(20) not null,
+                    date_of_birth date not null,
+                    nationality varchar(50) not null,
+                    current_club varchar(50) not null,
+                    height_cm int not null,
+                    foot varchar(10) not null,
+                    joined_date date ,
+                    signed_from varchar(50) not null,
+                    market_value double precision not null,
+                    age double precision ,
+                    in_sqaud double precision ,
+                    appearance double precision ,
+                    goals double precision ,
+                    assists double precision ,
+                    yelow_cards double precision ,
+                    second_yellow_cards double precision ,
+                    red_cards double precision ,
+                    substitutions_on double precision ,
+                    substitutions_off double precision ,
+                    PPG double precision ,
+                    minutes_played double precision ,
+                    foreign key (team_id) references football.teams(team_id)
+                    );''')
+
+with engine.connect() as conn:
+    conn.execute(drop_query)
+    conn.execute(players_query)
+    conn.commit()
+    print("the players table is recreated with primary and foreign key constraints")
+
+# insert data into the players table
+with engine.connect() as conn:
+    merged_df.to_sql(name="players",con=conn,schema="football",if_exists="append",
+                     chunksize=50,method="multi",index_label="player_id",dtype={
+                         "player_id":Integer(),"team_id":Integer(),"season":Integer(),"player_name":VARCHAR(50),
+                         "player_position":VARCHAR(20),"date_of_birth":Date(),
+                         "nationality":VARCHAR(50),"current_club":VARCHAR(50),"height_cm":Integer(),
+                         "foot":VARCHAR(10),"joined_date":Date(),"signed_from":VARCHAR(50),
+                         "market_value":Float(),"age":Float(),
+                         "in_squad":Float(),"appearance":Float(),"goals":Float(),
+                         "assists":Float(),"yelow_cards":Float(),"second_yellow_cards":Float(),
+                         "red_cards":Float(),"substitutions_on":Float(),"substitutions_off":Float(),"PPG":Float(),
+                         "minutes_played":Float()
+                     })
+    conn.commit()
+    print("data is inserted into players table")
