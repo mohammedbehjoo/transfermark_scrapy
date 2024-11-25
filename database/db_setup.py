@@ -206,6 +206,10 @@ merged_df=pd.merge(df_teams,df_leagues,on=key_column,how="inner")
 merged_df.drop(["league_name","country_name","league_url","club_num","player_num","total_value"],inplace=True,axis=1)
 merged_df["avg_market"]=merged_df["avg_market"].apply(cast_float).astype("float64")
 merged_df["total_market"]=merged_df["total_market"].apply(cast_float).astype("float64")
+# cast the dtype of these three columns to int.
+merged_df['avg_age'] = pd.to_numeric(merged_df['avg_age'], errors='coerce').astype(int)
+merged_df["squad_size"]=pd.to_numeric(merged_df["squad_size"],errors="coerce").astype(int)
+merged_df["foreigners_num"]=pd.to_numeric(merged_df["foreigners_num"],errors="coerce").astype(int)
 
 merged_df=merged_df.assign(team_id=range(0,merged_df.shape[0])).set_index("team_id")
 
@@ -236,3 +240,14 @@ with engine.connect() as conn:
     conn.execute(teams_query)
     conn.commit()
     print("the teams table is recreated with primary and foreign keys contraint.")
+    
+# insert data into teams table
+with engine.connect() as conn:
+    merged_df.to_sql(name="teams",con=conn,schema="football",if_exists="append",
+                     chunksize=50,method="multi",index_label="team_id",dtype={
+                         "team_id":Integer(),"league_id":Integer(),"team_name":VARCHAR(30),
+                         "season":Integer(),"squad_size":Integer(),"avg_age":Integer(),
+                         "foreigners_num":Integer(),"avg_market":Float(),"total_market":Float(),"team_url":VARCHAR(255)
+                     })
+    conn.commit()
+    print("data is inserted into the teams table.")
