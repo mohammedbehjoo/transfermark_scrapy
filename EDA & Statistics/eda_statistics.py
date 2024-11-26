@@ -49,12 +49,19 @@ team_details = os.getenv("team_details")
 # root folder for the output
 root_dir=os.getenv("save_dir_txt")
 
-# directory for saving figures
+# directory for saving leagues figures
 save_figure_leagues_dir=os.getenv("save_dir_figures")
 save_figure_leagues_dir=os.path.join(save_figure_leagues_dir,"leagues")
 # Create the directory if it does not exist
 os.makedirs(save_figure_leagues_dir, exist_ok=True)
 print("save figure leagues directory:\n",save_figure_leagues_dir)
+
+# directory for saving leagues figures
+save_figure_teams_dir=os.getenv("save_dir_figures")
+save_figure_teams_dir=os.path.join(save_figure_teams_dir,"teams")
+# Create the directory if it does not exist
+os.makedirs(save_figure_teams_dir, exist_ok=True)
+print("save figure teams directory:\n",save_figure_teams_dir)
 
 # directory for saving leagues txt file
 save_txt_leagues_dir=os.getenv("save_dir_txt")
@@ -385,6 +392,19 @@ with open(teams_txt_file_path,"a") as file:
     file.write(df_teams.isnull().sum().to_string())
     file.write("\n"+"-"*30+"\n")
 print(f"df_teams number of null values is written to the file {teams_txt_file_path}."+"\n"+"-"*30+"\n")
+
+# distributions
+# histogram for distributions
+for col in ["squad_size","avg_age","foreigners_num","avg_market","total_market"]:
+    plt.figure(figsize=(6,4))
+    sns.histplot(df_teams[col], kde=True, bins=10, color='blue')
+    plt.title(f"Distirbution of {col}")
+    plt.xlabel(col)
+    plt.ylabel("Frequency")
+    teams_fig_file_path=os.path.join(save_figure_teams_dir,f"Disribution of {col}.jpg")
+    plt.savefig(teams_fig_file_path,format="jpg")
+    plt.close()
+    print(f"Figure is saved at: {teams_fig_file_path}"+"\n"+"-"*30+"\n")
 
 # Compute correlation matrix of df_teams
 correlation_matrix = df_teams[["squad_size","avg_age","foreigners_num","avg_market","total_market"]].corr()
