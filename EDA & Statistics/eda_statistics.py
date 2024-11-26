@@ -155,9 +155,26 @@ for col in ["total_value","player_num","club_num"]:
     
     outliers=df_leagues[(df_leagues[col]<lower_bound) | (df_leagues[col] > upper_bound) ]
     print(f"\nOutliers in {col}\n",outliers,"\n","-"*30,"\n")
-    # write the df_leagues correlation matrix to a txt file.
+    # write the df_leagues coutliers using IQR to a txt file.
     with open(txt_file_path,"a") as file:
         file.write(f"outliers of df_leagues dataframe of col {col}:\n")
         file.write(outliers.to_string())
         file.write("\n"+"-"*30+"\n")
     print(f"df_leagues outliers are written to the file {txt_file_path}."+"\n"+"-"*30+"\n")
+    
+# calculate range for each numeric value
+for col in ["total_value","player_num","club_num"]:
+    col_min=df_leagues[col].min()
+    col_max=df_leagues[col].max()
+    col_range= col_max - col_min
+
+    print(f"{col} -> Min: {col_min}, Max: {col_max}, Range: {col_range}"+"\n"+"-"*30+"\n")
+    # write the df_leagues correlation matrix to a txt file.
+    with open(txt_file_path,"a") as file:
+        file.write(f"df_leagues dataframe range of col {col}:\n")
+        file.write("Min: "+str(col_min)+"\n")
+        file.write("Max: "+str(col_max)+"\n")
+        file.write("Range: "+str(col_range)+"\n")
+        file.write("\n"+"-"*30+"\n")
+    print(f"df_leagues range of column {col} is written to the file {txt_file_path}."+"\n"+"-"*30+"\n")
+
