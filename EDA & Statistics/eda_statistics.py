@@ -386,3 +386,16 @@ with open(teams_txt_file_path,"a") as file:
     file.write("\n"+"-"*30+"\n")
 print(f"df_teams number of null values is written to the file {teams_txt_file_path}."+"\n"+"-"*30+"\n")
 
+# Compute correlation matrix of df_teams
+correlation_matrix = df_teams[["squad_size","avg_age","foreigners_num","avg_market","total_market"]].corr()
+
+# Display the correlation matrix of df_teams
+print(f"Correlation matrix of df_teams:\n{correlation_matrix}"+"\n"+"-"*30+"\n")
+
+# write the df_teams correlation matrix to a txt file.
+with open(teams_txt_file_path,"a") as file:
+    file.write("correlation matrix of df_teams dataframe columns:\n")
+    file.write(correlation_matrix.to_string())
+    file.write("\n"+"-"*30+"\n")
+print(f"df_teams correlation matrix is written to the file {teams_txt_file_path}."+"\n"+"-"*30+"\n")
+
