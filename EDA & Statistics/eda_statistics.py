@@ -240,3 +240,32 @@ plt.savefig(fig_file_path,format="jpg")
 plt.close()
 print(f"Figure is saved at: {fig_file_path}"+"\n"+"-"*30+"\n")
 
+# scatter plot: Club_num vs. total_value
+plt.figure(figsize=(8,6))
+sns.scatterplot(x="club_num",y="total_value",data=df_leagues,hue="league_name",palette="Set2",s=100)
+plt.title("Club number vs. Total value",fontsize=16)
+plt.xlabel("Number of clubs",fontsize=12)
+plt.ylabel("Total value",fontsize=12)
+plt.legend(title="League name",bbox_to_anchor=(1.05,1),loc="upper left")
+plt.grid(True)
+plt.tight_layout()
+fig_file_path=os.path.join(save_figure_dir,"Club number vs. Total value.jpg")
+plt.savefig(fig_file_path,format="jpg")
+plt.close()
+print(f"Figure is saved at: {fig_file_path}"+"\n"+"-"*30+"\n")
+
+
+# Scatter plot: player_num vs. total_value
+plt.figure(figsize=(8, 6))
+sns.scatterplot(x='player_num', y='total_value', data=df_leagues, hue='league_name', palette='Set2', s=100)
+plt.title('Player Number vs. Total Value', fontsize=16)
+plt.xlabel('Number of Players', fontsize=12)
+plt.ylabel('Total Value', fontsize=12)
+plt.legend(title='League Name', bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.grid(True)
+plt.tight_layout()
+fig_file_path=os.path.join(save_figure_dir,"Player Number vs. Total Value.jpg")
+plt.savefig(fig_file_path,format="jpg")
+plt.close()
+print(f"Figure is saved at: {fig_file_path}"+"\n"+"-"*30+"\n")
+
