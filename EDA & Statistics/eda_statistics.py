@@ -8,7 +8,12 @@ from matplotlib.ticker import MaxNLocator
 import seaborn as sns
 from scipy.stats import f_oneway,ttest_ind
 
-
+# a function for deleting every resul txt file in the eda directory.
+def delete_txt_files(directory):
+    path=Path(directory)
+    for txt_file in path.rglob("*.txt"):
+        txt_file.unlink()
+        print(f"Deleted: {txt_file}")
 
 # a function to process and cast items of columns to float datatype
 def cast_float(item):
@@ -41,6 +46,8 @@ country_csv = os.getenv("country_csv")
 teams = os.getenv("teams")
 team_details = os.getenv("team_details")
 
+# root folder for the output
+root_dir=os.getenv("save_dir_txt")
 
 # directory for saving figures
 save_figure_leagues_dir=os.getenv("save_dir_figures")
@@ -68,7 +75,8 @@ leagues_txt_file_path=os.path.join(save_txt_leagues_dir,"results_df_league.txt")
 # teams txt file path
 teams_txt_file_path=os.path.join(save_txt_teams_dir,"teams.txt")
 
-
+# delete the txt files before starting. this makes sure that evert txt file is being made from scratch.
+delete_txt_files(root_dir)
 
 
 # reading the lagues json file
@@ -368,3 +376,4 @@ with open(teams_txt_file_path,"a") as file:
     file.write("\n"+"-"*30+"\n")
 
 print(f"df_teams.describe() is written to the file {teams_txt_file_path}."+"\n"+"-"*30+"\n")
+
