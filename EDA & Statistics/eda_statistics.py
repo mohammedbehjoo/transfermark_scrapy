@@ -522,3 +522,15 @@ plt.savefig(teams_fig_file_path,format="jpg")
 plt.close()
 print(f"Figure is saved at: {teams_fig_file_path}"+"\n"+"-"*30+"\n")
 
+# Boxplot: total_market across league_name
+plt.figure(figsize=(12, 6))
+sns.boxplot(data=df_teams, x='league_name', y='total_market', palette='Set2')
+plt.title('Total Market Value of teams Across Leagues')
+plt.xlabel('League Name')
+plt.ylabel('Total Market Value')
+plt.xticks(rotation=45)  # Rotate x-axis labels for readability
+teams_fig_file_path=os.path.join(save_figure_teams_dir,"Total Market Value of teams Across Leagues.jpg")
+plt.savefig(teams_fig_file_path,format="jpg")
+plt.close()
+print(f"Figure is saved at: {teams_fig_file_path}"+"\n"+"-"*30+"\n")
+
