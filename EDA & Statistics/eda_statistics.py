@@ -178,3 +178,16 @@ for col in ["total_value","player_num","club_num"]:
         file.write("\n"+"-"*30+"\n")
     print(f"df_leagues range of column {col} is written to the file {txt_file_path}."+"\n"+"-"*30+"\n")
 
+# barplot to compare league values for each numeric column
+for col in ['club_num', 'player_num', 'total_value']:
+    plt.figure(figsize=(8,6))
+    sns.barplot(x="league_name",y=col,data=df_leagues,palette="viridis")
+    plt.title(f"Comparison of {col} across leagues")
+    plt.xlabel("League")
+    plt.ylabel(col)
+    plt.xticks(rotation=45)
+    fig_file_path=os.path.join(save_figure_dir,f"Comparison of {col} across leagues.jpg")
+    plt.savefig(fig_file_path,format="jpg")
+    plt.close()
+    print(f"Figure is saved at: {fig_file_path}"+"\n"+"-"*30+"\n")
+    
