@@ -208,3 +208,20 @@ for col in ['club_num', 'player_num', 'total_value']:
         file.write("-"*30+"\n")
         print(f"df_leagues summary metrics of column {col} are written to the file {txt_file_path}."+"\n"+"-"*30+"\n")
     
+# visualization of summary metrics
+for col in ['club_num', 'player_num', 'total_value']:
+    plt.figure(figsize=(6,4))
+    sns.boxplot(y=df_leagues[col],color="skyblue")
+    
+    # add mean and median lines
+    plt.axhline(df_leagues[col].mean(),color="green",linestyle="--",label=f"Mean: {df_leagues[col].mean():.2f}")
+    plt.axhline(df_leagues[col].median(),color="orange",linestyle="-",label=f"Median: {df_leagues[col].median():.2f}")
+    
+    plt.title(f"{col} with mean and median")
+    plt.ylabel(col)
+    plt.legend()
+    fig_file_path=os.path.join(save_figure_dir,f"{col} with mean and meadian.jpg")
+    plt.savefig(fig_file_path,format="jpg")
+    plt.close()
+    print(f"Figure is saved at: {fig_file_path}"+"\n"+"-"*30+"\n")
+
