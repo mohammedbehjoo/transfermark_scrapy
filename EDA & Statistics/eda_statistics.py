@@ -429,3 +429,12 @@ with open(teams_txt_file_path,"a") as file:
     file.write("\n"+"-"*30+"\n")
 print(f"df_teams correlation matrix is written to the file {teams_txt_file_path}."+"\n"+"-"*30+"\n")
 
+# plot the correlation heatmap
+plt.figure(figsize=(10,8))
+sns.heatmap(correlation_matrix,annot=True,cmap="coolwarm",fmt=".2f",linewidths=0.5)
+plt.title("Correlation matrix of numerical features")
+teams_fig_file_path=os.path.join(save_figure_teams_dir,"Correlation matrix of numerical features.jpg")
+plt.savefig(teams_fig_file_path,format="jpg")
+plt.close()
+print(f"Figure is saved at: {teams_fig_file_path}"+"\n"+"-"*30+"\n")
+
