@@ -130,3 +130,17 @@ fig_file_path=os.path.join(save_figure_dir,"correlation_matrix_df_leagues.jpg")
 plt.savefig(fig_file_path,format="jpg")
 plt.close()
 print(f"Figure is saved at: {fig_file_path}"+"\n"+"-"*30+"\n")
+
+# outliers detection
+# box plots to identify outliers
+# box plot for each numeric column
+for col in ["total_value","player_num","club_num"]:
+    plt.figure(figsize=(6,4))
+    sns.boxplot(y=df_leagues[col],color="skyblue")
+    plt.title(f"Boxplot of {col}")
+    plt.ylabel(col)
+    fig_file_path=os.path.join(save_figure_dir,f"boxplot of {col}.jpg")
+    plt.savefig(fig_file_path,format="jpg")
+    plt.close()
+    print(f"Figure is saved at: {fig_file_path}"+"\n"+"-"*30+"\n")
+
