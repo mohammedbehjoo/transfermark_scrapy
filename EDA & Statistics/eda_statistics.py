@@ -225,3 +225,18 @@ for col in ['club_num', 'player_num', 'total_value']:
     plt.close()
     print(f"Figure is saved at: {fig_file_path}"+"\n"+"-"*30+"\n")
 
+# visualize overall ranges
+# calculate ranges
+ranges=df_leagues[["club_num","player_num","total_value"]].max() - df_leagues[["club_num","player_num","total_value"]].min()
+
+# plot ranges
+plt.figure(figsize=(8,5))
+sns.barplot(x=ranges.values,y=ranges.index,palette="coolwarm")
+plt.title("Range of numeric columns")
+plt.xlabel("Range")
+plt.ylabel("Column")
+fig_file_path=os.path.join(save_figure_dir,"range of numeric columns.jpg")
+plt.savefig(fig_file_path,format="jpg")
+plt.close()
+print(f"Figure is saved at: {fig_file_path}"+"\n"+"-"*30+"\n")
+
