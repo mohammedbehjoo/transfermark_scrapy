@@ -191,3 +191,20 @@ for col in ['club_num', 'player_num', 'total_value']:
     plt.close()
     print(f"Figure is saved at: {fig_file_path}"+"\n"+"-"*30+"\n")
     
+# summary metric for each numeric column
+for col in ['club_num', 'player_num', 'total_value']:
+    print(f"Summary for {col}:")
+    print(f"Mean: {df_leagues[col].mean():.2f}")
+    print(f"Median: {df_leagues[col].median():.2f}")
+    print(f"Mode: {df_leagues[col].mode().iloc[0]:.2f}")
+    print(f"Standard deviation: {df_leagues[col].std():.2f}")
+    print("-"*30)
+    with open(txt_file_path,"a") as file:
+        file.write(f"Summary for {col}:"+"\n")
+        file.write(f"Mean: {df_leagues[col].mean():.2f}"+"\n")
+        file.write(f"Median: {df_leagues[col].median():.2f}"+"\n")
+        file.write(f"Mode: {df_leagues[col].mode().iloc[0]:.2f}"+"\n")
+        file.write(f"Standard deviation: {df_leagues[col].std():.2f}"+"\n")
+        file.write("-"*30+"\n")
+        print(f"df_leagues summary metrics of column {col} are written to the file {txt_file_path}."+"\n"+"-"*30+"\n")
+    
