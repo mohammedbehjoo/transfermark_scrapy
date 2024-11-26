@@ -26,9 +26,9 @@ def cast_float(item):
 # since some dataframes has many columns, set th max_columns to None.
 pd.set_option("display.max_columns", None)
 
-print(os.path.exists("config_db.env"))  # Should return True
+print(os.path.exists("config.env"))  # Should return True
 # loading the env variables
-load_dotenv("config_db.env")
+load_dotenv("config.env")
 
 leagues = os.getenv("leagues")
 country_csv = os.getenv("country_csv")
