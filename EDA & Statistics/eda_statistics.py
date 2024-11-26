@@ -40,6 +40,10 @@ team_details = os.getenv("team_details")
 save_figure_dir=os.getenv("save_dir_figures")
 # Create the directory if it does not exist
 os.makedirs(save_figure_dir, exist_ok=True)
+# directory for saving txt file
+save_txt_dir=os.getenv("save_dir_txt")
+# create the directory if it does not exists
+os.makedirs(save_txt_dir,exist_ok=True)
 
 # reading the lagues json file
 with open(leagues, "r") as file:
@@ -60,26 +64,27 @@ df_leagues["club_num"]=pd.to_numeric(df_leagues["club_num"],errors="coerce")
 df_leagues["player_num"]=pd.to_numeric(df_leagues["player_num"],errors="coerce")
 
 # basic summary statistics
-print(f"describe df_leagues dataframe:\n{df_leagues.describe()}","\n","-"*30)
+print(f"describe df_leagues dataframe:\n{df_leagues.describe()}"+"\n"+"-"*30+"\n")
 
 # write the df_leagues.describe() to a txt file.
-with open("results_df_league.txt","a") as file:
+txt_file_path=os.path.join(save_txt_dir,"results_df_league.txt")
+with open(txt_file_path,"a") as file:
     file.write("Describe df_leagues dataframe:\n")
     file.write(df_leagues.describe().to_string())
     file.write("\n"+"-"*30+"\n")
 
-print("df_leagues number.describe() is written to the file.")
+print(f"df_leagues number.describe() is written to the file {txt_file_path}."+"\n"+"-"*30+"\n")
 
 
 # checking for missing values
 print(f"null values of df_leagues:\n{df_leagues.isnull().sum()}"+"\n"+"-"*30+"\n")
 
 # write the df_leagues null values count to a txt file.
-with open("results_df_league.txt","a") as file:
+with open(txt_file_path,"a") as file:
     file.write("Number of null values of df_leagues dataframe columns:\n")
     file.write(df_leagues.isnull().sum().to_string())
     file.write("\n"+"-"*30+"\n")
-print("df_leagues number of null values is written to the file.")
+print(f"df_leagues number of null values is written to the file {txt_file_path}."+"\n"+"-"*30+"\n")
 
 
 # distributions
@@ -90,18 +95,38 @@ for col in ["club_num","player_num","total_value"]:
     plt.title(f"Distirbution of {col}")
     plt.xlabel(col)
     plt.ylabel("Frequency")
-    file_path=os.path.join(save_figure_dir,f"Disribution of {col}.jpg")
-    plt.savefig(file_path,format="jpg")
+    fig_file_path=os.path.join(save_figure_dir,f"Disribution of {col}.jpg")
+    plt.savefig(fig_file_path,format="jpg")
     plt.close()
-    print(f"Figure is saved at: {file_path}")
+    print(f"Figure is saved at: {fig_file_path}"+"\n"+"-"*30+"\n")
 
 # check skewness numerically
-print("skewness:\n",df_leagues[["club_num","player_num","total_value"]].skew())
+print(f"skewness\n{df_leagues[['club_num','player_num','total_value']].skew()}"+"\n"+"-"*30+"\n")
 
 # write the df_leagues skewness to a txt file.
-with open("results_df_league.txt","a") as file:
+with open(txt_file_path,"a") as file:
     file.write("skewness of df_leagues dataframe columns:\n")
     file.write(df_leagues[["club_num","player_num","total_value"]].skew().to_string())
     file.write("\n"+"-"*30+"\n")
-print("df_leagues skewness of columns is written to the file.")
+print(f"df_leagues skewness of columns is written to the file {txt_file_path}.","\n"+"-"*30+"\n")
 
+# correlations
+# correlation matrix
+correlation_matrix=df_leagues[["club_num","player_num","total_value"]].corr()
+print(f"Correlation matrix:\n{correlation_matrix}"+"\n"+"-"*30+"\n")
+# write the df_leagues correlation matrix to a txt file.
+with open(txt_file_path,"a") as file:
+    file.write("correlation matrix of df_leagues dataframe columns:\n")
+    file.write(correlation_matrix.to_string())
+    file.write("\n"+"-"*30+"\n")
+print(f"df_leagues correlation matrix is written to the file {txt_file_path}."+"\n"+"-"*30+"\n")
+
+# heatmap to visualize correlations
+# correlation matrix
+plt.figure(figsize=(8,6))
+sns.heatmap(correlation_matrix,annot=True,cmap="coolwarm",fmt=".2f")
+plt.title("Correlation matrix")
+fig_file_path=os.path.join(save_figure_dir,"correlation_matrix_df_leagues.jpg")
+plt.savefig(fig_file_path,format="jpg")
+plt.close()
+print(f"Figure is saved at: {fig_file_path}"+"\n"+"-"*30+"\n")
