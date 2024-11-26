@@ -534,3 +534,17 @@ plt.savefig(teams_fig_file_path,format="jpg")
 plt.close()
 print(f"Figure is saved at: {teams_fig_file_path}"+"\n"+"-"*30+"\n")
 
+# aggregated statistics
+# # Group by league_name and compute multiple statistics
+league_agg_stats = df_teams.groupby('league_name')[['avg_market', 'foreigners_num',"squad_size","avg_age"]].agg(
+    ['mean', 'median', 'std']
+)
+
+# Display the result
+print(f"Aggregated statistics:\n{league_agg_stats}"+"\n"+"-"*30+"\n")
+# write the df_teams aggregated statistics to a txt file.
+with open(teams_txt_file_path,"a") as file:
+    file.write("aggergated of df_teams dataframe columns:\n")
+    file.write(league_agg_stats.to_string())
+    file.write("\n"+"-"*30+"\n")
+print(f"df_teams aggregated statistics is written to the file {teams_txt_file_path}."+"\n"+"-"*30+"\n")
