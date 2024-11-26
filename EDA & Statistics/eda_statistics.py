@@ -438,3 +438,15 @@ plt.savefig(teams_fig_file_path,format="jpg")
 plt.close()
 print(f"Figure is saved at: {teams_fig_file_path}"+"\n"+"-"*30+"\n")
 
+# outliers detection
+# box plot to identify outliers
+for col in ["squad_size","avg_age","foreigners_num","avg_market","total_market"]:
+    plt.figure(figsize=(8,6))
+    sns.boxplot(y=df_teams[col],color="orange")
+    plt.title(f"box plot of {col}")
+    plt.ylabel(f"{col}")
+    teams_fig_file_path=os.path.join(save_figure_teams_dir,f"boxplot of {col}.jpg")
+    plt.savefig(teams_fig_file_path,format="jpg")
+    plt.close()
+    print(f"Figure is saved at: {teams_fig_file_path}"+"\n"+"-"*30+"\n")
+
