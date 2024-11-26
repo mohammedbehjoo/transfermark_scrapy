@@ -269,3 +269,35 @@ plt.savefig(fig_file_path,format="jpg")
 plt.close()
 print(f"Figure is saved at: {fig_file_path}"+"\n"+"-"*30+"\n")
 
+# pie charts
+# categorical columns for leagues
+df_leagues["league_name"]=["Premier League","Ligue 1","Bundesliga","Serie A","LaLiga"]
+
+# pie chart for player_num
+plt.figure(figsize=(8,8))
+plt.pie(
+    df_leagues["player_num"],
+    labels=df_leagues["league_name"],
+    autopct="%1.1f%%", # display percentage
+    startangle=90,
+    colors=plt.cm.Paired.colors,    
+)
+plt.title("Prportion of players by league")
+fig_file_path=os.path.join(save_figure_dir,"Prportion of players by league.jpg")
+plt.savefig(fig_file_path,format="jpg")
+plt.close()
+print(f"Figure is saved at: {fig_file_path}"+"\n"+"-"*30+"\n")
+
+# pie chart for total_value
+plt.figure(figsize=(8,8))
+plt.pie(df_leagues["total_value"],
+        labels=df_leagues["league_name"],
+        autopct="%1.1f%%",
+        startangle=90,
+        colors=plt.cm.Paired.colors)
+plt.title("Proportion of total value by league")
+fig_file_path=os.path.join(save_figure_dir,"Proportion of total value by league.jpg")
+plt.savefig(fig_file_path,format="jpg")
+plt.close()
+print(f"Figure is saved at: {fig_file_path}"+"\n"+"-"*30+"\n")
+
