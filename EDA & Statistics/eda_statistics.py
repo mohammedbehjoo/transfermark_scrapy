@@ -406,6 +406,16 @@ for col in ["squad_size","avg_age","foreigners_num","avg_market","total_market"]
     plt.close()
     print(f"Figure is saved at: {teams_fig_file_path}"+"\n"+"-"*30+"\n")
 
+# check skewness numerically
+print(f"skewness\n{df_teams[['squad_size','avg_age','foreigners_num','avg_market','total_market']].skew()}"+"\n"+"-"*30+"\n")
+
+# write the df_teams skewness to a txt file.
+with open(teams_txt_file_path,"a") as file:
+    file.write("skewness of df_teams dataframe columns:\n")
+    file.write(df_teams[["squad_size","avg_age","foreigners_num","avg_market","total_market"]].skew().to_string())
+    file.write("\n"+"-"*30+"\n")
+print(f"df_teams skewness of columns is written to the file {teams_txt_file_path}.","\n"+"-"*30+"\n")
+
 # Compute correlation matrix of df_teams
 correlation_matrix = df_teams[["squad_size","avg_age","foreigners_num","avg_market","total_market"]].corr()
 
