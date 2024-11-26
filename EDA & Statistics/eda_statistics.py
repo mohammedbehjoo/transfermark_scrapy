@@ -26,7 +26,6 @@ def cast_float(item):
 # since some dataframes has many columns, set th max_columns to None.
 pd.set_option("display.max_columns", None)
 
-os.chdir(path="/home/mohammed/projects/coding/transfermarkt_scrapy")
 
 print(os.path.exists("config.env")) 
 
@@ -37,6 +36,10 @@ leagues = os.getenv("leagues")
 country_csv = os.getenv("country_csv")
 teams = os.getenv("teams")
 team_details = os.getenv("team_details")
+# directory for saving figures
+save_figure_dir=os.getenv("save_dir_figures")
+# Create the directory if it does not exist
+os.makedirs(save_figure_dir, exist_ok=True)
 
 # reading the lagues json file
 with open(leagues, "r") as file:
@@ -78,3 +81,16 @@ with open("results_df_league.txt","a") as file:
     file.write("\n"+"-"*30+"\n")
 print("df_leagues number of null values is written to the file.")
 
+
+# distributions
+# histogram for distributions
+for col in ["club_num","player_num","total_value"]:
+    plt.figure(figsize=(6,4))
+    sns.histplot(df_leagues[col], kde=True, bins=10, color='blue')
+    plt.title(f"Distirbution of {col}")
+    plt.xlabel(col)
+    plt.ylabel("Frequency")
+    file_path=os.path.join(save_figure_dir,f"Disribution of {col}.jpg")
+    plt.savefig(file_path,format="jpg")
+    plt.close()
+    print(f"Figure is saved at: {file_path}")
