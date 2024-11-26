@@ -94,3 +94,14 @@ for col in ["club_num","player_num","total_value"]:
     plt.savefig(file_path,format="jpg")
     plt.close()
     print(f"Figure is saved at: {file_path}")
+
+# check skewness numerically
+print("skewness:\n",df_leagues[["club_num","player_num","total_value"]].skew())
+
+# write the df_leagues skewness to a txt file.
+with open("results_df_league.txt","a") as file:
+    file.write("skewness of df_leagues dataframe columns:\n")
+    file.write(df_leagues[["club_num","player_num","total_value"]].skew().to_string())
+    file.write("\n"+"-"*30+"\n")
+print("df_leagues skewness of columns is written to the file.")
+
