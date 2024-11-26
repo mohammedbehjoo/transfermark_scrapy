@@ -144,3 +144,20 @@ for col in ["total_value","player_num","club_num"]:
     plt.close()
     print(f"Figure is saved at: {fig_file_path}"+"\n"+"-"*30+"\n")
 
+# detecting outliers using IQR
+for col in ["total_value","player_num","club_num"]:
+    Q1=df_leagues[col].quantile(0.25)
+    Q3=df_leagues[col].quantile(0.75)
+    IQR=Q3-Q1 #interquartile range
+    
+    lower_bound=Q1-1.5*IQR
+    upper_bound=Q3+1.5*IQR
+    
+    outliers=df_leagues[(df_leagues[col]<lower_bound) | (df_leagues[col] > upper_bound) ]
+    print(f"\nOutliers in {col}\n",outliers,"\n","-"*30,"\n")
+    # write the df_leagues correlation matrix to a txt file.
+    with open(txt_file_path,"a") as file:
+        file.write(f"outliers of df_leagues dataframe of col {col}:\n")
+        file.write(outliers.to_string())
+        file.write("\n"+"-"*30+"\n")
+    print(f"df_leagues outliers are written to the file {txt_file_path}."+"\n"+"-"*30+"\n")
