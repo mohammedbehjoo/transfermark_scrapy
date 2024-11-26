@@ -377,3 +377,12 @@ with open(teams_txt_file_path,"a") as file:
 
 print(f"df_teams.describe() is written to the file {teams_txt_file_path}."+"\n"+"-"*30+"\n")
 
+print(f"null values of df_leagues:\n{df_teams.isnull().sum()}"+"\n"+"-"*30+"\n")
+
+# write the df_leagues null values count to a txt file.
+with open(teams_txt_file_path,"a") as file:
+    file.write("Number of null values of df_teams dataframe columns:\n")
+    file.write(df_teams.isnull().sum().to_string())
+    file.write("\n"+"-"*30+"\n")
+print(f"df_teams number of null values is written to the file {teams_txt_file_path}."+"\n"+"-"*30+"\n")
+
