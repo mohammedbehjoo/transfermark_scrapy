@@ -830,3 +830,14 @@ plt.savefig(teams_fig_file_path,format="jpg")
 plt.close()
 print(f"Figure is saved at: {teams_fig_file_path}"+"\n"+"-"*30+"\n")
 
+# pair plot of numerical features
+# Numerical Features for the Pair Plot
+numerical_features = ['squad_size', 'avg_age', 'foreigners_num', 'avg_market', 'total_market']
+plt.figure(figsize=(10,8))
+sns.pairplot(df_teams[numerical_features], diag_kind='kde', corner=True)
+plt.suptitle('Pairwise Relationships Between Features', y=1.02)
+teams_fig_file_path=os.path.join(save_figure_teams_dir,"Pairwise Relationships Between Features.jpg")
+plt.savefig(teams_fig_file_path,format="jpg")
+plt.close()
+print(f"Figure is saved at: {teams_fig_file_path}"+"\n"+"-"*30+"\n")
+
