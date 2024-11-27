@@ -736,3 +736,25 @@ with open(teams_txt_file_path, "a") as file:
     file.write("\n"+"-"*30+"\n")
 print(
     f"df_teams clusters summary is written to the file {teams_txt_file_path}."+"\n"+"-"*30+"\n")
+
+# Group by cluster and list teams
+for cluster in sorted(df_teams['cluster'].unique()):
+    print(f"\nCluster {cluster}:")
+    print(df_teams[df_teams['cluster'] == cluster][['team_name', 'league_name', 'country_name']])
+    # write the df_teams teams of each cluster to a txt file.
+    with open(teams_txt_file_path, "a") as file:
+        file.write(f"team of cluster: {cluster} of df_teams dataframe:\n")
+        file.write(df_teams[df_teams['cluster'] == cluster][['team_name', 'league_name', 'country_name']].to_string())
+        file.write("\n"+"-"*30+"\n")
+    print(
+        f"df_teams teams of each cluster is written to the file {teams_txt_file_path}."+"\n"+"-"*30+"\n")
+
+
+print(f"number of teams of each cluster:\n{df_teams['cluster'].value_counts()}"+"\n"+"-"*30+"\n")
+# write the df_teams teams of each cluster to a txt file.
+with open(teams_txt_file_path, "a") as file:
+    file.write(f"number of teams of clusters:\n")
+    file.write(df_teams['cluster'].value_counts().to_string())
+    file.write("\n"+"-"*30+"\n")
+print(
+    f"df_teams number of teams of each cluster are written to the file {teams_txt_file_path}."+"\n"+"-"*30+"\n")
