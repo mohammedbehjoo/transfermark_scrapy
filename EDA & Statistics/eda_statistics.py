@@ -651,6 +651,14 @@ with open(teams_txt_file_path, "a") as file:
     file.write("Spearman correlation test between avg_market and total_market of df_teams dataframe:\n")
     file.write(f"Spearman Correlation: {spearman_corr}, p-value: {spearman_pval}\n")
     file.write("\n"+"-"*30+"\n")
-print(
-    f"df_teams Pearson and Spearman correlation tests are written to the file {teams_txt_file_path}."+"\n"+"-"*30+"\n")
+print(f"df_teams Pearson and Spearman correlation tests are written to the file {teams_txt_file_path}."+"\n"+"-"*30+"\n")
 
+
+# Scatter plot with regression line
+plt.figure(figsize=(8,6))
+sns.lmplot(data=df_teams, x="avg_market", y="total_market", ci=None, line_kws={"color": "red"})
+plt.title("Scatter Plot of Avg Market vs Total Market with Regression Line")
+teams_fig_file_path=os.path.join(save_figure_teams_dir,"Scatter Plot of Avg Market vs Total Market with Regression Line.jpg")
+plt.savefig(teams_fig_file_path,format="jpg")
+plt.close()
+print(f"Figure is saved at: {teams_fig_file_path}"+"\n"+"-"*30+"\n")
