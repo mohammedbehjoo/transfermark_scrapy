@@ -10,7 +10,9 @@ from scipy.stats import f_oneway, ttest_ind, pearsonr, spearmanr
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
-
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
 
 # a function for deleting every resul txt file in the eda directory.
 def delete_txt_files(directory):
@@ -768,6 +770,62 @@ plt.title('Teams Clustered by KMeans (PCA Projection)')
 plt.xlabel('Principal Component 1')
 plt.ylabel('Principal Component 2')
 teams_fig_file_path=os.path.join(save_figure_teams_dir,"Teams Clustered by KMeans (PCA Projection).jpg")
+plt.savefig(teams_fig_file_path,format="jpg")
+plt.close()
+print(f"Figure is saved at: {teams_fig_file_path}"+"\n"+"-"*30+"\n")
+
+
+# Build a linear regression model to predict total_market
+
+# Prepare the Data
+# Select features and target variable
+features = ['squad_size', 'avg_age', 'foreigners_num', 'avg_market']
+target = 'total_market'
+
+# Create feature matrix (X) and target vector (y)
+X = df_teams[features]
+y = df_teams[target]
+
+# Split the Data into Training and Testing Sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train the Linear Regression Model
+# Initialize and train the model
+model = LinearRegression()
+model.fit(X_train, y_train)
+print("model is trained"+"\n"+"-"*30+"\n")
+
+# Make Predictions
+# Predict on the test set
+y_pred = model.predict(X_test)
+print("predict is done"+"\n"+"-"*30+"\n")
+
+# Evaluate the Model
+# Calculate evaluation metrics
+mse = mean_squared_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+
+print(f"Mean Squared Error: {mse:.2f}")
+print(f"R2 Score: {r2:.2f}")
+
+# write the df_teams MSE and R2 score of linear regression model to a txt file.
+with open(teams_txt_file_path, "a") as file:
+    file.write("MSE and R2 score of linear regression model of df_teams dataframe:\n")
+    file.write(f"Mean Squared Error: {mse:.2f}\n")
+    file.write(f"R2 Score: {r2:.2f}\n")
+    file.write("\n"+"-"*30+"\n")
+print(
+    f"df_teams MSE and R2 score of linear regression model is written to the file {teams_txt_file_path}."+"\n"+"-"*30+"\n")
+
+# Visualize Predictions vs. Actual Values
+plt.figure(figsize=(8, 6))
+plt.scatter(y_test, y_pred, color='blue')
+plt.plot([y.min(), y.max()], [y.min(), y.max()], 'k--', lw=2, color='red')
+plt.xlabel('Actual Total Market Value')
+plt.ylabel('Predicted Total Market Value')
+plt.title('Actual vs. Predicted Total Market Value')
+plt.grid(True)
+teams_fig_file_path=os.path.join(save_figure_teams_dir,"Actual vs. Predicted Total Market Value.jpg")
 plt.savefig(teams_fig_file_path,format="jpg")
 plt.close()
 print(f"Figure is saved at: {teams_fig_file_path}"+"\n"+"-"*30+"\n")
