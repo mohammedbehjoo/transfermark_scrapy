@@ -548,3 +548,23 @@ with open(teams_txt_file_path,"a") as file:
     file.write(league_agg_stats.to_string())
     file.write("\n"+"-"*30+"\n")
 print(f"df_teams aggregated statistics is written to the file {teams_txt_file_path}."+"\n"+"-"*30+"\n")
+
+'''
+let's test if average `avg_market` is significanlty different between leagues.
+Using ANOVA for more than two leagues.
+'''
+# Prepare the data: Group by league and extract avg_market as lists
+leagues_avg_market = [group['avg_market'].values for name, group in df_teams.groupby('league_name')]
+
+# Perform one-way ANOVA
+anova_result = f_oneway(*leagues_avg_market)
+
+print(f"ANOVA F-statistic: {anova_result.statistic}, p-value: {anova_result.pvalue}")
+
+# write the df_teams ANOVA test to a txt file.
+with open(teams_txt_file_path,"a") as file:
+    file.write("ANOVA of df_teams dataframe avg_market across leagues:\n")
+    file.write(f"ANOVA F-statistic: {anova_result.statistic}\n")
+    file.write(f"ANOVA p-value: {anova_result.pvalue}\n")
+    file.write("\n"+"-"*30+"\n")
+print(f"df_teams ANOVA is written to the file {teams_txt_file_path}."+"\n"+"-"*30+"\n")
