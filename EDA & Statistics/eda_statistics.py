@@ -758,3 +758,17 @@ with open(teams_txt_file_path, "a") as file:
     file.write("\n"+"-"*30+"\n")
 print(
     f"df_teams number of teams of each cluster are written to the file {teams_txt_file_path}."+"\n"+"-"*30+"\n")
+
+# clustering figure of teams
+plt.figure(figsize=(10,8))
+sns.scatterplot(x=X_pca[:, 0], y=X_pca[:, 1], hue=df_teams['cluster'], palette='Set2', s=100)
+for i, txt in enumerate(df_teams['team_name']):
+    plt.annotate(txt, (X_pca[i, 0], X_pca[i, 1]), fontsize=5, alpha=0.7)
+plt.title('Teams Clustered by KMeans (PCA Projection)')
+plt.xlabel('Principal Component 1')
+plt.ylabel('Principal Component 2')
+teams_fig_file_path=os.path.join(save_figure_teams_dir,"Teams Clustered by KMeans (PCA Projection).jpg")
+plt.savefig(teams_fig_file_path,format="jpg")
+plt.close()
+print(f"Figure is saved at: {teams_fig_file_path}"+"\n"+"-"*30+"\n")
+
