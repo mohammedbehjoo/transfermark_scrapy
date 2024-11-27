@@ -7,6 +7,9 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
 import seaborn as sns
 from scipy.stats import f_oneway, ttest_ind, pearsonr, spearmanr
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
 
 
 # a function for deleting every resul txt file in the eda directory.
@@ -662,3 +665,74 @@ teams_fig_file_path=os.path.join(save_figure_teams_dir,"Scatter Plot of Avg Mark
 plt.savefig(teams_fig_file_path,format="jpg")
 plt.close()
 print(f"Figure is saved at: {teams_fig_file_path}"+"\n"+"-"*30+"\n")
+
+# clustering
+# Prepare and Standardize the Data:
+# Select numerical features for clustering
+features = ['squad_size', 'avg_age', 'foreigners_num', 'avg_market', 'total_market']
+X = df_teams[features]
+
+# Standardize the features (mean = 0, std = 1)
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# Determine the Optimal Number of Clusters (Elbow Method):
+# Compute the within-cluster sum of squares (inertia) for different numbers of clusters
+inertia = []
+K_range = range(1, 11)
+
+for k in K_range:
+    kmeans = KMeans(n_clusters=k, random_state=42)
+    kmeans.fit(X_scaled)
+    inertia.append(kmeans.inertia_)
+    
+# Plot the Elbow Curve
+plt.figure(figsize=(8, 6))
+plt.plot(K_range, inertia, marker='o')
+plt.title('Elbow Method to Determine Optimal K')
+plt.xlabel('Number of Clusters (K)')
+plt.ylabel('Inertia')
+plt.grid(True)
+teams_fig_file_path=os.path.join(save_figure_teams_dir,"Elbow Method to Determine Optimal K.jpg")
+plt.savefig(teams_fig_file_path,format="jpg")
+plt.close()
+print(f"Figure is saved at: {teams_fig_file_path}"+"\n"+"-"*30+"\n")
+
+
+
+# Apply KMeans with the Optimal Number of Clusters:
+# Set K based on the Elbow Method (in this case it is 3)
+kmeans = KMeans(n_clusters=3, random_state=42)
+df_teams['cluster'] = kmeans.fit_predict(X_scaled)
+
+# Visualize Clusters (2D Example Using PCA):
+# Reduce dimensionality to 2 components for visualization
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X_scaled)
+
+# Plot the clusters
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x=X_pca[:, 0], y=X_pca[:, 1], hue=df_teams['cluster'], palette='Set2', s=100)
+plt.title('KMeans Clustering (2D PCA Projection)')
+plt.xlabel('Principal Component 1')
+plt.ylabel('Principal Component 2')
+plt.legend(title='Cluster')
+plt.grid(True)
+teams_fig_file_path=os.path.join(save_figure_teams_dir,"KMeans Clustering (2D PCA Projection).jpg")
+plt.savefig(teams_fig_file_path,format="jpg")
+plt.close()
+print(f"Figure is saved at: {teams_fig_file_path}"+"\n"+"-"*30+"\n")
+
+
+# Analyze the Clusters:
+# Summary statistics for each cluster
+cluster_summary = df_teams.groupby('cluster')[features].mean()
+print(f"Clusters summary of df_teams:\n{cluster_summary}"+"\n"+"-"*30+"\n")
+
+# write the df_teams clusers summary to a txt file.
+with open(teams_txt_file_path, "a") as file:
+    file.write("clusters summary of df_teams dataframe columns:\n")
+    file.write(cluster_summary.to_string())
+    file.write("\n"+"-"*30+"\n")
+print(
+    f"df_teams clusters summary is written to the file {teams_txt_file_path}."+"\n"+"-"*30+"\n")
